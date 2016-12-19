@@ -1,0 +1,5 @@
+syntax = "proto3";
+
+message Artist {
+  string name = 1;
+}

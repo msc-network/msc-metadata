@@ -1,0 +1,23 @@
+syntax = "proto3";
+// compile with protoc release.proto --ruby_out=.
+package Release;
+
+import 'artist.proto';
+import 'contributor.proto';
+
+message Metadata {
+  repeated Artist artists = 1;
+
+  string title = 2;
+  string uuid = 3;
+  string catalogue_number = 4;
+  string release_date = 5;
+  string custom_id = 6;
+  string grid = 7;
+  string primary_genre = 8;
+  string secondary_genre = 9;
+}
+
+message Label {
+  string name = 1;
+}

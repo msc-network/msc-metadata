@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+message ContributorRole {
+  option allow_alias = true;
+  enum Role {
+    ARTWORK = 1;
+    PHOTOGRAPHY = 2;
+    EXECUTIVE_PRODUCER = 3;
+    OTHER = 4;
+    WRITTEN_BY = 5;
+
+    PUBLISHER = ;
+  }
+  Role role = 1;
+}
