@@ -37,5 +37,4 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "ruby-protocol-buffers"
   spec.add_development_dependency "google-protobuf"
   spec.add_development_dependency "rubocop"
-  spec.add_development_dependency "rspec"
 end
