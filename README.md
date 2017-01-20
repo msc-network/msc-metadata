@@ -4,8 +4,6 @@ This is an expermental project to create a new Music release protocol using Ruby
 
 ## Installation
 
-Add this line to your application's Gemfile:
-
 ```bash
 
 gem build mscmgmt_protobuf_releases.gemspec
