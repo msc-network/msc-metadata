@@ -7,19 +7,13 @@ import 'artist.proto';
 import 'contributor.proto';
 
 message Metadata {
-  repeated Artist artists = 1;
-
+  string uuid = 1;
   string title = 2;
-  string uuid = 3;
-  string catalogue_number = 4;
-  string release_date = 5;
-  string custom_id = 6;
-  string grid = 7;
-  string primary_genre = 8;
-  string secondary_genre = 9;
-  string product_type = 10;
-  string album_type = 11;
-  int32 copyright_year = 12;
+  string custom_id = 3;
+  string grid = 4;
+  int32 copyright_year = 5;
+  string catalogue_number = 6;
+  repeated Artist artists = 7;
 }
 
 message Label {

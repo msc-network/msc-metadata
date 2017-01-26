@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+// compile with protoc release.proto --ruby_out=.
+package Product;
+
+import 'release.proto';
+
+message Metadata {
+  Release.Metadata release = 1;
+  string release_date = 2;
+  string primary_genre = 3;
+  string secondary_genre = 4;
+  enum ProductType {
+    DIGITAL_RELEASE = 0;
+    PHYSICAL_RELEASE = 1;
+  }
+  ProductType product_type = 5;
+}

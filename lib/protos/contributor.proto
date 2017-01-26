@@ -1,5 +1,17 @@
 syntax = "proto3";
 
 message Contributor {
-  string name = 1;
+  string uuid = 1;
+  string name = 2;
+  enum Entity {
+    option allow_alias = true;
+    PUBLISHER = 0;
+    ARTIST = 1;
+    INDIVIDUAL = 1;
+    BAND = 2;
+    LABEL = 3;
+    RECORD_LABEL = 3;
+  };
+  Entity entity = 3;
+
 }
