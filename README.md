@@ -16,6 +16,8 @@ gem install ./mscmgmt_protobuf_releases-0.0.1.gem
 ```ruby
 irb
 
+require 'mscmgmt_protobuf_releases'
+
 @r = MscmgmtProtobufReleases::Metadata.new
 ```
 
