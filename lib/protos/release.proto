@@ -1,7 +1,7 @@
 syntax = "proto3";
+// compile with protoc release.proto --ruby_out=.
 
 import "lib/protos/artist.proto";
-// compile with protoc release.proto --ruby_out=.
 package Release;
 
 message Metadata {
