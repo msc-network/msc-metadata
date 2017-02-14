@@ -1,15 +1,13 @@
 syntax = "proto3";
 
 message ContributorRole {
-  option allow_alias = true;
   enum Role {
-    ARTWORK = 1;
-    PHOTOGRAPHY = 2;
-    EXECUTIVE_PRODUCER = 3;
-    OTHER = 4;
-    WRITTEN_BY = 5;
-
-    PUBLISHER = ;
+    ARTWORK = 0;
+    PHOTOGRAPHY = 1;
+    EXECUTIVE_PRODUCER = 2;
+    OTHER = 3;
+    WRITTEN_BY = 4;
+    PUBLISHER = 5;
   }
   Role role = 1;
 }
