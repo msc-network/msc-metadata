@@ -3,7 +3,7 @@
 
 require 'google/protobuf'
 
-require 'lib/protos/artist_pb'
+require_relative 'artist_pb'
 Google::Protobuf::DescriptorPool.generated_pool.build do
   add_message "Release.Metadata" do
     optional :uuid, :string, 1
