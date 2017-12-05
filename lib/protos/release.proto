@@ -1,7 +1,8 @@
 syntax = "proto3";
 // compile with protoc release.proto --ruby_out=.
 
-import "lib/protos/artist.proto";
+import "artist.proto";
+import "contributor.proto";
 package Release;
 
 message Metadata {
@@ -12,4 +13,5 @@ message Metadata {
   int32 copyright_year = 5;
   string catalogue_number = 6;
   repeated Artist artists = 7;
+  repeated Contributor contributor = 8;
 }

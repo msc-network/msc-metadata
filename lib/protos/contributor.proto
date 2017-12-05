@@ -1,5 +1,7 @@
 syntax = "proto3";
 
+import "contributor_roles.proto";
+
 message Contributor {
   string uuid = 1;
   string name = 2;
@@ -13,5 +15,5 @@ message Contributor {
     RECORD_LABEL = 3;
   };
   Entity entity = 3;
-
+  ContributorRole contributor_roles = 4;
 }
