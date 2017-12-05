@@ -1,0 +1,18 @@
+syntax = "proto3";
+// compile with protoc release.proto --ruby_out=.
+
+import "artist.proto";
+import "contributor.proto";
+
+message Recording {
+  string uuid = 1;
+  string title = 2;
+  enum IdentificationNumber {
+    // option allow_alias = true;
+    ISRC = 0;
+    ISWC = 1;
+  };
+  IdentificationNumber identification_number = 3;
+  repeated Artist artists = 4;
+  repeated Contributor contributors = 5;
+}

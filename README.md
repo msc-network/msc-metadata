@@ -1,24 +1,33 @@
 # MscmgmtProtobufReleases
 
-This is an expermental project to create a new Music release protocol using Ruby & Protocol Buffers. It is still in very early stage development.
+This is an expermental project to create a new Music metadata standard protocol using (Ruby &) Protocol Buffers. It is still in very early stage development.
 
 ## Installation
 
 ```bash
 
-gem build mscmgmt_protobuf_releases.gemspec
+gem build mscmetadata.gemspec
 
-gem install ./mscmgmt_protobuf_releases-0.0.1.gem
+gem install ./mscmetadata-0.0.1.gem
 ```
 
 ## Usage
 
+Create Basic Release
+
 ```ruby
 irb
 
-require 'mscmgmt_protobuf_releases'
+require 'mscmetadata'
 
-@r = MscmgmtProtobufReleases::Metadata.new
+@r = Release.new
+```
+
+Encode & Decode a release for message sending and recieving
+
+```ruby
+encoded_release = Release.encode(@r)
+Release.decode(encoded_release)
 ```
 
 At the moment the schema is incomplete, and all this does is create an instance of a Release in memory.
@@ -33,7 +42,7 @@ The schemas are being developed in the lib/protos folder.
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/CromonMS/mscmgmt_protobuf_releases.
+Bug reports and pull requests are welcome on GitHub at https://github.com/CromonMS/mscmetadata.
 
 
 ## License

@@ -3,9 +3,9 @@ syntax = "proto3";
 
 import "artist.proto";
 import "contributor.proto";
-package Release;
+import "recording.proto";
 
-message Metadata {
+message Release {
   string uuid = 1;
   string title = 2;
   string custom_id = 3;
@@ -13,5 +13,6 @@ message Metadata {
   int32 copyright_year = 5;
   string catalogue_number = 6;
   repeated Artist artists = 7;
-  repeated Contributor contributor = 8;
+  repeated Contributor contributors = 8;
+  repeated Recording recordings = 9;
 }

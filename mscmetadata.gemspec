@@ -1,17 +1,18 @@
 # coding: utf-8
+# mscmetadata
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'mscmgmt_protobuf_releases/version'
+require 'mscmetadata/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = "mscmgmt_protobuf_releases"
+  spec.name          = "mscmetadata"
   spec.version       = MscmgmtProtobufReleases::VERSION
   spec.authors       = ["CromonMS"]
   spec.email         = ["e@cromon.co.uk"]
 
-  spec.summary       = %q{mscmgmt metadata for Releases}
-  # spec.description   = %q{TODO: Write a longer description or delete this line.}
-  # spec.homepage      = "TODO: Put your gem's website or public repo URL here."
+  spec.summary       = %q{mscmgmt metadata for Music Releases & More}
+  spec.description   = %q{Simple Music Metadata Standardisation.}
+  spec.homepage      = "https://github.com/CromonMS/mscmetadata"
   spec.license       = "MIT"
 
   # Prevent pushing this gem to RubyGems.org. To allow pushes either set the 'allowed_push_host'
