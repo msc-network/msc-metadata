@@ -8,7 +8,7 @@ describe Mscmetadata do
   end
 
   it "create a new release" do
-    @r = Mscmetadata::Metadata.new
+    @r = Release.new
     expect(@r).not_to be nil
   end
 end

@@ -6,20 +6,9 @@ require 'google/protobuf'
 require_relative 'contributor_roles_pb'
 Google::Protobuf::DescriptorPool.generated_pool.build do
   add_message "Contributor" do
-    optional :uuid, :string, 1
-    optional :name, :string, 2
-    optional :entity, :enum, 3, "Contributor.Entity"
-    optional :contributor_roles, :message, 4, "ContributorRole"
-  end
-  add_enum "Contributor.Entity" do
-    value :PUBLISHER, 0
-    value :ARTIST, 1
-    value :INDIVIDUAL, 1
-    value :BAND, 2
-    value :LABEL, 3
-    value :RECORD_LABEL, 3
+    optional :name, :string, 1
+    optional :contributor_roles, :message, 2, "ContributorRole"
   end
 end
 
 Contributor = Google::Protobuf::DescriptorPool.generated_pool.lookup("Contributor").msgclass
-Contributor::Entity = Google::Protobuf::DescriptorPool.generated_pool.lookup("Contributor.Entity").enummodule

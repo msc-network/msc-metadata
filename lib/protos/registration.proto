@@ -1,0 +1,14 @@
+/**
+ * Registration message.
+ *
+ * Registration can be used on Recordings or Artists
+ * or anything that can be registered at an Organisation.
+ */
+
+syntax = "proto3";
+// compile with protoc recording_registration.proto --ruby_out=.
+
+message Registration {
+  string organisation = 1; /// Organisation of the Registration
+  string code = 2; /// The Identifier or Code of the Registration
+}

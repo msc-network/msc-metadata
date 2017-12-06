@@ -1,5 +1,18 @@
+/**
+ * Artist message.
+ *
+ * A Simple Artist Schema
+ */
+
 syntax = "proto3";
 
+import "registration.proto";
+
+/** 
+ * Represents the Artist schema
+ */
+
 message Artist {
-  string name = 1;
+  string name = 1; /// The name of the Artist
+  repeated Registration registrations = 2; /// An Artists registration details at a Rights Organisation: organisation, code. e.g. 'PPL', '12489754'
 }

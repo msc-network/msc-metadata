@@ -1,3 +1,8 @@
+/**
+ * Release Message.
+ *
+*/
+
 syntax = "proto3";
 // compile with protoc release.proto --ruby_out=.
 
@@ -5,14 +10,19 @@ import "artist.proto";
 import "contributor.proto";
 import "recording.proto";
 
+/**
+ * A message for transmitting Release Metadata.
+ *
+*/
+
 message Release {
-  string uuid = 1;
-  string title = 2;
-  string custom_id = 3;
-  string grid = 4;
-  int32 copyright_year = 5;
-  string catalogue_number = 6;
-  repeated Artist artists = 7;
-  repeated Contributor contributors = 8;
-  repeated Recording recordings = 9;
+  string uuid = 1; /// A Unique Identifier, it is best to use a Cryptographically sound way to generate these, do not rely on pseudo random human generated strings.
+  string title = 2; /// The title of the Release
+  string custom_id = 3; /// A Custom ID for the Release
+  string grid = 4; /// A Global ID for the Release
+  int32 copyright_year = 5; /// The Year of the Copyright for this Release configuration
+  string catalogue_number = 6; /// The Catalogue Number for the Release
+  repeated Artist artists = 7; /// Artists that appear on this Release
+  repeated Contributor contributors = 8; /// Contributors to the Release
+  repeated Recording recordings = 9; /// A list of Recordings that belong to this Release
 }

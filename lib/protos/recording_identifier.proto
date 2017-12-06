@@ -1,0 +1,26 @@
+/**
+ * Recording Identifier Message.
+ *
+*/
+
+syntax = "proto3";
+// compile with protoc recording_identifier.proto --ruby_out=.
+
+/**
+ * Add a Recording Identifier to a Recording.
+ *
+*/
+
+message RecordingIdentifier {
+  enum Type {
+    ISRC = 0;
+    ISWC = 1;
+    ISMN = 2;
+    CUSTOM = 3;
+    GRID = 4;
+    IPI = 5;
+    CAE = 6;
+  }
+  Type type = 1; /// Predefined types for Recording identifier
+  string code = 2; /// The code of the Recording Identifier
+}

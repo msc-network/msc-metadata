@@ -1,4 +1,13 @@
+/**
+ * Contributor Roles Schema.
+ *
+*/
 syntax = "proto3";
+
+/**
+ * Pre-defined Roles for Contributors to Recordings.
+ *
+*/
 
 message ContributorRole {
   enum Role {
@@ -9,5 +18,5 @@ message ContributorRole {
     WRITTEN_BY = 4;
     PUBLISHER = 5;
   }
-  Role role = 1;
+  Role role = 1; /// Select a Role for a Contributor
 }

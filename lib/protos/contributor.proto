@@ -1,19 +1,20 @@
+/**
+ * Contributor message.
+ *
+ */
+
+/// TODO: Finish this.
+
 syntax = "proto3";
 
 import "contributor_roles.proto";
 
+/**
+ * A Simple Contributor Schema.
+ * This includes the roles listed in Entity people that took part in the creation of this Recording
+*/
+
 message Contributor {
-  string uuid = 1;
-  string name = 2;
-  enum Entity {
-    option allow_alias = true;
-    PUBLISHER = 0;
-    ARTIST = 1;
-    INDIVIDUAL = 1;
-    BAND = 2;
-    LABEL = 3;
-    RECORD_LABEL = 3;
-  };
-  Entity entity = 3;
-  ContributorRole contributor_roles = 4;
+  string name = 1; /// The Contributors Name
+  ContributorRole contributor_roles = 2; /// The role(s) of the Contributor
 }

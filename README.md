@@ -32,6 +32,29 @@ Release.decode(encoded_release)
 
 At the moment the schema is incomplete, and all this does is create an instance of a Release in memory.
 
+## Definitions
+
+Please see <a href="lib/protos/doc/definitions.md">definitions</a> for an extended look at the current protocol definitions.
+
+## Generate Documentation
+
+Ensure you have protoc-gen-doc installed see <a href="https://github.com/pseudomoto/protoc-gen-doc">here</a>
+
+```shell
+cd lib/protos
+protoc --doc_out=markdown,definitions.md:. *.proto
+mv definitions.md doc
+```
+
+## Generate Ruby Libraries
+
+```shell
+cd lib/protos
+protoc --ruby_out=. *.proto
+```
+
+Other languages coming at some point.
+
 ## Development
 
 After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
@@ -42,8 +65,9 @@ The schemas are being developed in the lib/protos folder.
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/CromonMS/mscmetadata.
+If you would like to contribute to the future of Music Metadata then get in touch on the issues tab.
 
+Bug reports and pull requests are welcome on GitHub at https://github.com/CromonMS/mscmetadata.
 
 ## License
 

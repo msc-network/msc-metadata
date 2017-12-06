@@ -1,18 +1,34 @@
+/**
+ * Recording message.
+ *
+ * Schema for a Recording
+ */
+
 syntax = "proto3";
-// compile with protoc release.proto --ruby_out=.
+// compile with protoc recording.proto --ruby_out=.
 
 import "artist.proto";
 import "contributor.proto";
+import "genre.proto";
+import "registration.proto";
+import "recording_identifier.proto";
+
+/**
+ * Represents the schema of a Recording.
+ *
+ */
 
 message Recording {
-  string uuid = 1;
-  string title = 2;
-  enum IdentificationNumber {
-    // option allow_alias = true;
-    ISRC = 0;
-    ISWC = 1;
-  };
-  IdentificationNumber identification_number = 3;
-  repeated Artist artists = 4;
-  repeated Contributor contributors = 5;
+  string uuid = 1; /// A Unique Identifier, it is best to use a Cryptographically sound way to generate these, do not rely on pseudo random human generated strings.
+  repeated Artist artists = 2; /// Artists that are on this Recording.
+  string title = 3; /// The title of the Recording.
+  string mix_title = 4; /// A mix title for the Recording.
+  int32 copyright_year = 5; /// The Copyright Year for the Recording.
+  bool explicit = 6; /// Does this Recording have explicit lyrics?
+  int32 length = 7; /// The length of the Audio related to this recording.
+  int32 release_position = 8; /// The position of this Recording on a Release, if related.
+  repeated Registration registrations = 9; // ['organisation': 'PPL', 'code': '2398543']
+  repeated Genre genres = 10; /// Genres of this Recording.
+  repeated Contributor contributors = 11; /// Contributors to the Recording.
+  repeated RecordingIdentifier recording_identifier = 12; // ['type': 'ISRC', 'code': 'GB4QK000000']
 }
