@@ -6,17 +6,26 @@ require 'google/protobuf'
 require_relative 'artist_pb'
 require_relative 'contributor_pb'
 require_relative 'recording_pb'
+require_relative 'release_identifier_pb'
 Google::Protobuf::DescriptorPool.generated_pool.build do
   add_message "Release" do
     optional :uuid, :string, 1
-    optional :title, :string, 2
-    optional :custom_id, :string, 3
-    optional :grid, :string, 4
-    optional :copyright_year, :int32, 5
-    optional :catalogue_number, :string, 6
-    repeated :artists, :message, 7, "Artist"
-    repeated :contributors, :message, 8, "Contributor"
-    repeated :recordings, :message, 9, "Recording"
+    repeated :artists, :message, 2, "Artist"
+    optional :title, :string, 3
+    optional :catalogue_number, :string, 4
+    optional :release_date, :string, 5
+    optional :record_label, :string, 6
+    repeated :identifier, :message, 7, "ReleaseIdentifier"
+    optional :genre, :string, 8
+    optional :style, :string, 9
+    optional :copyright_year, :int32, 10
+    optional :c_line, :string, 11
+    optional :p_line, :string, 12
+    optional :biography, :string, 13
+    optional :format, :string, 14
+    optional :country_of_issue, :string, 15
+    repeated :contributors, :message, 16, "Contributor"
+    repeated :recordings, :message, 17, "Recording"
   end
 end
 

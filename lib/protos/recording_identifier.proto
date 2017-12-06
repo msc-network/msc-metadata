@@ -13,14 +13,12 @@ syntax = "proto3";
 
 message RecordingIdentifier {
   enum Type {
-    ISRC = 0;
-    ISWC = 1;
-    ISMN = 2;
-    CUSTOM = 3;
-    GRID = 4;
-    IPI = 5;
-    CAE = 6;
+    ISRC = 0; /// International Standards Recording Code
+    ISWC = 1; /// 
+    ISMN = 2; /// 
+    CUSTOM = 3; /// A Custom ID for your Recording
   }
   Type type = 1; /// Predefined types for Recording identifier
-  string code = 2; /// The code of the Recording Identifier
+  string custom_identifier = 2; /// If using a Custom ID, add an identifier for it.
+  string code = 3; /// The code of the Recording Identifier
 }

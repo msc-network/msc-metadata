@@ -32,9 +32,11 @@ Release.decode(encoded_release)
 
 At the moment the schema is incomplete, and all this does is create an instance of a Release in memory.
 
+The protocol buffers are stored in the actual GEM currently, this will be not be the case once a stable release is reached. Once they are moved it will also mean other languages can be catered for, and libraries built around them.
+
 ## Definitions
 
-Please see <a href="lib/protos/doc/definitions.md">definitions</a> for an extended look at the current protocol definitions.
+Please see <a href="docs/definitions.md">definitions</a> for an extended look at the current protocol definitions.
 
 ## Generate Documentation
 

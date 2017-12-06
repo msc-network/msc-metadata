@@ -1,0 +1,27 @@
+/**
+ * Release Identifier Message.
+ *
+*/
+
+syntax = "proto3";
+// compile with protoc recording_identifier.proto --ruby_out=.
+
+/**
+ * Add a Recording Identifier to a Recording.
+ *
+*/
+
+message ReleaseIdentifier {
+  enum Type {
+    BARCODE = 0; /// A Barcode Identifier for this Release.
+    GRID = 1; /// ISO646
+    SID = 2; /// Source Identifier Code
+    CUSTOM = 3; /// Custom Identifier, eg. Discogs ID.
+    MUSICBRAINZ = 4; /// Musicbrainz Identifier.
+    MATRIX = 5; /// A matrix is usually found on a vinyl disc in the run-out.
+    ASIN = 6; /// Amazon Standard Identification Number.
+  }
+  Type type = 1; /// Predefined types for Recording identifier.
+  string custom_type = 2; /// If using a Custom ID, add an identifier for it.
+  string code = 3; /// The code of the Recording Identifier.
+}

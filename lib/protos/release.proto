@@ -9,6 +9,7 @@ syntax = "proto3";
 import "artist.proto";
 import "contributor.proto";
 import "recording.proto";
+import "release_identifier.proto"; // Not implemented yet.
 
 /**
  * A message for transmitting Release Metadata.
@@ -17,12 +18,20 @@ import "recording.proto";
 
 message Release {
   string uuid = 1; /// A Unique Identifier, it is best to use a Cryptographically sound way to generate these, do not rely on pseudo random human generated strings.
-  string title = 2; /// The title of the Release
-  string custom_id = 3; /// A Custom ID for the Release
-  string grid = 4; /// A Global ID for the Release
-  int32 copyright_year = 5; /// The Year of the Copyright for this Release configuration
-  string catalogue_number = 6; /// The Catalogue Number for the Release
-  repeated Artist artists = 7; /// Artists that appear on this Release
-  repeated Contributor contributors = 8; /// Contributors to the Release
-  repeated Recording recordings = 9; /// A list of Recordings that belong to this Release
+  repeated Artist artists = 2; /// Artists that appear on the Release.
+  string title = 3; /// The title of the Release.
+  string catalogue_number = 4; /// The Catalogue Number for the Release.
+  string release_date = 5;
+  string record_label = 6; // TOOD: Could change.
+  repeated ReleaseIdentifier identifier = 7;
+  string genre = 8; // TODO nested message.
+  string style = 9; // TODO nested message.
+  int32 copyright_year = 10; /// The Year of the Copyright for the Release configuration.
+  string c_line = 11; /// The Copyright line for the Release.
+  string p_line = 12; /// The Phonographic Copyright line for the Release.
+  string biography = 13; /// A Biography or Liner Notes for the Release.
+  string format = 14; // TODO: enum
+  string country_of_issue = 15; /// The 2 Letter ISO for the Country of Issue.
+  repeated Contributor contributors = 16; /// A list of Contributors to the Release.
+  repeated Recording recordings = 17; /// A list of Recordings that belong to the Release.
 }

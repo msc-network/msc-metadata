@@ -20,6 +20,9 @@
  * [Recording](#Recording)
 * [registration.proto](#registration.proto)
  * [Registration](#Registration)
+* [release_identifier.proto](#release_identifier.proto)
+ * [ReleaseIdentifier](#ReleaseIdentifier)
+ * [ReleaseIdentifier.Type](#ReleaseIdentifier.Type)
 * [release.proto](#release.proto)
  * [Release](#Release)
 * [Scalar Value Types](#scalar-value-types)
@@ -154,6 +157,7 @@ Recording Identifier Message.
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | type | [RecordingIdentifier.Type](#RecordingIdentifier.Type) | optional | Predefined types for Recording identifier |
+| custom_identifier | [string](#string) | optional | If using a Custom ID, add an identifier for it. |
 | code | [string](#string) | optional | The code of the Recording Identifier |
 
 
@@ -164,13 +168,10 @@ Recording Identifier Message.
 
 | Name | Number | Description |
 | ---- | ------ | ----------- |
-| ISRC | 0 |  |
+| ISRC | 0 | International Standards Recording Code |
 | ISWC | 1 |  |
 | ISMN | 2 |  |
-| CUSTOM | 3 |  |
-| GRID | 4 |  |
-| IPI | 5 |  |
-| CAE | 6 |  |
+| CUSTOM | 3 | A Custom ID for your Recording |
 
 
 
@@ -232,6 +233,42 @@ or anything that can be registered at an Organisation.
 
 
 
+<a name="release_identifier.proto"/>
+<p align="right"><a href="#top">Top</a></p>
+
+## release_identifier.proto
+
+Release Identifier Message.
+
+<a name="ReleaseIdentifier"/>
+### ReleaseIdentifier
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| type | [ReleaseIdentifier.Type](#ReleaseIdentifier.Type) | optional | Predefined types for Recording identifier. |
+| custom_type | [string](#string) | optional | If using a Custom ID, add an identifier for it. |
+| code | [string](#string) | optional | The code of the Recording Identifier. |
+
+
+
+<a name="ReleaseIdentifier.Type"/>
+### ReleaseIdentifier.Type
+
+
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+| BARCODE | 0 | A Barcode Identifier for this Release. |
+| GRID | 1 | ISO646 |
+| SID | 2 | Source Identifier Code |
+| CUSTOM | 3 | Custom Identifier, eg. Discogs ID. |
+| MUSICBRAINZ | 4 | Musicbrainz Identifier. |
+| MATRIX | 5 | A matrix is usually found on a vinyl disc in the run-out. |
+| ASIN | 6 | Amazon Standard Identification Number. |
+
+
+
+
 <a name="release.proto"/>
 <p align="right"><a href="#top">Top</a></p>
 
@@ -246,14 +283,22 @@ Release Message.
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | uuid | [string](#string) | optional | A Unique Identifier, it is best to use a Cryptographically sound way to generate these, do not rely on pseudo random human generated strings. |
-| title | [string](#string) | optional | The title of the Release |
-| custom_id | [string](#string) | optional | A Custom ID for the Release |
-| grid | [string](#string) | optional | A Global ID for the Release |
-| copyright_year | [int32](#int32) | optional | The Year of the Copyright for this Release configuration |
-| catalogue_number | [string](#string) | optional | The Catalogue Number for the Release |
-| artists | [Artist](#Artist) | repeated | Artists that appear on this Release |
-| contributors | [Contributor](#Contributor) | repeated | Contributors to the Release |
-| recordings | [Recording](#Recording) | repeated | A list of Recordings that belong to this Release |
+| artists | [Artist](#Artist) | repeated | Artists that appear on the Release. |
+| title | [string](#string) | optional | The title of the Release. |
+| catalogue_number | [string](#string) | optional | The Catalogue Number for the Release. |
+| release_date | [string](#string) | optional |  |
+| record_label | [string](#string) | optional |  |
+| identifier | [ReleaseIdentifier](#ReleaseIdentifier) | repeated |  |
+| genre | [string](#string) | optional |  |
+| style | [string](#string) | optional |  |
+| copyright_year | [int32](#int32) | optional | The Year of the Copyright for the Release configuration. |
+| c_line | [string](#string) | optional | The Copyright line for the Release. |
+| p_line | [string](#string) | optional | The Phonographic Copyright line for the Release. |
+| biography | [string](#string) | optional | A Biography or Liner Notes for the Release. |
+| format | [string](#string) | optional |  |
+| country_of_issue | [string](#string) | optional | The 2 Letter ISO for the Country of Issue. |
+| contributors | [Contributor](#Contributor) | repeated | A list of Contributors to the Release. |
+| recordings | [Recording](#Recording) | repeated | A list of Recordings that belong to the Release. |
 
 
 
