@@ -55,6 +55,42 @@ cd lib/protos
 protoc --ruby_out=. *.proto
 ```
 
+### *** Please Note ***
+
+There is a quirk when generating protocol buffers in this (a?) gem that you need to change any associated local require statements to require_relative if they are in the same folder.
+
+eg. The following:
+
+```ruby
+require 'google/protobuf'
+
+require 'registration_pb'
+Google::Protobuf::DescriptorPool.generated_pool.build do
+  add_message "Artist" do
+    optional :name, :string, 1
+    repeated :registrations, :message, 2, "Registration"
+  end
+end
+
+Artist = Google::Protobuf::DescriptorPool.generated_pool.lookup("Artist").msgclass
+```
+
+Should be changed to:
+
+```ruby
+require 'google/protobuf'
+
+require_relative 'registration_pb'
+Google::Protobuf::DescriptorPool.generated_pool.build do
+  add_message "Artist" do
+    optional :name, :string, 1
+    repeated :registrations, :message, 2, "Registration"
+  end
+end
+
+Artist = Google::Protobuf::DescriptorPool.generated_pool.lookup("Artist").msgclass
+```
+
 Other languages coming at some point.
 
 ## Development
