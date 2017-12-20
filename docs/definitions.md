@@ -4,6 +4,8 @@
 ## Table of Contents
 * [artist.proto](#artist.proto)
  * [Artist](#Artist)
+* [attached_file.proto](#attached_file.proto)
+ * [AttachedFile](#AttachedFile)
 * [contributor.proto](#contributor.proto)
  * [Contributor](#Contributor)
 * [contributor_roles.proto](#contributor_roles.proto)
@@ -12,7 +14,7 @@
 * [genre.proto](#genre.proto)
  * [Genre](#Genre)
 * [product.proto](#product.proto)
- * [Metadata](#Product.Metadata)
+ * [Product](#Product)
 * [recording_identifier.proto](#recording_identifier.proto)
  * [RecordingIdentifier](#RecordingIdentifier)
  * [RecordingIdentifier.Type](#RecordingIdentifier.Type)
@@ -25,6 +27,8 @@
  * [ReleaseIdentifier.Type](#ReleaseIdentifier.Type)
 * [release.proto](#release.proto)
  * [Release](#Release)
+* [sender.proto](#sender.proto)
+ * [Sender](#Sender)
 * [Scalar Value Types](#scalar-value-types)
 
 <a name="artist.proto"/>
@@ -42,8 +46,32 @@ A Simple Artist Schema
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| name | [string](#string) | optional | The name of the Artist |
-| registrations | [Registration](#Registration) | repeated | An Artists registration details at a Rights Organisation: organisation, code. e.g. 'PPL', '12489754' |
+| sequence | [int32](#int32) | optional | The Sequence of the Artist. |
+| name | [string](#string) | optional | The name of the Artist. |
+| registrations | [Registration](#Registration) | repeated | An Artist's registration details at a Rights Organisation: organisation, code. e.g. 'PPL', '12489754' |
+
+
+
+
+
+
+<a name="attached_file.proto"/>
+<p align="right"><a href="#top">Top</a></p>
+
+## attached_file.proto
+
+File Message.
+
+<a name="AttachedFile"/>
+### AttachedFile
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| file_name | [string](#string) | optional | The filename of the File. |
+| file_size | [int32](#int32) | optional | The size of the File file in bytes. |
+| file_extension | [string](#string) | optional | The extension of the File file. |
+| file_location | [string](#string) | optional | The IPFS file hash of the stored File. |
 
 
 
@@ -129,14 +157,16 @@ Contributor Roles Schema.
 
 ## product.proto
 
+Release Message.
 
-
-<a name="Product.Metadata"/>
-### Metadata
+<a name="Product"/>
+### Product
 
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
+| release | [Release](#Release) | optional |  |
+| sender | [Sender](#Sender) | optional |  |
 
 
 
@@ -283,22 +313,44 @@ Release Message.
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | uuid | [string](#string) | optional | A Unique Identifier, it is best to use a Cryptographically sound way to generate these, do not rely on pseudo random human generated strings. |
+| attached_files | [AttachedFile](#AttachedFile) | repeated | A list of files related to this Release at a Release level. |
 | artists | [Artist](#Artist) | repeated | Artists that appear on the Release. |
 | title | [string](#string) | optional | The title of the Release. |
 | catalogue_number | [string](#string) | optional | The Catalogue Number for the Release. |
-| release_date | [string](#string) | optional |  |
+| release_date | [string](#string) | optional | The Original Release Date for the Release. |
 | record_label | [string](#string) | optional |  |
-| identifier | [ReleaseIdentifier](#ReleaseIdentifier) | repeated |  |
+| identifier | [ReleaseIdentifier](#ReleaseIdentifier) | repeated | See Release Identifiers for usage |
 | genre | [string](#string) | optional |  |
 | style | [string](#string) | optional |  |
 | copyright_year | [int32](#int32) | optional | The Year of the Copyright for the Release configuration. |
 | c_line | [string](#string) | optional | The Copyright line for the Release. |
 | p_line | [string](#string) | optional | The Phonographic Copyright line for the Release. |
 | biography | [string](#string) | optional | A Biography or Liner Notes for the Release. |
-| format | [string](#string) | optional |  |
+| original_format | [string](#string) | optional | The Original Format of the Release. |
 | country_of_issue | [string](#string) | optional | The 2 Letter ISO for the Country of Issue. |
 | contributors | [Contributor](#Contributor) | repeated | A list of Contributors to the Release. |
 | recordings | [Recording](#Recording) | repeated | A list of Recordings that belong to the Release. |
+
+
+
+
+
+
+<a name="sender.proto"/>
+<p align="right"><a href="#top">Top</a></p>
+
+## sender.proto
+
+Sender Message data.
+
+<a name="Sender"/>
+### Sender
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| name | [string](#string) | optional |  |
+| sender_uid | [string](#string) | optional |  |
 
 
 
