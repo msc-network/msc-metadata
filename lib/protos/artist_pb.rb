@@ -6,8 +6,9 @@ require 'google/protobuf'
 require_relative 'registration_pb'
 Google::Protobuf::DescriptorPool.generated_pool.build do
   add_message "Artist" do
-    optional :name, :string, 1
-    repeated :registrations, :message, 2, "Registration"
+    optional :sequence, :int32, 1
+    optional :name, :string, 2
+    repeated :registrations, :message, 3, "Registration"
   end
 end
 

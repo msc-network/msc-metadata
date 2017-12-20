@@ -1,0 +1,14 @@
+/**
+ * File Message.
+ *
+*/
+
+syntax = "proto3";
+// compile with protoc release.proto --ruby_out=.
+
+message AttachedFile {
+  string file_name = 1; /// The filename of the File.
+  int32 file_size = 2; /// The size of the File file in bytes.
+  string file_extension = 3; /// The extension of the File file.
+  string file_location = 4; /// The IPFS file hash of the stored File.
+}

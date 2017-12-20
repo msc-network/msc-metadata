@@ -8,6 +8,7 @@ syntax = "proto3";
 
 import "artist.proto";
 import "contributor.proto";
+import "attached_file.proto";
 import "recording.proto";
 import "release_identifier.proto"; // Not implemented yet.
 
@@ -18,20 +19,21 @@ import "release_identifier.proto"; // Not implemented yet.
 
 message Release {
   string uuid = 1; /// A Unique Identifier, it is best to use a Cryptographically sound way to generate these, do not rely on pseudo random human generated strings.
-  repeated Artist artists = 2; /// Artists that appear on the Release.
-  string title = 3; /// The title of the Release.
-  string catalogue_number = 4; /// The Catalogue Number for the Release.
-  string release_date = 5;
-  string record_label = 6; // TOOD: Could change.
-  repeated ReleaseIdentifier identifier = 7;
-  string genre = 8; // TODO nested message.
-  string style = 9; // TODO nested message.
-  int32 copyright_year = 10; /// The Year of the Copyright for the Release configuration.
-  string c_line = 11; /// The Copyright line for the Release.
-  string p_line = 12; /// The Phonographic Copyright line for the Release.
-  string biography = 13; /// A Biography or Liner Notes for the Release.
-  string format = 14; // TODO: enum
-  string country_of_issue = 15; /// The 2 Letter ISO for the Country of Issue.
-  repeated Contributor contributors = 16; /// A list of Contributors to the Release.
-  repeated Recording recordings = 17; /// A list of Recordings that belong to the Release.
+  repeated AttachedFile attached_files = 2; /// A list of files related to this Release at a Release level.
+  repeated Artist artists = 3; /// Artists that appear on the Release.
+  string title = 4; /// The title of the Release.
+  string catalogue_number = 5; /// The Catalogue Number for the Release.
+  string release_date = 6; /// The Original Release Date for the Release.
+  string record_label = 7; // TOOD: Could change.
+  repeated ReleaseIdentifier identifier = 8; /// See Release Identifiers for usage
+  string genre = 9; // TODO nested message.
+  string style = 10; // TODO nested message.
+  int32 copyright_year = 11; /// The Year of the Copyright for the Release configuration.
+  string c_line = 12; /// The Copyright line for the Release.
+  string p_line = 13; /// The Phonographic Copyright line for the Release.
+  string biography = 14; /// A Biography or Liner Notes for the Release.
+  string original_format = 15; /// The Original Format of the Release.
+  string country_of_issue = 16; /// The 2 Letter ISO for the Country of Issue.
+  repeated Contributor contributors = 17; /// A list of Contributors to the Release.
+  repeated Recording recordings = 18; /// A list of Recordings that belong to the Release.
 }

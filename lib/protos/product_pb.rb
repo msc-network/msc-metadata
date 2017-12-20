@@ -3,11 +3,13 @@
 
 require 'google/protobuf'
 
+require_relative 'release_pb'
+require_relative 'sender_pb'
 Google::Protobuf::DescriptorPool.generated_pool.build do
-  add_message "Product.Metadata" do
+  add_message "Product" do
+    optional :release, :message, 1, "Release"
+    optional :sender, :message, 2, "Sender"
   end
 end
 
-module Product
-  Metadata = Google::Protobuf::DescriptorPool.generated_pool.lookup("Product.Metadata").msgclass
-end
+Product = Google::Protobuf::DescriptorPool.generated_pool.lookup("Product").msgclass

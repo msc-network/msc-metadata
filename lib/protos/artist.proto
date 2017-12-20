@@ -2,6 +2,7 @@
  * Artist message.
  *
  * A Simple Artist Schema
+ *
  */
 
 syntax = "proto3";
@@ -9,10 +10,13 @@ syntax = "proto3";
 import "registration.proto";
 
 /** 
+ *
  * Represents the Artist schema
+ *
  */
 
 message Artist {
-  string name = 1; /// The name of the Artist
-  repeated Registration registrations = 2; /// An Artists registration details at a Rights Organisation: organisation, code. e.g. 'PPL', '12489754'
+  int32 sequence = 1; /// The Sequence of the Artist.
+  string name = 2; /// The name of the Artist.
+  repeated Registration registrations = 3; /// An Artist's registration details at a Rights Organisation: organisation, code. e.g. 'PPL', '12489754'
 }

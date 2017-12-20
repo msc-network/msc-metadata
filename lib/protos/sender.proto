@@ -1,0 +1,12 @@
+/**
+ * Sender Message data.
+ *
+*/
+
+syntax = "proto3";
+// compile with protoc release.proto --ruby_out=.
+
+message Sender {
+  string name = 1;
+  string sender_uid = 2;
+}
