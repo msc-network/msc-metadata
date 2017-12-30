@@ -4,7 +4,11 @@
 */
 
 syntax = "proto3";
-// compile with protoc release.proto --ruby_out=.
+
+/**
+ * Define the Sender of Messages.
+ *
+*/
 
 message Sender {
   string name = 1;

@@ -2,8 +2,9 @@
 
 require './lib/protos/artist_pb.rb'
 require './lib/protos/recording_pb.rb'
-# require './lib/protos/release_identifier_pb.rb'
+require './lib/protos/release_identifier_pb.rb'
 require './lib/protos/release_pb.rb'
+require './lib/protos/sender_pb.rb'
 
 module Mscmetadata
   # ReleaseBuilder
