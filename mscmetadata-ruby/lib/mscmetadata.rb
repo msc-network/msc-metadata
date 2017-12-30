@@ -13,10 +13,11 @@ require 'metadata/artist_builder'
 # require './lib/protos/release_pb.rb'
 
 # Require all pb files
-Dir[File.expand_path('./lib/protos/*.rb')].each do |file|
+Dir[File.expand_path('./protos/*.rb')].each do |file|
   require file
 end
 
 # Mscmetadata Entry Point
 module Mscmetadata
 end
+

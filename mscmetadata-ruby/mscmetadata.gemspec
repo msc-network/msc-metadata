@@ -6,7 +6,7 @@ require 'mscmetadata/version'
 
 Gem::Specification.new do |spec|
   spec.name          = "mscmetadata"
-  spec.version       = MscmgmtProtobufReleases::VERSION
+  spec.version       = Mscmetadata::VERSION
   spec.authors       = ["CromonMS"]
   spec.email         = ["e@cromon.co.uk"]
 
@@ -39,3 +39,4 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "google-protobuf", '~> 3.5', '>= 3.3.0'
   spec.add_development_dependency "rubocop", "~> 0.51.0"
 end
+

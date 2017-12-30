@@ -1,6 +1,6 @@
 # Mscmetadata
 
-This is an expermental project to create a new Music metadata standard protocol using (Ruby &) Protocol Buffers. It is still in very early stage development.
+This is an expermental project to create a new Music metadata standard protocol using Protocol Buffers. It is still in very early stage development.
 
 ## Installation
 
