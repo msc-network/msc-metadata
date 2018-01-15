@@ -13,13 +13,19 @@ syntax = "proto3";
 
 message ReleaseIdentifier {
   enum Type {
+    option allow_alias = true;
     BARCODE = 0; /// A Barcode Identifier for this Release.
+    EAN13 = 0; /// A Barcode Identifier for this Release.
+    GTIN12 = 0; /// A Barcode Identifier for this Release.
+    GTIN13 = 0; /// A Barcode Identifier for this Release.
+    UPC = 0; /// A Barcode Identifier for this Release.
     GRID = 1; /// ISO646
     SID = 2; /// Source Identifier Code
     CUSTOM = 3; /// Custom Identifier, eg. Discogs ID.
     MUSICBRAINZ = 4; /// Musicbrainz Identifier.
     MATRIX = 5; /// A matrix is usually found on a vinyl disc in the run-out.
     ASIN = 6; /// Amazon Standard Identification Number.
+    DISCOGS = 7; /// Discogs Release ID
   }
   Type type = 1; /// Predefined types for Recording identifier.
   string custom_type = 2; /// If using a Custom ID, add an identifier for it.

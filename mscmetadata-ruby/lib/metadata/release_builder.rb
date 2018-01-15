@@ -47,7 +47,7 @@ module Mscmetadata
     #   @recording.uuid = SecureRandom.uuid
     # end
 
-    def self.release_identifiers
+    def release_identifiers
       ReleaseIdentifier::Type.constants.map(&:to_s)
     end
   end

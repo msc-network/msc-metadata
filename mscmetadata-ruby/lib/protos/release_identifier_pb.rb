@@ -11,12 +11,17 @@ Google::Protobuf::DescriptorPool.generated_pool.build do
   end
   add_enum "ReleaseIdentifier.Type" do
     value :BARCODE, 0
+    value :EAN13, 0
+    value :GTIN12, 0
+    value :GTIN13, 0
+    value :UPC, 0
     value :GRID, 1
     value :SID, 2
     value :CUSTOM, 3
     value :MUSICBRAINZ, 4
     value :MATRIX, 5
     value :ASIN, 6
+    value :DISCOGS, 7
   end
 end
 

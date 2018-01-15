@@ -4,6 +4,7 @@ require 'mscmetadata/version'
 require 'securerandom'
 
 require 'metadata/artist_builder'
+require 'metadata/file_upload_builder'
 require 'metadata/recording_builder'
 require 'metadata/release_builder'
 
