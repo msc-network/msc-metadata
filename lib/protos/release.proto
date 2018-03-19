@@ -24,7 +24,7 @@ message Release {
   string title = 4; /// The title of the Release.
   string catalogue_number = 5; /// The Catalogue Number for the Release.
   string release_date = 6; /// The Original Release Date for the Release.
-  string record_label = 7; // TOOD: Could change.
+  string record_label = 7; // TODO: Could change.
   repeated ReleaseIdentifier identifier = 8; /// See Release Identifiers for usage
   string genre = 9; // TODO nested message.
   string style = 10; // TODO nested message.
