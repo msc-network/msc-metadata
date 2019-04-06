@@ -8,7 +8,7 @@
 syntax = "proto3";
 package mscmetadata;
 
-import "uuid.proto"
+import "uuid.proto";
 
 message Registration {
   UUID uuid = 1;

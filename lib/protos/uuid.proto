@@ -9,5 +9,5 @@ syntax = "proto3";
 package mscmetadata;
 
 message UUID {
-  required string value =1; /// Value of UUID
+  string value = 1; /// Value of UUID
 }

@@ -8,7 +8,7 @@ package mscmetadata;
 
 import "artist.proto";
 import "contributor.proto";
-import "attached_file.proto";
+import "file.proto";
 import "recording.proto";
 import "release_identifier.proto"; // Not implemented yet.
 import "uuid.proto";
@@ -20,13 +20,13 @@ import "uuid.proto";
 
 message Release {
   UUID uuid = 1; /// A Unique Identifier, it is best to use a Cryptographically sound way to generate these, do not rely on pseudo random human generated strings.
-  repeated AttachedFile attached_files = 2; /// A list of files related to this Release at a Release level.
+  repeated File files = 2; /// A list of files related to this Release at a Release level.
   repeated Artist artists = 3; /// Artists that appear on the Release.
   string title = 4; /// The title of the Release.
   string catalogue_number = 5; /// The Catalogue Number for the Release.
   string release_date = 6; /// The Original Release Date for the Release.
   string record_label = 7; // TODO: Could change.
-  repeated ReleaseIdentifier identifier = 8; /// See Release Identifiers for usage
+  repeated ReleaseIdentifier identifiers = 8; /// See Release Identifiers for usage
   string genre = 9; // TODO nested message.
   string style = 10; // TODO nested message.
   int32 copyright_year = 11; /// The Year of the Copyright for the Release configuration.

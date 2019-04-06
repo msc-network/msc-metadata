@@ -1,0 +1,13 @@
+/**
+ * Performer Message.
+ *
+*/
+
+syntax = "proto3";
+package mscmetadata;
+
+import "uuid.proto";
+
+message Performer {
+  UUID uuid = 1;
+}
