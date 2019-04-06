@@ -12,7 +12,7 @@ The schemas are being developed in the lib/protos folder.
 
 ### Generate Documentation
 
-Ensure you have protoc-gen-doc installed see <a href="https://github.com/pseudomoto/protoc-gen-doc">here</a>
+Ensure you have protoc-gen-doc installed see <a href="https://github.com/pseudomuto/protoc-gen-doc">here</a>
 
 ```shell
 cd lib/protos

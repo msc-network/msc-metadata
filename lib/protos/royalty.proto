@@ -1,9 +1,14 @@
+/**
+ * Royalty Message.
+ *
+*/
+
 syntax = "proto3";
 package mscmetadata;
 
 import "uuid.proto";
 
-message Genre {
+message Royalty {
   UUID uuid = 1;
-  string name = 2;
 }
+

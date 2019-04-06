@@ -1,0 +1,13 @@
+/**
+ * UUID message.
+ *
+ * A UUID Schema
+ *
+ */
+
+syntax = "proto3";
+package mscmetadata;
+
+message UUID {
+  required string value =1; /// Value of UUID
+}

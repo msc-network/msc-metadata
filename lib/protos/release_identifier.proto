@@ -4,7 +4,9 @@
 */
 
 syntax = "proto3";
-// compile with protoc recording_identifier.proto --ruby_out=.
+package mscmetadata;
+
+import "uuid.proto";
 
 /**
  * Add a Recording Identifier to a Recording.
@@ -12,6 +14,7 @@ syntax = "proto3";
 */
 
 message ReleaseIdentifier {
+  UUID uuid = 1;
   enum Type {
     option allow_alias = true;
     BARCODE = 0; /// A Barcode Identifier for this Release.
@@ -26,8 +29,9 @@ message ReleaseIdentifier {
     MATRIX = 5; /// A matrix is usually found on a vinyl disc in the run-out.
     ASIN = 6; /// Amazon Standard Identification Number.
     DISCOGS = 7; /// Discogs Release ID
+    ALLMUSIC = 8; /// Allmusic ID
   }
-  Type type = 1; /// Predefined types for Recording identifier.
-  string custom_type = 2; /// If using a Custom ID, add an identifier for it.
-  string code = 3; /// The code of the Recording Identifier.
+  Type type = 2; /// Predefined types for Recording identifier.
+  string custom_type = 3; /// If using a Custom ID, add an identifier for it.
+  string code = 4; /// The code of the Recording Identifier.
 }

@@ -1,23 +1,24 @@
 /**
- * Release Message.
+ * Product Message.
  *
 */
 
 syntax = "proto3";
-// compile with protoc release.proto --ruby_out=.
+package mscmetadata;
 
-import 'release.proto';
-import 'sender.proto';
+import "release.proto";
+import "sender.proto";
+import "uuid.proto";
 
 message Product {
-  Release release = 1;
-  Sender sender = 2;
-  // string release_date = 2;
-  // string primary_genre = 3;
-  // string secondary_genre = 4;
-  // enum ProductType {
-  //   DIGITAL_RELEASE = 0;
-  //   PHYSICAL_RELEASE = 1;
-  // }
-  // ProductType product_type = 5;
+  UUID uuid = 1;
+  Release release = 2;
+  Sender sender = 3;
+  string release_date = 4;
+  repeated Genre genres = 5;
+  enum ProductType {
+    DIGITAL = 0;
+    PHYSICAL = 1;
+  }
+  ProductType product_type = 6;
 }

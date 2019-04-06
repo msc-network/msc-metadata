@@ -5,13 +5,14 @@
  */
 
 syntax = "proto3";
-// compile with protoc recording.proto --ruby_out=.
+package mscmetadata;
 
 import "artist.proto";
 import "contributor.proto";
 import "genre.proto";
 import "registration.proto";
 import "recording_identifier.proto";
+import "uuid.proto";
 
 /**
  * Represents the schema of a Recording.
@@ -19,7 +20,7 @@ import "recording_identifier.proto";
  */
 
 message Recording {
-  string uuid = 1; /// A Unique Identifier, it is best to use a Cryptographically sound way to generate these, do not rely on pseudo random human generated strings.
+  UUID uuid = 1; /// A Unique Identifier, it is best to use a Cryptographically sound way to generate these, do not rely on pseudo random human generated strings.
   repeated Artist artists = 2; /// Artists that are on this Recording.
   string title = 3; /// The title of the Recording.
   string mix_title = 4; /// A mix title for the Recording.

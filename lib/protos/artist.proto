@@ -6,8 +6,12 @@
  */
 
 syntax = "proto3";
+package mscmetadata;
 
+import "profile.proto";
 import "registration.proto";
+import "url.proto";
+import "uuid.proto";
 
 /** 
  *
@@ -16,7 +20,10 @@ import "registration.proto";
  */
 
 message Artist {
-  int32 sequence = 1; /// The Sequence of the Artist.
-  string name = 2; /// The name of the Artist.
-  repeated Registration registrations = 3; /// An Artist's registration details at a Rights Organisation: organisation, code. e.g. 'PPL', '12489754'
+  UUID uuid = 1; /// Artist uuid
+  int32 sequence = 2; /// The Sequence of the Artist.
+  string name = 3; /// The name of the Artist.
+  repeated Registration registrations = 4; /// An Artist's Registration details at a Rights Organisation: organisation, code. e.g. 'PPL', '12489754'.
+  Profile profile = 5; /// A Profile for an Artist.
+  repeated Url urls = 6;
 }

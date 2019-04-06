@@ -1,0 +1,25 @@
+/**
+ * Profile message.
+ *
+ * A general Profile Schema
+ *
+ */
+
+syntax = "proto3";
+package mscmetadata;
+
+import "url.proto";
+import "uuid.proto";
+
+/** 
+ *
+ * Represents the Profile schema
+ *
+ */
+
+message Profile {
+  UUID uuid = 1;
+  string email = 2; /// The Profile email.
+  string alternative_email = 3; /// The Profile alternative email
+  repeated URL urls = 4; /// Any Associated URLs
+}

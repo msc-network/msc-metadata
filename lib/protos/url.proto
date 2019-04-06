@@ -1,0 +1,23 @@
+/**
+ * URL message.
+ *
+ * A Simple URL Schema
+ *
+ */
+
+syntax = "proto3";
+package mscmetadata;
+
+import "uuid.proto";
+
+/** 
+ *
+ * Represents the URL schema
+ *
+ */
+
+message URL {
+  UUID uuid = 1;
+  string title = 2; /// The Title of the URL.
+  string link = 3; /// The link of the URL.
+}

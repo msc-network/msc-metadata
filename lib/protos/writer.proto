@@ -1,9 +1,13 @@
+/**
+ * Writer Message.
+ *
+*/
+
 syntax = "proto3";
 package mscmetadata;
 
 import "uuid.proto";
 
-message Genre {
+message Writer {
   UUID uuid = 1;
-  string name = 2;
 }
