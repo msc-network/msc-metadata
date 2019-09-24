@@ -9,8 +9,6 @@ syntax = "proto3";
 package mscmetadata;
 
 import "profile.proto";
-import "registration.proto";
-import "url.proto";
 import "uuid.proto";
 
 /** 
@@ -23,7 +21,5 @@ message Artist {
   UUID uuid = 1; /// Artist uuid
   int32 sequence = 2; /// The Sequence of the Artist.
   string name = 3; /// The name of the Artist.
-  repeated Registration registrations = 4; /// An Artist's Registration details at a Rights Organisation: organisation, code. e.g. 'PPL', '12489754'.
-  Profile profile = 5; /// A Profile for an Artist.
-  repeated URL urls = 6;
+  Profile profile = 4; /// A Profile for an Artist.
 }

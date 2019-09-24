@@ -10,5 +10,5 @@ import "uuid.proto";
 
 message Royalty {
   UUID uuid = 1;
+  string pay_period = 2;
 }
-
