@@ -1,0 +1,18 @@
+/**
+ * Society Message.
+ *
+*/
+
+syntax = "proto3";
+package mscmetadata;
+
+import "uuid.proto";
+
+/**
+ * A Schema for Societies.
+ * A Society can be any organisation involved with the collection of mechanical or performance royalties for a song.
+*/
+
+message Society {
+  UUID uuid = 1;
+}

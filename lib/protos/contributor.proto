@@ -7,6 +7,8 @@ syntax = "proto3";
 package mscmetadata;
 
 import "profile.proto";
+import "registration.proto";
+import "url.proto";
 import "uuid.proto";
 
 /**
@@ -18,4 +20,6 @@ message Contributor {
   UUID uuid = 1;
   string name = 2; /// The Contributors Name
   Profile profile = 3; /// Contributor Profile
+  repeated Registration registrations = 4; /// A Contributors Registration details at a Rights Organisation: organisation, code. e.g. 'PPL', '12489754'.
+  repeated URL urls = 5; /// Any urls associated with A Contributor
 }
