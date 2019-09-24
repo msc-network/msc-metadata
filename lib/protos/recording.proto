@@ -9,6 +9,7 @@ package mscmetadata;
 
 import "artist.proto";
 import "contributor.proto";
+import "file.proto";
 import "genre.proto";
 import "registration.proto";
 import "recording_identifier.proto";
@@ -28,8 +29,9 @@ message Recording {
   bool explicit = 6; /// Does this Recording have explicit lyrics?
   int32 length = 7; /// The length of the Audio related to this recording.
   int32 release_position = 8; /// The position of this Recording on a Release, if related.
-  repeated Registration registrations = 9; // ['organisation': 'PPL', 'code': '2398543']
+  repeated Registration registrations = 9; /// ['organisation': 'PPL', 'code': '2398543']
   repeated Genre genres = 10; /// Genres of this Recording.
   repeated Contributor contributors = 11; /// Contributors to the Recording.
-  repeated RecordingIdentifier recording_identifier = 12; // ['type': 'ISRC', 'code': 'GB4QK000000']
+  repeated RecordingIdentifier recording_identifier = 12; /// ['type': 'ISRC', 'code': 'GB4QK000000']
+  repeated File file = 13; /// Related Files for this recording e.g. Audio, Individual Artwork, Contract file etc.
 }

@@ -21,4 +21,5 @@ message File {
   string mime_type = 5; /// The mime type of the File.
   string created_at = 6; /// The createion date of the File.
   string location = 7; /// The URI of the stored File.
+  string notes = 8; /// Any additional notes regarding the File.
 }

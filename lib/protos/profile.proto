@@ -1,8 +1,5 @@
 /**
  * Profile message.
- *
- * A general Profile Schema
- *
  */
 
 syntax = "proto3";
