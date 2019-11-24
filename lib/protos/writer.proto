@@ -1,0 +1,29 @@
+/**
+ * Writer Message.
+ *
+*/
+
+syntax = "proto3";
+package mscmetadata;
+
+import "contributor.proto";
+import "recording.proto";
+import "society.proto";
+import "uuid.proto";
+
+/**
+ * A Schema for Writer.
+ * Describe a writier and corresponding shares (%ages) for a song.
+*/
+
+message Writer {
+  UUID uuid = 1;
+  Recording recording = 2;
+  Contributor contributor = 3;
+  Society society = 4;
+  string name = 5;
+  float performing_share = 6;
+  float mechanical_share = 7;
+  string role = 8;
+  string membership_number = 9;
+}

@@ -1,0 +1,25 @@
+/**
+ * File Message.
+ *
+*/
+
+syntax = "proto3";
+package mscmetadata;
+
+import "uuid.proto";
+
+/**
+ * Define an attached file.
+ *
+*/
+
+message File {
+  UUID uuid = 1;
+  string name = 2; /// The filename of the File.
+  int32 size = 3; /// The size of the File in bytes.
+  string extension = 4; /// The extension of the File.
+  string mime_type = 5; /// The mime type of the File.
+  string created_at = 6; /// The createion date of the File.
+  string location = 7; /// The URI of the stored File.
+  string notes = 8; /// Any additional notes regarding the File.
+}

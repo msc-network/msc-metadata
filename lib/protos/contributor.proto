@@ -3,11 +3,13 @@
  *
  */
 
-/// TODO: Finish this.
-
 syntax = "proto3";
+package mscmetadata;
 
-import "contributor_roles.proto";
+import "profile.proto";
+import "registration.proto";
+import "url.proto";
+import "uuid.proto";
 
 /**
  * A Simple Contributor Schema.
@@ -15,6 +17,9 @@ import "contributor_roles.proto";
 */
 
 message Contributor {
-  string name = 1; /// The Contributors Name
-  ContributorRole contributor_roles = 2; /// The role(s) of the Contributor
+  UUID uuid = 1;
+  string name = 2; /// The Contributors Name
+  Profile profile = 3; /// Contributor Profile
+  repeated Registration registrations = 4; /// A Contributors Registration details at a Rights Organisation: organisation, code. e.g. 'PPL', '12489754'.
+  repeated URL urls = 5; /// Any urls associated with A Contributor
 }

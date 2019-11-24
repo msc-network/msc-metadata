@@ -1,13 +1,12 @@
 /**
  * Artist message.
- *
- * A Simple Artist Schema
- *
  */
 
 syntax = "proto3";
+package mscmetadata;
 
-import "registration.proto";
+import "profile.proto";
+import "uuid.proto";
 
 /** 
  *
@@ -16,7 +15,12 @@ import "registration.proto";
  */
 
 message Artist {
-  int32 sequence = 1; /// The Sequence of the Artist.
+  UUID uuid = 1; /// Artist uuid
+  int32 sequence = 2; /// The Sequence of the Artist.
   string name = 2; /// The name of the Artist.
-  repeated Registration registrations = 3; /// An Artist's registration details at a Rights Organisation: organisation, code. e.g. 'PPL', '12489754'
+  string name = 3; /// The name of the Artist.
+  Profile profile = 4; /// A Profile for an Artist.
+  repeated Registration registrations = 3; /// An Artist's Registration details at a Rights Organisation: organisation, code. e.g. 'PPL', '12489754'.
+  Profile profile = 5; /// A Profile for an Artist.
+  repeated URL urls = 6; /// Any URLs related to the Artist
 }

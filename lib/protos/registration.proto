@@ -6,9 +6,12 @@
  */
 
 syntax = "proto3";
-// compile with protoc recording_registration.proto --ruby_out=.
+package mscmetadata;
+
+import "uuid.proto";
 
 message Registration {
-  string organisation = 1; /// Organisation of the Registration
-  string code = 2; /// The Identifier or Code of the Registration
+  UUID uuid = 1;
+  string organisation = 2; /// Organisation of the Registration
+  string code = 3; /// The Identifier or Code of the Registration
 }

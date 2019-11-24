@@ -4,7 +4,9 @@
 */
 
 syntax = "proto3";
-// compile with protoc recording_identifier.proto --ruby_out=.
+package mscmetadata;
+
+import "uuid.proto";
 
 /**
  * Add a Recording Identifier to a Recording.
@@ -12,13 +14,14 @@ syntax = "proto3";
 */
 
 message RecordingIdentifier {
+  UUID uuid = 1;
   enum Type {
     ISRC = 0; /// International Standards Recording Code
     ISWC = 1; /// 
     ISMN = 2; /// 
     CUSTOM = 3; /// A Custom ID for your Recording
   }
-  Type type = 1; /// Predefined types for Recording identifier
-  string custom_identifier = 2; /// If using a Custom ID, add an identifier for it.
-  string code = 3; /// The code of the Recording Identifier
+  Type type = 2; /// Predefined types for Recording identifier
+  string custom_identifier = 3; /// If using a Custom ID, add an identifier for it.
+  string code = 4; /// The code of the Recording Identifier
 }

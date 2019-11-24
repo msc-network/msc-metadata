@@ -1,0 +1,21 @@
+/**
+ * Rights Holder Message.
+ *
+*/
+
+syntax = "proto3";
+package mscmetadata;
+
+import "profile.proto";
+import "uuid.proto";
+
+/** 
+ *
+ * Represents the Rights Holder schema
+ *
+ */
+
+message RightsHolder = {
+  UUID uuid = 1;
+  Profile profile = 2;
+}

@@ -3,6 +3,9 @@
  *
 */
 syntax = "proto3";
+package mscmetadata;
+
+import "uuid.proto";
 
 /**
  * Pre-defined Roles for Contributors to Recordings.
@@ -18,5 +21,6 @@ message ContributorRole {
     WRITTEN_BY = 4;
     PUBLISHER = 5;
   }
-  Role role = 1; /// Select a Role for a Contributor
+  UUID uuid = 1;
+  Role role = 2; /// Select a Role for a Contributor
 }

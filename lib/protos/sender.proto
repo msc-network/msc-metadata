@@ -4,6 +4,9 @@
 */
 
 syntax = "proto3";
+package mscmetadata;
+
+import "uuid.proto";
 
 /**
  * Define the Sender of Messages.
@@ -11,6 +14,7 @@ syntax = "proto3";
 */
 
 message Sender {
-  string name = 1;
-  string sender_uid = 2;
+  UUID uuid = 1;
+  string name = 2;
+  string sender_uid = 3;
 }
