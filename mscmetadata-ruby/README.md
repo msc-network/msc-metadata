@@ -30,7 +30,7 @@ For more detailed usage see <a href="docs/usage.md">Usage.md</a>
 
 ## Generate Ruby Libraries
 
-To build the gem with updated protobufs, just run the handy build_ruby.sh script, this will do all the work for you. This dies not deal with the below problems.
+To build the gem with updated protobufs, just run the handy build_ruby.sh script, this will do all the work for you. This does not deal with the below problems.
 
 ```shell
 ./build_ruby.sh
