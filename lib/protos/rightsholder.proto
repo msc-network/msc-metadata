@@ -15,7 +15,8 @@ import "uuid.proto";
  *
  */
 
-message RightsHolder = {
-  UUID uuid = 1;
-  Profile profile = 2;
+message Rightsholder {
+  UUID uuid = 1; /// 
+  string name = 2; /// 
+  Profile profile = 3; /// 
 }

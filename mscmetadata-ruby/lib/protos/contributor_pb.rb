@@ -3,12 +3,22 @@
 
 require 'google/protobuf'
 
-require_relative 'contributor_roles_pb'
+require 'profile_pb'
+require 'registration_pb'
+require 'url_pb'
+require 'uuid_pb'
 Google::Protobuf::DescriptorPool.generated_pool.build do
-  add_message "Contributor" do
-    optional :name, :string, 1
-    optional :contributor_roles, :message, 2, "ContributorRole"
+  add_file("contributor.proto", :syntax => :proto3) do
+    add_message "mscmetadata.Contributor" do
+      optional :uuid, :message, 1, "mscmetadata.UUID"
+      optional :name, :string, 2
+      optional :profile, :message, 3, "mscmetadata.Profile"
+      repeated :registrations, :message, 4, "mscmetadata.Registration"
+      repeated :urls, :message, 5, "mscmetadata.URL"
+    end
   end
 end
 
-Contributor = Google::Protobuf::DescriptorPool.generated_pool.lookup("Contributor").msgclass
+module Mscmetadata
+  Contributor = ::Google::Protobuf::DescriptorPool.generated_pool.lookup("mscmetadata.Contributor").msgclass
+end

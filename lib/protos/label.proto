@@ -1,0 +1,23 @@
+/**
+ * Label message.
+ * A Record Label entity.
+ */
+
+syntax = "proto3";
+package mscmetadata;
+
+import "profile.proto";
+import "uuid.proto";
+
+/** 
+ *
+ * Represents the Label schema
+ *
+ */
+
+message Label {
+  UUID uuid = 1; /// A UUID for the Label record.
+  string tmn_id = 2; /// The Label's assigned ID from The Music Network.
+  string name = 3; /// 
+  Profile profile = 4; /// 
+}

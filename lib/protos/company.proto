@@ -1,0 +1,22 @@
+/**
+ * Company message.
+ */
+
+syntax = "proto3";
+package mscmetadata;
+
+import "profile.proto";
+import "uuid.proto";
+
+/** 
+ *
+ * Represents the Company schema
+ *
+ */
+
+message Company {
+  UUID uuid = 1; /// A UUID for the Company record.
+  string tmn_id = 2; /// The Companies assigned ID from The Music Network.
+  string name = 3; /// 
+  Profile profile = 4; /// 
+}

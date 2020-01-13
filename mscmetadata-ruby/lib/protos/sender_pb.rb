@@ -3,11 +3,17 @@
 
 require 'google/protobuf'
 
+require 'uuid_pb'
 Google::Protobuf::DescriptorPool.generated_pool.build do
-  add_message "Sender" do
-    optional :name, :string, 1
-    optional :sender_uid, :string, 2
+  add_file("sender.proto", :syntax => :proto3) do
+    add_message "mscmetadata.Sender" do
+      optional :uuid, :message, 1, "mscmetadata.UUID"
+      optional :name, :string, 2
+      optional :sender_uid, :string, 3
+    end
   end
 end
 
-Sender = Google::Protobuf::DescriptorPool.generated_pool.lookup("Sender").msgclass
+module Mscmetadata
+  Sender = ::Google::Protobuf::DescriptorPool.generated_pool.lookup("mscmetadata.Sender").msgclass
+end

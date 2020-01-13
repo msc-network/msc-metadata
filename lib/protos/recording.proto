@@ -8,12 +8,19 @@ syntax = "proto3";
 package mscmetadata;
 
 import "artist.proto";
+import "company.proto";
 import "contributor.proto";
+import "country.proto";
 import "file.proto";
 import "genre.proto";
-import "registration.proto";
+import "language.proto";
+import "performer.proto";
+import "publisher.proto";
+import "rightsholder.proto";
+// import "registration.proto";
 import "recording_identifier.proto";
 import "uuid.proto";
+import "writer.proto";
 
 /**
  * Represents the schema of a Recording.
@@ -23,15 +30,110 @@ import "uuid.proto";
 message Recording {
   UUID uuid = 1; /// A Unique Identifier, it is best to use a Cryptographically sound way to generate these, do not rely on pseudo random human generated strings.
   repeated Artist artists = 2; /// Artists that are on this Recording.
-  string title = 3; /// The title of the Recording.
-  string mix_title = 4; /// A mix title for the Recording.
-  int32 copyright_year = 5; /// The Copyright Year for the Recording.
-  bool explicit = 6; /// Does this Recording have explicit lyrics?
-  int32 length = 7; /// The length of the Audio related to this recording.
-  int32 release_position = 8; /// The position of this Recording on a Release, if related.
-  repeated Registration registrations = 9; /// ['organisation': 'PPL', 'code': '2398543']
-  repeated Genre genres = 10; /// Genres of this Recording.
-  repeated Contributor contributors = 11; /// Contributors to the Recording.
-  repeated RecordingIdentifier recording_identifier = 12; /// ['type': 'ISRC', 'code': 'GB4QK000000']
-  repeated File file = 13; /// Related Files for this recording e.g. Audio, Individual Artwork, Contract file etc.
+  int32 position = 3; /// The position of the recording if included in a Release configuration.
+  string title = 4; /// The title of the Recording.
+  string mix_title = 5; /// A mix title for the Recording.
+  int32 copyright_year = 6; /// The Copyright Year for the Recording.
+  bool explicit = 7; /// Does the Recording have explicit lyrics?
+  string c_line = 8; /// The C Line of the Recording.
+  string p_line = 9; /// The P Line of the Recording.
+  int32 length = 10; /// The length of the Audio related to this recording.
+  bool album_only = 11; /// Is the Recording Album Only?
+  enum Status {
+    DRAFTED     = 0;
+    SUBMITTED   = 1;
+    PENDING     = 2;
+    APPROVED    = 3;
+    ACCEPTED    = 4;
+    IMPORTED    = 5;
+    DISTRIBUTED = 6;
+    LIVE        = 7;
+    REJECTED    = 8;
+    DELETED     = 9;
+  }
+  Status status = 12; /// If relevant you can give a Recording a status.
+  string alternative_title = 13; /// 
+  bool remastered = 14; /// 
+  string recording_venue = 15; /// 
+  string recording_date = 16; /// 
+  bool sample = 17; /// 
+  bool medley = 18; /// 
+  string category = 19; /// 
+  bool ident = 20; /// 
+  bool film_tv = 21; /// 
+  bool classical = 22; /// 
+  bool dramatico = 23; /// 
+  AdditionalDetails additional_details = 24; /// 
+  Country country_of_recording = 25; /// 
+  Country country_of_commissioning = 26; /// 
+  Country country_of_first_publication = 27; /// 
+  Language language = 28; /// 
+  Company company = 29; /// 
+  string instrumentation = 30; /// 
+  string lyrics = 31; /// 
+  string tempo = 32; /// 
+  string sentiment = 33; /// 
+  string danceability = 34; /// 
+  string energy = 35; /// 
+  string loudness = 36; /// 
+  string musical_key = 37; /// 
+  string time_signature = 38; /// 
+  // repeated Registration registrations = 39; /// ['organisation': 'PPL', 'code': '2398543']
+  repeated Genre genres = 40; /// Genres of this Recording.
+  repeated Contributor contributors = 41; /// Contributors to the Recording.
+  repeated RecordingIdentifier recording_identifiers = 42; /// ['type': 'ISRC', 'code': 'GB4QK000000']
+  repeated File files = 43; /// Related Files for this recording e.g. Audio, Individual Artwork, Contract file etc.
+  repeated Writer writers = 44; /// 
+  repeated Performer performers = 45; /// 
+  repeated Publisher publishers = 46; /// 
+  repeated Rightsholder rightsholders = 47; /// 
+  // licensees
+  // repertoire_ownerships
 }
+
+message AdditionalDetails {
+
+}
+
+// #  id                              :uuid             not null, primary key
+// #  position                        :integer          not null
+// #  title                           :string
+// #  isrc                            :string
+// #  mix_title                       :string
+// #  copyright_year                  :string
+// #  explicit_lyrics                 :boolean
+// #  c_line                          :string
+// #  p_line                          :string
+// #  length                          :string
+// #  album_only                      :boolean
+// #  release_id                      :uuid
+// #  created_at                      :datetime         not null
+// #  updated_at                      :datetime         not null
+// #  status                          :integer
+// #  alternative_title               :string
+// #  remastered                      :boolean
+// #  recording_venue                 :string
+// #  recording_date                  :date
+// #  sample                          :boolean
+// #  medley                          :boolean
+// #  category                        :string
+// #  audio_data                      :text
+// #  ident                           :boolean
+// #  film_tv                         :boolean
+// #  classical                       :boolean
+// #  dramatico                       :boolean
+// #  additional_details              :jsonb
+// #  country_of_recording_id         :uuid
+// #  country_of_commissioning_id     :uuid
+// #  country_of_first_publication_id :uuid
+// #  language_id                     :uuid
+// #  company_id                      :uuid
+// #  instrumentation                 :text
+// #  lyrics                          :text
+// #  tempo                           :string
+// #  sentiment                       :string
+// #  danceability                    :string
+// #  energy                          :string
+// #  loudness                        :string
+// #  musical_key                     :string
+// #  time_signature                  :string

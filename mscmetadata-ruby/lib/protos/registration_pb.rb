@@ -3,11 +3,17 @@
 
 require 'google/protobuf'
 
+require 'uuid_pb'
 Google::Protobuf::DescriptorPool.generated_pool.build do
-  add_message "Registration" do
-    optional :organisation, :string, 1
-    optional :code, :string, 2
+  add_file("registration.proto", :syntax => :proto3) do
+    add_message "mscmetadata.Registration" do
+      optional :uuid, :message, 1, "mscmetadata.UUID"
+      optional :organisation, :string, 2
+      optional :code, :string, 3
+    end
   end
 end
 
-Registration = Google::Protobuf::DescriptorPool.generated_pool.lookup("Registration").msgclass
+module Mscmetadata
+  Registration = ::Google::Protobuf::DescriptorPool.generated_pool.lookup("mscmetadata.Registration").msgclass
+end

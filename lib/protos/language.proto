@@ -1,0 +1,26 @@
+/**
+ * Language message.
+ */
+
+syntax = "proto3";
+package mscmetadata;
+
+import "uuid.proto";
+
+/** 
+ *
+ * Represents the Language schema
+ *
+ */
+
+message Language {
+  UUID uuid = 1; /// 
+  string family = 2; /// 
+  string name = 3; /// 
+  string native_name = 4; /// 
+  string iso_alpha_two = 5; /// 
+  string iso_alpha_three = 6; /// 
+  string english_iso_alpha_three = 7; /// 
+  string macro_iso_alpha_three = 8; /// 
+  string notes = 9; /// 
+}

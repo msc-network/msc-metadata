@@ -6,8 +6,13 @@
 syntax = "proto3";
 package mscmetadata;
 
+import "profile.proto";
+import "registration.proto";
 import "uuid.proto";
 
 message Publisher {
-  UUID uuid = 1;
+  UUID uuid = 1; /// 
+  string name = 2; /// 
+  repeated Registration registrations = 3; /// 
+  Profile profile = 4; /// 
 }

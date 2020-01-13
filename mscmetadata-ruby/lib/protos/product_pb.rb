@@ -3,13 +3,28 @@
 
 require 'google/protobuf'
 
-require_relative 'release_pb'
-require_relative 'sender_pb'
+require 'genre_pb'
+require 'release_pb'
+require 'sender_pb'
+require 'uuid_pb'
 Google::Protobuf::DescriptorPool.generated_pool.build do
-  add_message "Product" do
-    optional :release, :message, 1, "Release"
-    optional :sender, :message, 2, "Sender"
+  add_file("product.proto", :syntax => :proto3) do
+    add_message "mscmetadata.Product" do
+      optional :uuid, :message, 1, "mscmetadata.UUID"
+      optional :release, :message, 2, "mscmetadata.Release"
+      optional :sender, :message, 3, "mscmetadata.Sender"
+      optional :release_date, :string, 4
+      repeated :genres, :message, 5, "mscmetadata.Genre"
+      optional :product_type, :enum, 6, "mscmetadata.Product.ProductType"
+    end
+    add_enum "mscmetadata.Product.ProductType" do
+      value :DIGITAL, 0
+      value :PHYSICAL, 1
+    end
   end
 end
 
-Product = Google::Protobuf::DescriptorPool.generated_pool.lookup("Product").msgclass
+module Mscmetadata
+  Product = ::Google::Protobuf::DescriptorPool.generated_pool.lookup("mscmetadata.Product").msgclass
+  Product::ProductType = ::Google::Protobuf::DescriptorPool.generated_pool.lookup("mscmetadata.Product.ProductType").enummodule
+end

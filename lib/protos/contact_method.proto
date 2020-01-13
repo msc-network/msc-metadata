@@ -1,5 +1,6 @@
 /**
  * Artist message.
+ * TODO: Not sure what this is.....
  */
 
 syntax = "proto3";
@@ -13,7 +14,7 @@ import "uuid.proto";
  *
  */
 
-message ContactMethod = {
+message ContactMethod {
   UUID uuid = 1;
   string service_name = 2;
   string service_id = 3;

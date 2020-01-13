@@ -1,0 +1,23 @@
+/**
+ * Country message.
+ *
+ * Schema for a Country
+ */
+
+syntax = "proto3";
+package mscmetadata;
+
+import "uuid.proto";
+
+/**
+ * Represents the schema of a Country.
+ *
+ */
+
+message Country {
+  UUID uuid = 1;
+  string name = 2;
+  string iso_alpha_two = 3;
+  string iso_alpha_three = 4;
+  string iso_numeric = 5;
+}
