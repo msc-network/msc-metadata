@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require './lib/protos/attached_file_pb.rb'
+require_relative '../protos/attached_file_pb.rb'
 require 'ipfs/client'
 
 module Mscmetadata

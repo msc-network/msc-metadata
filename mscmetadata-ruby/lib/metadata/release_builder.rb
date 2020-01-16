@@ -1,10 +1,10 @@
 # frozen_string_literal: true
 
-require './lib/protos/artist_pb.rb'
-require './lib/protos/recording_pb.rb'
-require './lib/protos/release_identifier_pb.rb'
-require './lib/protos/release_pb.rb'
-require './lib/protos/sender_pb.rb'
+require_relative '../protos/artist_pb.rb'
+require_relative '../protos/recording_pb.rb'
+require_relative '../protos/release_identifier_pb.rb'
+require_relative '../protos/release_pb.rb'
+require_relative '../protos/sender_pb.rb'
 
 module Mscmetadata
   # ReleaseBuilder

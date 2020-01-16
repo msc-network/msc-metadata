@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
-require './lib/protos/artist_pb.rb'
-require './lib/protos/registration_pb.rb'
+require_relative '../protos/artist_pb.rb'
+require_relative '../protos/registration_pb.rb'
 
 module Mscmetadata
   # RecordingBuilder
