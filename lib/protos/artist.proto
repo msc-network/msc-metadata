@@ -12,7 +12,7 @@ import "uuid.proto";
 
 /** 
  *
- * Represents the Artist schema
+ * Represents an Artist schema, An Artist can have a role on Releases and Recordings.
  *
  */
 

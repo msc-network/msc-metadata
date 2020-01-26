@@ -17,5 +17,5 @@ import "uuid.proto";
 message ContactMethod {
   UUID uuid = 1;
   string service_name = 2;
-  string service_id = 3;
+  string text = 3;
 }
