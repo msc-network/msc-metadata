@@ -7,19 +7,24 @@ syntax = "proto3";
 package mscmetadata;
 
 import "genre.proto";
+import "recipent.proto";
 import "release.proto";
 import "sender.proto";
 import "uuid.proto";
 
 message Product {
-  UUID uuid = 1;
-  Release release = 2;
-  Sender sender = 3;
-  string release_date = 4;
-  repeated Genre genres = 5;
   enum ProductType {
     DIGITAL = 0;
     PHYSICAL = 1;
-  }
-  ProductType product_type = 6;
+  };
+  UUID uuid = 1;
+  Release release = 2;
+  Sender sender = 3;
+  Recipient recipient = 4;
+  ProductType product_type = 5;
+  string product_release_date_time = 6;
+  bool pre_order = 7;
+  string pre_order_date_time = 8;
+  bool timed = 9;
+  repeated Genre genres = 10;
 }

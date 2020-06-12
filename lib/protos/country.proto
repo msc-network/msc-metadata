@@ -1,7 +1,8 @@
 /**
  * Country message.
  *
- * Schema for a Country
+ * Schema for a Country.
+ * Conforms to the ISO 3166-1 standard - https://en.wikipedia.org/wiki/ISO_3166-1
  */
 
 syntax = "proto3";
@@ -15,7 +16,7 @@ import "uuid.proto";
  */
 
 message Country {
-  UUID uuid = 1;
+  UUID uuid = 1; /// Country uuid
   string name = 2;
   string iso_alpha_two = 3;
   string iso_alpha_three = 4;

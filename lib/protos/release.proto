@@ -24,17 +24,18 @@ message Release {
   repeated Artist artists = 3; /// Artists that appear on the Release.
   string title = 4; /// The title of the Release.
   string catalogue_number = 5; /// The Catalogue Number for the Release.
-  string release_date = 6; /// The Original Release Date for the Release.
+  string original_release_date = 6; /// The Original Release Date for the Release.
   string record_label = 7; // TODO: Could change.
   repeated ReleaseIdentifier identifiers = 8; /// See Release Identifiers for usage
   string genre = 9; // TODO nested message.
   string style = 10; // TODO nested message.
-  int32 copyright_year = 11; /// The Year of the Copyright for the Release configuration.
-  string c_line = 12; /// The Copyright line for the Release.
-  string p_line = 13; /// The Phonographic Copyright line for the Release.
-  string biography = 14; /// A Biography or Liner Notes for the Release.
-  string original_format = 15; /// The Original Format of the Release.
-  string country_of_issue = 16; /// The 2 Letter ISO for the Country of Issue.
-  repeated Contributor contributors = 17; /// A list of Contributors to the Release.
-  repeated Recording recordings = 18; /// A list of Recordings that belong to the Release.
+  int32 copyright_year = 11; /// The Year of the Copyright (c) for the Release configuration.
+  int32 phonographic_copyright_year = 12; /// The Year of the Phographic Copyright (p) for the Release configuration.
+  string c_line = 13; /// The Copyright line for the Release.
+  string p_line = 14; /// The Phonographic Copyright line for the Release.
+  string biography = 15; /// A Biography or Liner Notes for the Release.
+  string original_format = 16; /// The Original Format of the Release.
+  string country_of_issue = 17; /// The 2 Letter ISO for the Country of Issue.
+  repeated Contributor contributors = 18; /// A list of Contributors to the Release.
+  repeated Recording recordings = 19; /// A list of Recordings that belong to the Release.
 }

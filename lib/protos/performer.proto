@@ -6,8 +6,11 @@
 syntax = "proto3";
 package mscmetadata;
 
+import "registration.proto";
 import "uuid.proto";
 
 message Performer {
-  UUID uuid = 1;
+  UUID uuid = 1; /// Performer uuid
+  string name = 2; /// Performer name
+  repeated Registration registrations = 3; /// A Performer's Registration details at a Rights Organisation: organisation, code. e.g. 'PPL', '12489754'.
 }

@@ -10,13 +10,13 @@ import "uuid.proto";
 
 /** 
  *
- * Represents the Company schema
+ * Represents a Company schema
  *
  */
 
 message Company {
   UUID uuid = 1; /// A UUID for the Company record.
   string tmn_id = 2; /// The Companies assigned ID from The Music Network.
-  string name = 3; /// 
+  string name = 3; /// The Company name.
   Profile profile = 4; /// 
 }

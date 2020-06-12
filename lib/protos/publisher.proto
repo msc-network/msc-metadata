@@ -11,8 +11,8 @@ import "registration.proto";
 import "uuid.proto";
 
 message Publisher {
-  UUID uuid = 1; /// 
-  string name = 2; /// 
-  repeated Registration registrations = 3; /// 
-  Profile profile = 4; /// 
+  UUID uuid = 1; /// Publisher uuid
+  string name = 2; /// Publisher Name
+  repeated Registration registrations = 3; /// Associated registrations for Publisher
+  Profile profile = 4; /// Associated profile for a Publisher
 }

@@ -1,5 +1,5 @@
 /**
- * Sender Message data.
+ * Recipient Message data.
  *
 */
 
@@ -9,11 +9,11 @@ package mscmetadata;
 import "uuid.proto";
 
 /**
- * Define the Sender of Messages.
+ * Define the Recipient of Messages.
  *
 */
 
-message Sender {
+message Recipient {
   UUID uuid = 1;
   string name = 2;
   string mscmid = 3;

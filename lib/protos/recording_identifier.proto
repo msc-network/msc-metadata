@@ -22,6 +22,6 @@ message RecordingIdentifier {
     CUSTOM = 3; /// A Custom ID for your Recording
   }
   Type type = 2; /// Predefined types for Recording identifier
-  string custom_identifier = 3; /// If using a Custom ID, add an identifier for it.
+  string custom_identifier = 3; /// If using a Custom ID, add an identifier for it. e.g. TUNECODE 
   string code = 4; /// The code of the Recording Identifier
 }
