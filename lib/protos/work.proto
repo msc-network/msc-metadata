@@ -1,0 +1,21 @@
+/**
+ * Work Message.
+ *
+*/
+
+syntax = "proto3";
+package mscmetadata;
+
+import "uuid.proto";
+import "recording.proto";
+
+/**
+ * Add a Musical Work.
+ *
+*/
+
+message Work {
+  UUID uuid = 1;
+  string title = 2;
+  repeated Recording recordings = 10;
+}
