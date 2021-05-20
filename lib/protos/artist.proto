@@ -22,5 +22,5 @@ message Artist {
   string name = 3; /// The name of the Artist.
   Profile profile = 4; /// A Profile for an Artist.
   repeated Registration registrations = 5; /// An Artist's Registration details at a Rights Organisation: organisation, code. e.g. 'PPL', '12489754'.
-  repeated Url urls = 6; /// Associated urls for an artist.
+  repeated URL urls = 6; /// Associated urls for an artist.
 }

@@ -7,7 +7,7 @@ syntax = "proto3";
 package mscmetadata;
 
 import "genre.proto";
-import "recipent.proto";
+import "recipient.proto";
 import "release.proto";
 import "sender.proto";
 import "uuid.proto";
