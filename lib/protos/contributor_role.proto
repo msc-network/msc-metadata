@@ -15,6 +15,7 @@ import "uuid.proto";
 message ContributorRole {
   UUID uuid = 1; /// UUID
   enum Role {
+    ROLE_UNSPECIFIED = 0;
     ROLE_ARTWORK = 1;
     ROLE_PHOTOGRAPHY = 2;
     ROLE_EXECUTIVE_PRODUCER = 3;
