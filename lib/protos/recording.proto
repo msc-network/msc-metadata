@@ -5,7 +5,7 @@
  */
 
 syntax = "proto3";
-package mscmetadata;
+package mscm;
 
 import "artist.proto";
 import "company.proto";

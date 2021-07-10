@@ -6,7 +6,7 @@
  */
 
 syntax = "proto3";
-package mscmetadata;
+package mscm;
 
 message UUID {
   string value = 1; /// Value of UUID

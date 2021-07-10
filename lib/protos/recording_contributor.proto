@@ -1,0 +1,24 @@
+/**
+ * Recording Identifier Message.
+ *
+*/
+
+syntax = "proto3";
+package mscm;
+
+import "uuid.proto";
+import "recording.proto";
+import "contributor.proto";
+import "contributor_role.proto";
+
+/**
+ * Add a Recording Identifier to a Recording.
+ *
+*/
+
+message RecordingContributor {
+  UUID uuid = 1;
+  Recording recording = 2;
+  Contributor contributor = 3;
+  ContributorRole contributor_role = 4; /// 
+}

@@ -4,7 +4,7 @@
 */
 
 syntax = "proto3";
-package mscmetadata;
+package mscm;
 
 import "uuid.proto";
 
@@ -22,4 +22,6 @@ message File {
   string created_at = 6; /// The createion date of the File.
   string location = 7; /// The URI of the stored File.
   string notes = 8; /// Any additional notes regarding the File.
+  string checksum = 9;
+  string checksum_algo = 10;
 }

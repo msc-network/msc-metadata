@@ -4,7 +4,7 @@
 */
 
 syntax = "proto3";
-package mscmetadata;
+package mscm;
 
 import "uuid.proto";
 
@@ -14,7 +14,7 @@ import "uuid.proto";
 */
 
 message Recipient {
-  UUID uuid = 1;
-  string name = 2;
-  string mscmid = 3;
+  UUID uuid = 1; /// UUID.
+  string name = 2; /// The name of the Recipient.
+  string mscmid = 3; /// A mscmeta ID for this Recipient.
 }

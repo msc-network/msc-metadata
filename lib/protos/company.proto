@@ -3,7 +3,7 @@
  */
 
 syntax = "proto3";
-package mscmetadata;
+package mscm;
 
 import "profile.proto";
 import "uuid.proto";
@@ -16,7 +16,7 @@ import "uuid.proto";
 
 message Company {
   UUID uuid = 1; /// A UUID for the Company record.
-  string tmn_id = 2; /// The Companies assigned ID from The Music Network.
+  string mscm_id = 2; /// The Companies assigned ID from The Music Network - mscmetadata.
   string name = 3; /// The Company name.
   Profile profile = 4; /// 
 }

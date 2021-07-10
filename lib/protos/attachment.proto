@@ -1,0 +1,20 @@
+/**
+ * File Message.
+ *
+*/
+
+syntax = "proto3";
+package mscm;
+
+import "file.proto";
+import "uuid.proto";
+
+/**
+ * Define an attached file.
+ *
+*/
+
+message Attachment {
+  UUID uuid = 1;
+  File file = 2;
+}

@@ -3,7 +3,7 @@
  */
 
 syntax = "proto3";
-package mscmetadata;
+package mscm;
 
 import "profile.proto";
 import "registration.proto";
@@ -12,15 +12,24 @@ import "uuid.proto";
 
 /** 
  *
- * Represents an Artist schema, An Artist can have a role on Releases and Recordings.
+ * Represents an Artist schema, An Artist can have a role on 
+ * Releases and Recordings.
  *
  */
 
 message Artist {
-  UUID uuid = 1; /// Artist uuid
+  UUID uuid = 1; /// UUID.
   int32 sequence = 2; /// The Sequence of the Artist.
   string name = 3; /// The name of the Artist.
   Profile profile = 4; /// A Profile for an Artist.
   repeated Registration registrations = 5; /// An Artist's Registration details at a Rights Organisation: organisation, code. e.g. 'PPL', '12489754'.
   repeated URL urls = 6; /// Associated urls for an artist.
+  string mscm_id = 7; /// A mscmeta ID for the Artist.
+  enum Role {
+    ROLE_MAIN_UNSPECIFIED = 0;
+    ROLE_FEATURED = 1;
+    ROLE_REMIXER = 2;
+    ROLE_DJ = 3;
+  }
+  Role role = 8; /// The Role of the Artist.
 }

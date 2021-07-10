@@ -6,6 +6,21 @@
 - [artist.proto](#artist.proto)
     - [Artist](#mscmetadata.Artist)
   
+    - [Artist.Role](#mscmetadata.Artist.Role)
+  
+  
+  
+
+- [company.proto](#company.proto)
+    - [Company](#mscmetadata.Company)
+  
+  
+  
+  
+
+- [contact_method.proto](#contact_method.proto)
+    - [ContactMethod](#mscmetadata.ContactMethod)
+  
   
   
   
@@ -25,6 +40,13 @@
   
   
 
+- [country.proto](#country.proto)
+    - [Country](#mscmetadata.Country)
+  
+  
+  
+  
+
 - [file.proto](#file.proto)
     - [File](#mscmetadata.File)
   
@@ -34,6 +56,27 @@
 
 - [genre.proto](#genre.proto)
     - [Genre](#mscmetadata.Genre)
+  
+  
+  
+  
+
+- [identifier.proto](#identifier.proto)
+    - [Identifier](#mscmetadata.Identifier)
+  
+  
+  
+  
+
+- [label.proto](#label.proto)
+    - [Label](#mscmetadata.Label)
+  
+  
+  
+  
+
+- [language.proto](#language.proto)
+    - [Language](#mscmetadata.Language)
   
   
   
@@ -68,6 +111,20 @@
   
   
 
+- [recipient.proto](#recipient.proto)
+    - [Recipient](#mscmetadata.Recipient)
+  
+  
+  
+  
+
+- [recording_contributor.proto](#recording_contributor.proto)
+    - [RecordingContributor](#mscmetadata.RecordingContributor)
+  
+  
+  
+  
+
 - [recording_identifier.proto](#recording_identifier.proto)
     - [RecordingIdentifier](#mscmetadata.RecordingIdentifier)
   
@@ -77,8 +134,10 @@
   
 
 - [recording.proto](#recording.proto)
+    - [AdditionalDetails](#mscmetadata.AdditionalDetails)
     - [Recording](#mscmetadata.Recording)
   
+    - [Recording.Status](#mscmetadata.Recording.Status)
   
   
   
@@ -105,6 +164,13 @@
   
   
 
+- [rightsholder.proto](#rightsholder.proto)
+    - [Rightsholder](#mscmetadata.Rightsholder)
+  
+  
+  
+  
+
 - [royalty.proto](#royalty.proto)
     - [Royalty](#mscmetadata.Royalty)
   
@@ -119,6 +185,13 @@
   
   
 
+- [society.proto](#society.proto)
+    - [Society](#mscmetadata.Society)
+  
+  
+  
+  
+
 - [url.proto](#url.proto)
     - [URL](#mscmetadata.URL)
   
@@ -128,6 +201,13 @@
 
 - [uuid.proto](#uuid.proto)
     - [UUID](#mscmetadata.UUID)
+  
+  
+  
+  
+
+- [work.proto](#work.proto)
+    - [Work](#mscmetadata.Work)
   
   
   
@@ -159,12 +239,95 @@
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| uuid | [UUID](#mscmetadata.UUID) |  | Artist uuid |
+| uuid | [UUID](#mscmetadata.UUID) |  | UUID. |
 | sequence | [int32](#int32) |  | The Sequence of the Artist. |
 | name | [string](#string) |  | The name of the Artist. |
-| registrations | [Registration](#mscmetadata.Registration) | repeated | An Artist&#39;s Registration details at a Rights Organisation: organisation, code. e.g. &#39;PPL&#39;, &#39;12489754&#39;. |
 | profile | [Profile](#mscmetadata.Profile) |  | A Profile for an Artist. |
-| urls | [URL](#mscmetadata.URL) | repeated |  |
+| registrations | [Registration](#mscmetadata.Registration) | repeated | An Artist&#39;s Registration details at a Rights Organisation: organisation, code. e.g. &#39;PPL&#39;, &#39;12489754&#39;. |
+| urls | [URL](#mscmetadata.URL) | repeated | Associated urls for an artist. |
+| mscmid | [string](#string) |  | A mscmeta ID for the Artist. |
+| role | [Artist.Role](#mscmetadata.Artist.Role) |  | The Role of the Artist. |
+
+
+
+
+
+ 
+
+
+<a name="mscmetadata.Artist.Role"></a>
+
+### Artist.Role
+
+
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+| MAIN | 0 |  |
+| FEATURED | 1 |  |
+| REMIXER | 2 |  |
+| DJ | 3 |  |
+
+
+ 
+
+ 
+
+ 
+
+
+
+<a name="company.proto"></a>
+<p align="right"><a href="#top">Top</a></p>
+
+## company.proto
+
+
+
+<a name="mscmetadata.Company"></a>
+
+### Company
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| uuid | [UUID](#mscmetadata.UUID) |  | A UUID for the Company record. |
+| tmn_id | [string](#string) |  | The Companies assigned ID from The Music Network. |
+| name | [string](#string) |  | The Company name. |
+| profile | [Profile](#mscmetadata.Profile) |  |  |
+
+
+
+
+
+ 
+
+ 
+
+ 
+
+ 
+
+
+
+<a name="contact_method.proto"></a>
+<p align="right"><a href="#top">Top</a></p>
+
+## contact_method.proto
+
+
+
+<a name="mscmetadata.ContactMethod"></a>
+
+### ContactMethod
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| uuid | [UUID](#mscmetadata.UUID) |  |  |
+| service_name | [string](#string) |  |  |
+| text | [string](#string) |  |  |
 
 
 
@@ -198,6 +361,8 @@
 | uuid | [UUID](#mscmetadata.UUID) |  |  |
 | name | [string](#string) |  | The Contributors Name |
 | profile | [Profile](#mscmetadata.Profile) |  | Contributor Profile |
+| registrations | [Registration](#mscmetadata.Registration) | repeated | A Contributors Registration details at a Rights Organisation: organisation, code. e.g. &#39;PPL&#39;, &#39;12489754&#39;. |
+| urls | [URL](#mscmetadata.URL) | repeated | Any urls associated with A Contributor |
 
 
 
@@ -261,6 +426,41 @@ Contributor Roles Schema.
 
 
 
+<a name="country.proto"></a>
+<p align="right"><a href="#top">Top</a></p>
+
+## country.proto
+
+
+
+<a name="mscmetadata.Country"></a>
+
+### Country
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| uuid | [UUID](#mscmetadata.UUID) |  | Country uuid |
+| name | [string](#string) |  |  |
+| iso_alpha_two | [string](#string) |  |  |
+| iso_alpha_three | [string](#string) |  |  |
+| iso_numeric | [string](#string) |  |  |
+
+
+
+
+
+ 
+
+ 
+
+ 
+
+ 
+
+
+
 <a name="file.proto"></a>
 <p align="right"><a href="#top">Top</a></p>
 
@@ -283,6 +483,7 @@ Contributor Roles Schema.
 | mime_type | [string](#string) |  | The mime type of the File. |
 | created_at | [string](#string) |  | The createion date of the File. |
 | location | [string](#string) |  | The URI of the stored File. |
+| notes | [string](#string) |  | Any additional notes regarding the File. |
 
 
 
@@ -330,6 +531,113 @@ Contributor Roles Schema.
 
 
 
+<a name="identifier.proto"></a>
+<p align="right"><a href="#top">Top</a></p>
+
+## identifier.proto
+
+
+
+<a name="mscmetadata.Identifier"></a>
+
+### Identifier
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| uuid | [UUID](#mscmetadata.UUID) |  |  |
+| name | [string](#string) |  |  |
+| reference | [string](#string) |  |  |
+
+
+
+
+
+ 
+
+ 
+
+ 
+
+ 
+
+
+
+<a name="label.proto"></a>
+<p align="right"><a href="#top">Top</a></p>
+
+## label.proto
+
+
+
+<a name="mscmetadata.Label"></a>
+
+### Label
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| uuid | [UUID](#mscmetadata.UUID) |  | A UUID for the Label record. |
+| tmn_id | [string](#string) |  | The Label&#39;s assigned ID from The Music Network. |
+| name | [string](#string) |  | The Label&#39;s name |
+| profile | [Profile](#mscmetadata.Profile) |  | A Label&#39;s associated profile |
+| urls | [URL](#mscmetadata.URL) | repeated | Associated urls for a label. |
+
+
+
+
+
+ 
+
+ 
+
+ 
+
+ 
+
+
+
+<a name="language.proto"></a>
+<p align="right"><a href="#top">Top</a></p>
+
+## language.proto
+
+
+
+<a name="mscmetadata.Language"></a>
+
+### Language
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| uuid | [UUID](#mscmetadata.UUID) |  |  |
+| family | [string](#string) |  |  |
+| name | [string](#string) |  |  |
+| native_name | [string](#string) |  |  |
+| iso_alpha_two | [string](#string) |  |  |
+| iso_alpha_three | [string](#string) |  |  |
+| english_iso_alpha_three | [string](#string) |  |  |
+| macro_iso_alpha_three | [string](#string) |  |  |
+| notes | [string](#string) |  |  |
+
+
+
+
+
+ 
+
+ 
+
+ 
+
+ 
+
+
+
 <a name="performer.proto"></a>
 <p align="right"><a href="#top">Top</a></p>
 
@@ -345,7 +653,9 @@ Contributor Roles Schema.
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| uuid | [UUID](#mscmetadata.UUID) |  |  |
+| uuid | [UUID](#mscmetadata.UUID) |  | Performer uuid |
+| name | [string](#string) |  | Performer name |
+| registrations | [Registration](#mscmetadata.Registration) | repeated | A Performer&#39;s Registration details at a Rights Organisation: organisation, code. e.g. &#39;PPL&#39;, &#39;12489754&#39;. |
 
 
 
@@ -379,9 +689,13 @@ Contributor Roles Schema.
 | uuid | [UUID](#mscmetadata.UUID) |  |  |
 | release | [Release](#mscmetadata.Release) |  |  |
 | sender | [Sender](#mscmetadata.Sender) |  |  |
-| release_date | [string](#string) |  |  |
-| genres | [Genre](#mscmetadata.Genre) | repeated |  |
+| recipient | [Recipient](#mscmetadata.Recipient) |  |  |
 | product_type | [Product.ProductType](#mscmetadata.Product.ProductType) |  |  |
+| product_release_date_time | [string](#string) |  |  |
+| pre_order | [bool](#bool) |  |  |
+| pre_order_date_time | [string](#string) |  |  |
+| timed | [bool](#bool) |  |  |
+| genres | [Genre](#mscmetadata.Genre) | repeated |  |
 
 
 
@@ -427,6 +741,8 @@ Contributor Roles Schema.
 | uuid | [UUID](#mscmetadata.UUID) |  |  |
 | email | [string](#string) |  | The Profile email. |
 | alternative_email | [string](#string) |  | The Profile alternative email |
+| address | [string](#string) |  | A postal address associated with the Parent |
+| phone_number | [string](#string) |  | A Phone Number asssociated with the Parent |
 | urls | [URL](#mscmetadata.URL) | repeated | Any Associated URLs |
 
 
@@ -458,7 +774,77 @@ Contributor Roles Schema.
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
+| uuid | [UUID](#mscmetadata.UUID) |  | Publisher uuid |
+| name | [string](#string) |  | Publisher Name |
+| registrations | [Registration](#mscmetadata.Registration) | repeated | Associated registrations for Publisher |
+| profile | [Profile](#mscmetadata.Profile) |  | Associated profile for a Publisher |
+
+
+
+
+
+ 
+
+ 
+
+ 
+
+ 
+
+
+
+<a name="recipient.proto"></a>
+<p align="right"><a href="#top">Top</a></p>
+
+## recipient.proto
+
+
+
+<a name="mscmetadata.Recipient"></a>
+
+### Recipient
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| uuid | [UUID](#mscmetadata.UUID) |  | UUID. |
+| name | [string](#string) |  | The name of the Recipient. |
+| mscmid | [string](#string) |  | A mscmeta ID for this Recipient. |
+
+
+
+
+
+ 
+
+ 
+
+ 
+
+ 
+
+
+
+<a name="recording_contributor.proto"></a>
+<p align="right"><a href="#top">Top</a></p>
+
+## recording_contributor.proto
+
+
+
+<a name="mscmetadata.RecordingContributor"></a>
+
+### RecordingContributor
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
 | uuid | [UUID](#mscmetadata.UUID) |  |  |
+| recording | [Recording](#mscmetadata.Recording) |  |  |
+| contributor | [Contributor](#mscmetadata.Contributor) |  |  |
+| contributor_role | [ContributorRole](#mscmetadata.ContributorRole) |  |  |
 
 
 
@@ -491,7 +877,7 @@ Contributor Roles Schema.
 | ----- | ---- | ----- | ----------- |
 | uuid | [UUID](#mscmetadata.UUID) |  |  |
 | type | [RecordingIdentifier.Type](#mscmetadata.RecordingIdentifier.Type) |  | Predefined types for Recording identifier |
-| custom_identifier | [string](#string) |  | If using a Custom ID, add an identifier for it. |
+| custom_identifier | [string](#string) |  | If using a Custom ID, add an identifier for it. e.g. TUNECODE |
 | code | [string](#string) |  | The code of the Recording Identifier |
 
 
@@ -529,6 +915,16 @@ Contributor Roles Schema.
 
 
 
+<a name="mscmetadata.AdditionalDetails"></a>
+
+### AdditionalDetails
+
+
+
+
+
+
+
 <a name="mscmetadata.Recording"></a>
 
 ### Recording
@@ -539,22 +935,78 @@ Contributor Roles Schema.
 | ----- | ---- | ----- | ----------- |
 | uuid | [UUID](#mscmetadata.UUID) |  | A Unique Identifier, it is best to use a Cryptographically sound way to generate these, do not rely on pseudo random human generated strings. |
 | artists | [Artist](#mscmetadata.Artist) | repeated | Artists that are on this Recording. |
+| position | [int32](#int32) |  | The position of the recording if included in a Release configuration. |
 | title | [string](#string) |  | The title of the Recording. |
 | mix_title | [string](#string) |  | A mix title for the Recording. |
 | copyright_year | [int32](#int32) |  | The Copyright Year for the Recording. |
-| explicit | [bool](#bool) |  | Does this Recording have explicit lyrics? |
+| explicit | [bool](#bool) |  | Does the Recording have explicit lyrics? |
+| c_line | [string](#string) |  | The C Line of the Recording. |
+| p_line | [string](#string) |  | The P Line of the Recording. |
 | length | [int32](#int32) |  | The length of the Audio related to this recording. |
-| release_position | [int32](#int32) |  | The position of this Recording on a Release, if related. |
-| registrations | [Registration](#mscmetadata.Registration) | repeated | [&#39;organisation&#39;: &#39;PPL&#39;, &#39;code&#39;: &#39;2398543&#39;] |
-| genres | [Genre](#mscmetadata.Genre) | repeated | Genres of this Recording. |
+| album_only | [bool](#bool) |  | Is the Recording Album Only? |
+| status | [Recording.Status](#mscmetadata.Recording.Status) |  | If relevant you can give a Recording a status. |
+| alternative_title | [string](#string) |  |  |
+| remastered | [bool](#bool) |  |  |
+| recording_venue | [string](#string) |  |  |
+| recording_date | [string](#string) |  |  |
+| sample | [bool](#bool) |  |  |
+| medley | [bool](#bool) |  |  |
+| category | [string](#string) |  |  |
+| ident | [bool](#bool) |  |  |
+| film_tv | [bool](#bool) |  |  |
+| classical | [bool](#bool) |  |  |
+| dramatico | [bool](#bool) |  |  |
+| additional_details | [AdditionalDetails](#mscmetadata.AdditionalDetails) |  |  |
+| country_of_recording | [Country](#mscmetadata.Country) |  |  |
+| country_of_commissioning | [Country](#mscmetadata.Country) |  |  |
+| country_of_first_publication | [Country](#mscmetadata.Country) |  |  |
+| language | [Language](#mscmetadata.Language) |  |  |
+| company | [Company](#mscmetadata.Company) |  |  |
+| instrumentation | [string](#string) |  |  |
+| lyrics | [string](#string) |  |  |
+| tempo | [string](#string) |  |  |
+| sentiment | [string](#string) |  |  |
+| danceability | [string](#string) |  |  |
+| energy | [string](#string) |  |  |
+| loudness | [string](#string) |  |  |
+| musical_key | [string](#string) |  |  |
+| time_signature | [string](#string) |  |  |
+| genres | [Genre](#mscmetadata.Genre) | repeated | repeated Registration registrations = 39; /// [&#39;organisation&#39;: &#39;PPL&#39;, &#39;code&#39;: &#39;2398543&#39;]
+
+/ Genres of this Recording. |
 | contributors | [Contributor](#mscmetadata.Contributor) | repeated | Contributors to the Recording. |
-| recording_identifier | [RecordingIdentifier](#mscmetadata.RecordingIdentifier) | repeated | [&#39;type&#39;: &#39;ISRC&#39;, &#39;code&#39;: &#39;GB4QK000000&#39;] |
+| recording_identifiers | [RecordingIdentifier](#mscmetadata.RecordingIdentifier) | repeated | [&#39;type&#39;: &#39;ISRC&#39;, &#39;code&#39;: &#39;GB4QK000000&#39;] |
+| files | [File](#mscmetadata.File) | repeated | Related Files for this recording e.g. Audio, Individual Artwork, Contract file etc. |
+| writers | [Writer](#mscmetadata.Writer) | repeated |  |
+| performers | [Performer](#mscmetadata.Performer) | repeated |  |
+| publishers | [Publisher](#mscmetadata.Publisher) | repeated |  |
+| rightsholders | [Rightsholder](#mscmetadata.Rightsholder) | repeated |  |
 
 
 
 
 
  
+
+
+<a name="mscmetadata.Recording.Status"></a>
+
+### Recording.Status
+
+
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+| DRAFTED | 0 |  |
+| SUBMITTED | 1 |  |
+| PENDING | 2 |  |
+| APPROVED | 3 |  |
+| ACCEPTED | 4 |  |
+| IMPORTED | 5 |  |
+| DISTRIBUTED | 6 |  |
+| LIVE | 7 |  |
+| REJECTED | 8 |  |
+| DELETED | 9 |  |
+
 
  
 
@@ -674,12 +1126,13 @@ Contributor Roles Schema.
 | artists | [Artist](#mscmetadata.Artist) | repeated | Artists that appear on the Release. |
 | title | [string](#string) |  | The title of the Release. |
 | catalogue_number | [string](#string) |  | The Catalogue Number for the Release. |
-| release_date | [string](#string) |  | The Original Release Date for the Release. |
+| original_release_date | [string](#string) |  | The Original Release Date for the Release. |
 | record_label | [string](#string) |  | TODO: Could change. |
 | identifiers | [ReleaseIdentifier](#mscmetadata.ReleaseIdentifier) | repeated | See Release Identifiers for usage |
 | genre | [string](#string) |  | TODO nested message. |
 | style | [string](#string) |  | TODO nested message. |
-| copyright_year | [int32](#int32) |  | The Year of the Copyright for the Release configuration. |
+| copyright_year | [int32](#int32) |  | The Year of the Copyright (c) for the Release configuration. |
+| phonographic_copyright_year | [int32](#int32) |  | The Year of the Phographic Copyright (p) for the Release configuration. |
 | c_line | [string](#string) |  | The Copyright line for the Release. |
 | p_line | [string](#string) |  | The Phonographic Copyright line for the Release. |
 | biography | [string](#string) |  | A Biography or Liner Notes for the Release. |
@@ -687,6 +1140,39 @@ Contributor Roles Schema.
 | country_of_issue | [string](#string) |  | The 2 Letter ISO for the Country of Issue. |
 | contributors | [Contributor](#mscmetadata.Contributor) | repeated | A list of Contributors to the Release. |
 | recordings | [Recording](#mscmetadata.Recording) | repeated | A list of Recordings that belong to the Release. |
+
+
+
+
+
+ 
+
+ 
+
+ 
+
+ 
+
+
+
+<a name="rightsholder.proto"></a>
+<p align="right"><a href="#top">Top</a></p>
+
+## rightsholder.proto
+
+
+
+<a name="mscmetadata.Rightsholder"></a>
+
+### Rightsholder
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| uuid | [UUID](#mscmetadata.UUID) |  |  |
+| name | [string](#string) |  |  |
+| profile | [Profile](#mscmetadata.Profile) |  |  |
 
 
 
@@ -718,6 +1204,7 @@ Contributor Roles Schema.
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | uuid | [UUID](#mscmetadata.UUID) |  |  |
+| pay_period | [string](#string) |  |  |
 
 
 
@@ -750,7 +1237,38 @@ Contributor Roles Schema.
 | ----- | ---- | ----- | ----------- |
 | uuid | [UUID](#mscmetadata.UUID) |  |  |
 | name | [string](#string) |  |  |
-| sender_uid | [string](#string) |  |  |
+| mscmid | [string](#string) |  |  |
+
+
+
+
+
+ 
+
+ 
+
+ 
+
+ 
+
+
+
+<a name="society.proto"></a>
+<p align="right"><a href="#top">Top</a></p>
+
+## society.proto
+
+
+
+<a name="mscmetadata.Society"></a>
+
+### Society
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| uuid | [UUID](#mscmetadata.UUID) |  |  |
 
 
 
@@ -830,6 +1348,39 @@ Contributor Roles Schema.
 
 
 
+<a name="work.proto"></a>
+<p align="right"><a href="#top">Top</a></p>
+
+## work.proto
+
+
+
+<a name="mscmetadata.Work"></a>
+
+### Work
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| uuid | [UUID](#mscmetadata.UUID) |  |  |
+| title | [string](#string) |  |  |
+| recordings | [Recording](#mscmetadata.Recording) | repeated |  |
+
+
+
+
+
+ 
+
+ 
+
+ 
+
+ 
+
+
+
 <a name="writer.proto"></a>
 <p align="right"><a href="#top">Top</a></p>
 
@@ -846,6 +1397,12 @@ Contributor Roles Schema.
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | uuid | [UUID](#mscmetadata.UUID) |  |  |
+| society | [Society](#mscmetadata.Society) |  |  |
+| name | [string](#string) |  |  |
+| performing_share | [float](#float) |  |  |
+| mechanical_share | [float](#float) |  |  |
+| role | [string](#string) |  |  |
+| membership_number | [string](#string) |  |  |
 
 
 

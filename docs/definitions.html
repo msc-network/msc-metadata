@@ -1,0 +1,3281 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <title>Protocol Documentation</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Ubuntu:400,700,400italic"/>
+    <style>
+      body {
+        width: 60em;
+        margin: 1em auto;
+        color: #222;
+        font-family: "Ubuntu", sans-serif;
+        padding-bottom: 4em;
+      }
+
+      h1 {
+        font-weight: normal;
+        border-bottom: 1px solid #aaa;
+        padding-bottom: 0.5ex;
+      }
+
+      h2 {
+        border-bottom: 1px solid #aaa;
+        padding-bottom: 0.5ex;
+        margin: 1.5em 0;
+      }
+
+      h3 {
+        font-weight: normal;
+        border-bottom: 1px solid #aaa;
+        padding-bottom: 0.5ex;
+      }
+
+      a {
+        text-decoration: none;
+        color: #567e25;
+      }
+
+      table {
+        width: 100%;
+        font-size: 80%;
+        border-collapse: collapse;
+      }
+
+      thead {
+        font-weight: 700;
+        background-color: #dcdcdc;
+      }
+
+      tbody tr:nth-child(even) {
+        background-color: #fbfbfb;
+      }
+
+      td {
+        border: 1px solid #ccc;
+        padding: 0.5ex 2ex;
+      }
+
+      td p {
+        text-indent: 1em;
+        margin: 0;
+      }
+
+      td p:nth-child(1) {
+        text-indent: 0;  
+      }
+
+       
+      .field-table td:nth-child(1) {  
+        width: 10em;
+      }
+      .field-table td:nth-child(2) {  
+        width: 10em;
+      }
+      .field-table td:nth-child(3) {  
+        width: 6em;
+      }
+      .field-table td:nth-child(4) {  
+        width: auto;
+      }
+
+       
+      .extension-table td:nth-child(1) {  
+        width: 10em;
+      }
+      .extension-table td:nth-child(2) {  
+        width: 10em;
+      }
+      .extension-table td:nth-child(3) {  
+        width: 10em;
+      }
+      .extension-table td:nth-child(4) {  
+        width: 5em;
+      }
+      .extension-table td:nth-child(5) {  
+        width: auto;
+      }
+
+       
+      .enum-table td:nth-child(1) {  
+        width: 10em;
+      }
+      .enum-table td:nth-child(2) {  
+        width: 10em;
+      }
+      .enum-table td:nth-child(3) {  
+        width: auto;
+      }
+
+       
+      .scalar-value-types-table tr {
+        height: 3em;
+      }
+
+       
+      #toc-container ul {
+        list-style-type: none;
+        padding-left: 1em;
+        line-height: 180%;
+        margin: 0;
+      }
+      #toc > li > a {
+        font-weight: bold;
+      }
+
+       
+      .file-heading {
+        width: 100%;
+        display: table;
+        border-bottom: 1px solid #aaa;
+        margin: 4em 0 1.5em 0;
+      }
+      .file-heading h2 {
+        border: none;
+        display: table-cell;
+      }
+      .file-heading a {
+        text-align: right;
+        display: table-cell;
+      }
+
+       
+      .badge {
+        width: 1.6em;
+        height: 1.6em;
+        display: inline-block;
+
+        line-height: 1.6em;
+        text-align: center;
+        font-weight: bold;
+        font-size: 60%;
+
+        color: #89ba48;
+        background-color: #dff0c8;
+
+        margin: 0.5ex 1em 0.5ex -1em;
+        border: 1px solid #fbfbfb;
+        border-radius: 1ex;
+      }
+    </style>
+
+    
+    <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+  </head>
+
+  <body>
+
+    <h1 id="title">Protocol Documentation</h1>
+
+    <h2>Table of Contents</h2>
+
+    <div id="toc-container">
+      <ul id="toc">
+        
+          
+          <li>
+            <a href="#artist.proto">artist.proto</a>
+            <ul>
+              
+                <li>
+                  <a href="#mscmetadata.Artist"><span class="badge">M</span>Artist</a>
+                </li>
+              
+              
+                <li>
+                  <a href="#mscmetadata.Artist.Role"><span class="badge">E</span>Artist.Role</a>
+                </li>
+              
+              
+              
+            </ul>
+          </li>
+        
+          
+          <li>
+            <a href="#company.proto">company.proto</a>
+            <ul>
+              
+                <li>
+                  <a href="#mscmetadata.Company"><span class="badge">M</span>Company</a>
+                </li>
+              
+              
+              
+              
+            </ul>
+          </li>
+        
+          
+          <li>
+            <a href="#contact_method.proto">contact_method.proto</a>
+            <ul>
+              
+                <li>
+                  <a href="#mscmetadata.ContactMethod"><span class="badge">M</span>ContactMethod</a>
+                </li>
+              
+              
+              
+              
+            </ul>
+          </li>
+        
+          
+          <li>
+            <a href="#contributor.proto">contributor.proto</a>
+            <ul>
+              
+                <li>
+                  <a href="#mscmetadata.Contributor"><span class="badge">M</span>Contributor</a>
+                </li>
+              
+              
+              
+              
+            </ul>
+          </li>
+        
+          
+          <li>
+            <a href="#contributor_role.proto">contributor_role.proto</a>
+            <ul>
+              
+                <li>
+                  <a href="#mscmetadata.ContributorRole"><span class="badge">M</span>ContributorRole</a>
+                </li>
+              
+              
+                <li>
+                  <a href="#mscmetadata.ContributorRole.Role"><span class="badge">E</span>ContributorRole.Role</a>
+                </li>
+              
+              
+              
+            </ul>
+          </li>
+        
+          
+          <li>
+            <a href="#country.proto">country.proto</a>
+            <ul>
+              
+                <li>
+                  <a href="#mscmetadata.Country"><span class="badge">M</span>Country</a>
+                </li>
+              
+              
+              
+              
+            </ul>
+          </li>
+        
+          
+          <li>
+            <a href="#file.proto">file.proto</a>
+            <ul>
+              
+                <li>
+                  <a href="#mscmetadata.File"><span class="badge">M</span>File</a>
+                </li>
+              
+              
+              
+              
+            </ul>
+          </li>
+        
+          
+          <li>
+            <a href="#genre.proto">genre.proto</a>
+            <ul>
+              
+                <li>
+                  <a href="#mscmetadata.Genre"><span class="badge">M</span>Genre</a>
+                </li>
+              
+              
+              
+              
+            </ul>
+          </li>
+        
+          
+          <li>
+            <a href="#identifier.proto">identifier.proto</a>
+            <ul>
+              
+                <li>
+                  <a href="#mscmetadata.Identifier"><span class="badge">M</span>Identifier</a>
+                </li>
+              
+              
+              
+              
+            </ul>
+          </li>
+        
+          
+          <li>
+            <a href="#label.proto">label.proto</a>
+            <ul>
+              
+                <li>
+                  <a href="#mscmetadata.Label"><span class="badge">M</span>Label</a>
+                </li>
+              
+              
+              
+              
+            </ul>
+          </li>
+        
+          
+          <li>
+            <a href="#language.proto">language.proto</a>
+            <ul>
+              
+                <li>
+                  <a href="#mscmetadata.Language"><span class="badge">M</span>Language</a>
+                </li>
+              
+              
+              
+              
+            </ul>
+          </li>
+        
+          
+          <li>
+            <a href="#performer.proto">performer.proto</a>
+            <ul>
+              
+                <li>
+                  <a href="#mscmetadata.Performer"><span class="badge">M</span>Performer</a>
+                </li>
+              
+              
+              
+              
+            </ul>
+          </li>
+        
+          
+          <li>
+            <a href="#product.proto">product.proto</a>
+            <ul>
+              
+                <li>
+                  <a href="#mscmetadata.Product"><span class="badge">M</span>Product</a>
+                </li>
+              
+              
+                <li>
+                  <a href="#mscmetadata.Product.ProductType"><span class="badge">E</span>Product.ProductType</a>
+                </li>
+              
+              
+              
+            </ul>
+          </li>
+        
+          
+          <li>
+            <a href="#profile.proto">profile.proto</a>
+            <ul>
+              
+                <li>
+                  <a href="#mscmetadata.Profile"><span class="badge">M</span>Profile</a>
+                </li>
+              
+              
+              
+              
+            </ul>
+          </li>
+        
+          
+          <li>
+            <a href="#publisher.proto">publisher.proto</a>
+            <ul>
+              
+                <li>
+                  <a href="#mscmetadata.Publisher"><span class="badge">M</span>Publisher</a>
+                </li>
+              
+              
+              
+              
+            </ul>
+          </li>
+        
+          
+          <li>
+            <a href="#recipient.proto">recipient.proto</a>
+            <ul>
+              
+                <li>
+                  <a href="#mscmetadata.Recipient"><span class="badge">M</span>Recipient</a>
+                </li>
+              
+              
+              
+              
+            </ul>
+          </li>
+        
+          
+          <li>
+            <a href="#recording_contributor.proto">recording_contributor.proto</a>
+            <ul>
+              
+                <li>
+                  <a href="#mscmetadata.RecordingContributor"><span class="badge">M</span>RecordingContributor</a>
+                </li>
+              
+              
+              
+              
+            </ul>
+          </li>
+        
+          
+          <li>
+            <a href="#recording_identifier.proto">recording_identifier.proto</a>
+            <ul>
+              
+                <li>
+                  <a href="#mscmetadata.RecordingIdentifier"><span class="badge">M</span>RecordingIdentifier</a>
+                </li>
+              
+              
+                <li>
+                  <a href="#mscmetadata.RecordingIdentifier.Type"><span class="badge">E</span>RecordingIdentifier.Type</a>
+                </li>
+              
+              
+              
+            </ul>
+          </li>
+        
+          
+          <li>
+            <a href="#recording.proto">recording.proto</a>
+            <ul>
+              
+                <li>
+                  <a href="#mscmetadata.AdditionalDetails"><span class="badge">M</span>AdditionalDetails</a>
+                </li>
+              
+                <li>
+                  <a href="#mscmetadata.Recording"><span class="badge">M</span>Recording</a>
+                </li>
+              
+              
+                <li>
+                  <a href="#mscmetadata.Recording.Status"><span class="badge">E</span>Recording.Status</a>
+                </li>
+              
+              
+              
+            </ul>
+          </li>
+        
+          
+          <li>
+            <a href="#registration.proto">registration.proto</a>
+            <ul>
+              
+                <li>
+                  <a href="#mscmetadata.Registration"><span class="badge">M</span>Registration</a>
+                </li>
+              
+              
+              
+              
+            </ul>
+          </li>
+        
+          
+          <li>
+            <a href="#release_identifier.proto">release_identifier.proto</a>
+            <ul>
+              
+                <li>
+                  <a href="#mscmetadata.ReleaseIdentifier"><span class="badge">M</span>ReleaseIdentifier</a>
+                </li>
+              
+              
+                <li>
+                  <a href="#mscmetadata.ReleaseIdentifier.Type"><span class="badge">E</span>ReleaseIdentifier.Type</a>
+                </li>
+              
+              
+              
+            </ul>
+          </li>
+        
+          
+          <li>
+            <a href="#release.proto">release.proto</a>
+            <ul>
+              
+                <li>
+                  <a href="#mscmetadata.Release"><span class="badge">M</span>Release</a>
+                </li>
+              
+              
+              
+              
+            </ul>
+          </li>
+        
+          
+          <li>
+            <a href="#rightsholder.proto">rightsholder.proto</a>
+            <ul>
+              
+                <li>
+                  <a href="#mscmetadata.Rightsholder"><span class="badge">M</span>Rightsholder</a>
+                </li>
+              
+              
+              
+              
+            </ul>
+          </li>
+        
+          
+          <li>
+            <a href="#royalty.proto">royalty.proto</a>
+            <ul>
+              
+                <li>
+                  <a href="#mscmetadata.Royalty"><span class="badge">M</span>Royalty</a>
+                </li>
+              
+              
+              
+              
+            </ul>
+          </li>
+        
+          
+          <li>
+            <a href="#sender.proto">sender.proto</a>
+            <ul>
+              
+                <li>
+                  <a href="#mscmetadata.Sender"><span class="badge">M</span>Sender</a>
+                </li>
+              
+              
+              
+              
+            </ul>
+          </li>
+        
+          
+          <li>
+            <a href="#society.proto">society.proto</a>
+            <ul>
+              
+                <li>
+                  <a href="#mscmetadata.Society"><span class="badge">M</span>Society</a>
+                </li>
+              
+              
+              
+              
+            </ul>
+          </li>
+        
+          
+          <li>
+            <a href="#url.proto">url.proto</a>
+            <ul>
+              
+                <li>
+                  <a href="#mscmetadata.URL"><span class="badge">M</span>URL</a>
+                </li>
+              
+              
+              
+              
+            </ul>
+          </li>
+        
+          
+          <li>
+            <a href="#uuid.proto">uuid.proto</a>
+            <ul>
+              
+                <li>
+                  <a href="#mscmetadata.UUID"><span class="badge">M</span>UUID</a>
+                </li>
+              
+              
+              
+              
+            </ul>
+          </li>
+        
+          
+          <li>
+            <a href="#work.proto">work.proto</a>
+            <ul>
+              
+                <li>
+                  <a href="#mscmetadata.Work"><span class="badge">M</span>Work</a>
+                </li>
+              
+              
+              
+              
+            </ul>
+          </li>
+        
+          
+          <li>
+            <a href="#writer.proto">writer.proto</a>
+            <ul>
+              
+                <li>
+                  <a href="#mscmetadata.Writer"><span class="badge">M</span>Writer</a>
+                </li>
+              
+              
+              
+              
+            </ul>
+          </li>
+        
+        <li><a href="#scalar-value-types">Scalar Value Types</a></li>
+      </ul>
+    </div>
+
+    
+      
+      <div class="file-heading">
+        <h2 id="artist.proto">artist.proto</h2><a href="#title">Top</a>
+      </div>
+      <p></p>
+
+      
+        <h3 id="mscmetadata.Artist">Artist</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>uuid</td>
+                  <td><a href="#mscmetadata.UUID">UUID</a></td>
+                  <td></td>
+                  <td><p>UUID. </p></td>
+                </tr>
+              
+                <tr>
+                  <td>sequence</td>
+                  <td><a href="#int32">int32</a></td>
+                  <td></td>
+                  <td><p>The Sequence of the Artist. </p></td>
+                </tr>
+              
+                <tr>
+                  <td>name</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>The name of the Artist. </p></td>
+                </tr>
+              
+                <tr>
+                  <td>profile</td>
+                  <td><a href="#mscmetadata.Profile">Profile</a></td>
+                  <td></td>
+                  <td><p>A Profile for an Artist. </p></td>
+                </tr>
+              
+                <tr>
+                  <td>registrations</td>
+                  <td><a href="#mscmetadata.Registration">Registration</a></td>
+                  <td>repeated</td>
+                  <td><p>An Artist&#39;s Registration details at a Rights Organisation: organisation, code. e.g. &#39;PPL&#39;, &#39;12489754&#39;. </p></td>
+                </tr>
+              
+                <tr>
+                  <td>urls</td>
+                  <td><a href="#mscmetadata.URL">URL</a></td>
+                  <td>repeated</td>
+                  <td><p>Associated urls for an artist. </p></td>
+                </tr>
+              
+                <tr>
+                  <td>mscmid</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>A mscmeta ID for the Artist. </p></td>
+                </tr>
+              
+                <tr>
+                  <td>role</td>
+                  <td><a href="#mscmetadata.Artist.Role">Artist.Role</a></td>
+                  <td></td>
+                  <td><p>The Role of the Artist. </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+        
+
+        
+      
+
+      
+        <h3 id="mscmetadata.Artist.Role">Artist.Role</h3>
+        <p></p>
+        <table class="enum-table">
+          <thead>
+            <tr><td>Name</td><td>Number</td><td>Description</td></tr>
+          </thead>
+          <tbody>
+            
+              <tr>
+                <td>MAIN</td>
+                <td>0</td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>FEATURED</td>
+                <td>1</td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>REMIXER</td>
+                <td>2</td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>DJ</td>
+                <td>3</td>
+                <td><p></p></td>
+              </tr>
+            
+          </tbody>
+        </table>
+      
+
+      
+
+      
+    
+      
+      <div class="file-heading">
+        <h2 id="company.proto">company.proto</h2><a href="#title">Top</a>
+      </div>
+      <p></p>
+
+      
+        <h3 id="mscmetadata.Company">Company</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>uuid</td>
+                  <td><a href="#mscmetadata.UUID">UUID</a></td>
+                  <td></td>
+                  <td><p>A UUID for the Company record. </p></td>
+                </tr>
+              
+                <tr>
+                  <td>tmn_id</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>The Companies assigned ID from The Music Network. </p></td>
+                </tr>
+              
+                <tr>
+                  <td>name</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>The Company name. </p></td>
+                </tr>
+              
+                <tr>
+                  <td>profile</td>
+                  <td><a href="#mscmetadata.Profile">Profile</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+        
+
+        
+      
+
+      
+
+      
+
+      
+    
+      
+      <div class="file-heading">
+        <h2 id="contact_method.proto">contact_method.proto</h2><a href="#title">Top</a>
+      </div>
+      <p></p>
+
+      
+        <h3 id="mscmetadata.ContactMethod">ContactMethod</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>uuid</td>
+                  <td><a href="#mscmetadata.UUID">UUID</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>service_name</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>text</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+        
+
+        
+      
+
+      
+
+      
+
+      
+    
+      
+      <div class="file-heading">
+        <h2 id="contributor.proto">contributor.proto</h2><a href="#title">Top</a>
+      </div>
+      <p></p>
+
+      
+        <h3 id="mscmetadata.Contributor">Contributor</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>uuid</td>
+                  <td><a href="#mscmetadata.UUID">UUID</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>name</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>The Contributors Name </p></td>
+                </tr>
+              
+                <tr>
+                  <td>profile</td>
+                  <td><a href="#mscmetadata.Profile">Profile</a></td>
+                  <td></td>
+                  <td><p>Contributor Profile </p></td>
+                </tr>
+              
+                <tr>
+                  <td>registrations</td>
+                  <td><a href="#mscmetadata.Registration">Registration</a></td>
+                  <td>repeated</td>
+                  <td><p>A Contributors Registration details at a Rights Organisation: organisation, code. e.g. &#39;PPL&#39;, &#39;12489754&#39;. </p></td>
+                </tr>
+              
+                <tr>
+                  <td>urls</td>
+                  <td><a href="#mscmetadata.URL">URL</a></td>
+                  <td>repeated</td>
+                  <td><p>Any urls associated with A Contributor </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+        
+
+        
+      
+
+      
+
+      
+
+      
+    
+      
+      <div class="file-heading">
+        <h2 id="contributor_role.proto">contributor_role.proto</h2><a href="#title">Top</a>
+      </div>
+      <p>Contributor Roles Schema.</p>
+
+      
+        <h3 id="mscmetadata.ContributorRole">ContributorRole</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>uuid</td>
+                  <td><a href="#mscmetadata.UUID">UUID</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>role</td>
+                  <td><a href="#mscmetadata.ContributorRole.Role">ContributorRole.Role</a></td>
+                  <td></td>
+                  <td><p>Select a Role for a Contributor </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+        
+
+        
+      
+
+      
+        <h3 id="mscmetadata.ContributorRole.Role">ContributorRole.Role</h3>
+        <p></p>
+        <table class="enum-table">
+          <thead>
+            <tr><td>Name</td><td>Number</td><td>Description</td></tr>
+          </thead>
+          <tbody>
+            
+              <tr>
+                <td>ARTWORK</td>
+                <td>0</td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>PHOTOGRAPHY</td>
+                <td>1</td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>EXECUTIVE_PRODUCER</td>
+                <td>2</td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>OTHER</td>
+                <td>3</td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>WRITTEN_BY</td>
+                <td>4</td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>PUBLISHER</td>
+                <td>5</td>
+                <td><p></p></td>
+              </tr>
+            
+          </tbody>
+        </table>
+      
+
+      
+
+      
+    
+      
+      <div class="file-heading">
+        <h2 id="country.proto">country.proto</h2><a href="#title">Top</a>
+      </div>
+      <p></p>
+
+      
+        <h3 id="mscmetadata.Country">Country</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>uuid</td>
+                  <td><a href="#mscmetadata.UUID">UUID</a></td>
+                  <td></td>
+                  <td><p>Country uuid </p></td>
+                </tr>
+              
+                <tr>
+                  <td>name</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>iso_alpha_two</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>iso_alpha_three</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>iso_numeric</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+        
+
+        
+      
+
+      
+
+      
+
+      
+    
+      
+      <div class="file-heading">
+        <h2 id="file.proto">file.proto</h2><a href="#title">Top</a>
+      </div>
+      <p></p>
+
+      
+        <h3 id="mscmetadata.File">File</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>uuid</td>
+                  <td><a href="#mscmetadata.UUID">UUID</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>name</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>The filename of the File. </p></td>
+                </tr>
+              
+                <tr>
+                  <td>size</td>
+                  <td><a href="#int32">int32</a></td>
+                  <td></td>
+                  <td><p>The size of the File in bytes. </p></td>
+                </tr>
+              
+                <tr>
+                  <td>extension</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>The extension of the File. </p></td>
+                </tr>
+              
+                <tr>
+                  <td>mime_type</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>The mime type of the File. </p></td>
+                </tr>
+              
+                <tr>
+                  <td>created_at</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>The createion date of the File. </p></td>
+                </tr>
+              
+                <tr>
+                  <td>location</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>The URI of the stored File. </p></td>
+                </tr>
+              
+                <tr>
+                  <td>notes</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>Any additional notes regarding the File. </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+        
+
+        
+      
+
+      
+
+      
+
+      
+    
+      
+      <div class="file-heading">
+        <h2 id="genre.proto">genre.proto</h2><a href="#title">Top</a>
+      </div>
+      <p></p>
+
+      
+        <h3 id="mscmetadata.Genre">Genre</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>uuid</td>
+                  <td><a href="#mscmetadata.UUID">UUID</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>name</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+        
+
+        
+      
+
+      
+
+      
+
+      
+    
+      
+      <div class="file-heading">
+        <h2 id="identifier.proto">identifier.proto</h2><a href="#title">Top</a>
+      </div>
+      <p></p>
+
+      
+        <h3 id="mscmetadata.Identifier">Identifier</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>uuid</td>
+                  <td><a href="#mscmetadata.UUID">UUID</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>name</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>reference</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+        
+
+        
+      
+
+      
+
+      
+
+      
+    
+      
+      <div class="file-heading">
+        <h2 id="label.proto">label.proto</h2><a href="#title">Top</a>
+      </div>
+      <p></p>
+
+      
+        <h3 id="mscmetadata.Label">Label</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>uuid</td>
+                  <td><a href="#mscmetadata.UUID">UUID</a></td>
+                  <td></td>
+                  <td><p>A UUID for the Label record. </p></td>
+                </tr>
+              
+                <tr>
+                  <td>tmn_id</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>The Label&#39;s assigned ID from The Music Network. </p></td>
+                </tr>
+              
+                <tr>
+                  <td>name</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>The Label&#39;s name </p></td>
+                </tr>
+              
+                <tr>
+                  <td>profile</td>
+                  <td><a href="#mscmetadata.Profile">Profile</a></td>
+                  <td></td>
+                  <td><p>A Label&#39;s associated profile </p></td>
+                </tr>
+              
+                <tr>
+                  <td>urls</td>
+                  <td><a href="#mscmetadata.URL">URL</a></td>
+                  <td>repeated</td>
+                  <td><p>Associated urls for a label. </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+        
+
+        
+      
+
+      
+
+      
+
+      
+    
+      
+      <div class="file-heading">
+        <h2 id="language.proto">language.proto</h2><a href="#title">Top</a>
+      </div>
+      <p></p>
+
+      
+        <h3 id="mscmetadata.Language">Language</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>uuid</td>
+                  <td><a href="#mscmetadata.UUID">UUID</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>family</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>name</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>native_name</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>iso_alpha_two</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>iso_alpha_three</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>english_iso_alpha_three</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>macro_iso_alpha_three</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>notes</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+        
+
+        
+      
+
+      
+
+      
+
+      
+    
+      
+      <div class="file-heading">
+        <h2 id="performer.proto">performer.proto</h2><a href="#title">Top</a>
+      </div>
+      <p></p>
+
+      
+        <h3 id="mscmetadata.Performer">Performer</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>uuid</td>
+                  <td><a href="#mscmetadata.UUID">UUID</a></td>
+                  <td></td>
+                  <td><p>Performer uuid </p></td>
+                </tr>
+              
+                <tr>
+                  <td>name</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>Performer name </p></td>
+                </tr>
+              
+                <tr>
+                  <td>registrations</td>
+                  <td><a href="#mscmetadata.Registration">Registration</a></td>
+                  <td>repeated</td>
+                  <td><p>A Performer&#39;s Registration details at a Rights Organisation: organisation, code. e.g. &#39;PPL&#39;, &#39;12489754&#39;. </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+        
+
+        
+      
+
+      
+
+      
+
+      
+    
+      
+      <div class="file-heading">
+        <h2 id="product.proto">product.proto</h2><a href="#title">Top</a>
+      </div>
+      <p></p>
+
+      
+        <h3 id="mscmetadata.Product">Product</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>uuid</td>
+                  <td><a href="#mscmetadata.UUID">UUID</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>release</td>
+                  <td><a href="#mscmetadata.Release">Release</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>sender</td>
+                  <td><a href="#mscmetadata.Sender">Sender</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>recipient</td>
+                  <td><a href="#mscmetadata.Recipient">Recipient</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>product_type</td>
+                  <td><a href="#mscmetadata.Product.ProductType">Product.ProductType</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>product_release_date_time</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>pre_order</td>
+                  <td><a href="#bool">bool</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>pre_order_date_time</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>timed</td>
+                  <td><a href="#bool">bool</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>genres</td>
+                  <td><a href="#mscmetadata.Genre">Genre</a></td>
+                  <td>repeated</td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+        
+
+        
+      
+
+      
+        <h3 id="mscmetadata.Product.ProductType">Product.ProductType</h3>
+        <p></p>
+        <table class="enum-table">
+          <thead>
+            <tr><td>Name</td><td>Number</td><td>Description</td></tr>
+          </thead>
+          <tbody>
+            
+              <tr>
+                <td>DIGITAL</td>
+                <td>0</td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>PHYSICAL</td>
+                <td>1</td>
+                <td><p></p></td>
+              </tr>
+            
+          </tbody>
+        </table>
+      
+
+      
+
+      
+    
+      
+      <div class="file-heading">
+        <h2 id="profile.proto">profile.proto</h2><a href="#title">Top</a>
+      </div>
+      <p></p>
+
+      
+        <h3 id="mscmetadata.Profile">Profile</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>uuid</td>
+                  <td><a href="#mscmetadata.UUID">UUID</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>email</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>The Profile email. </p></td>
+                </tr>
+              
+                <tr>
+                  <td>alternative_email</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>The Profile alternative email </p></td>
+                </tr>
+              
+                <tr>
+                  <td>address</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>A postal address associated with the Parent </p></td>
+                </tr>
+              
+                <tr>
+                  <td>phone_number</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>A Phone Number asssociated with the Parent </p></td>
+                </tr>
+              
+                <tr>
+                  <td>urls</td>
+                  <td><a href="#mscmetadata.URL">URL</a></td>
+                  <td>repeated</td>
+                  <td><p>Any Associated URLs </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+        
+
+        
+      
+
+      
+
+      
+
+      
+    
+      
+      <div class="file-heading">
+        <h2 id="publisher.proto">publisher.proto</h2><a href="#title">Top</a>
+      </div>
+      <p></p>
+
+      
+        <h3 id="mscmetadata.Publisher">Publisher</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>uuid</td>
+                  <td><a href="#mscmetadata.UUID">UUID</a></td>
+                  <td></td>
+                  <td><p>Publisher uuid </p></td>
+                </tr>
+              
+                <tr>
+                  <td>name</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>Publisher Name </p></td>
+                </tr>
+              
+                <tr>
+                  <td>registrations</td>
+                  <td><a href="#mscmetadata.Registration">Registration</a></td>
+                  <td>repeated</td>
+                  <td><p>Associated registrations for Publisher </p></td>
+                </tr>
+              
+                <tr>
+                  <td>profile</td>
+                  <td><a href="#mscmetadata.Profile">Profile</a></td>
+                  <td></td>
+                  <td><p>Associated profile for a Publisher </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+        
+
+        
+      
+
+      
+
+      
+
+      
+    
+      
+      <div class="file-heading">
+        <h2 id="recipient.proto">recipient.proto</h2><a href="#title">Top</a>
+      </div>
+      <p></p>
+
+      
+        <h3 id="mscmetadata.Recipient">Recipient</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>uuid</td>
+                  <td><a href="#mscmetadata.UUID">UUID</a></td>
+                  <td></td>
+                  <td><p>UUID. </p></td>
+                </tr>
+              
+                <tr>
+                  <td>name</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>The name of the Recipient. </p></td>
+                </tr>
+              
+                <tr>
+                  <td>mscmid</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>A mscmeta ID for this Recipient. </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+        
+
+        
+      
+
+      
+
+      
+
+      
+    
+      
+      <div class="file-heading">
+        <h2 id="recording_contributor.proto">recording_contributor.proto</h2><a href="#title">Top</a>
+      </div>
+      <p></p>
+
+      
+        <h3 id="mscmetadata.RecordingContributor">RecordingContributor</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>uuid</td>
+                  <td><a href="#mscmetadata.UUID">UUID</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>recording</td>
+                  <td><a href="#mscmetadata.Recording">Recording</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>contributor</td>
+                  <td><a href="#mscmetadata.Contributor">Contributor</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>contributor_role</td>
+                  <td><a href="#mscmetadata.ContributorRole">ContributorRole</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+        
+
+        
+      
+
+      
+
+      
+
+      
+    
+      
+      <div class="file-heading">
+        <h2 id="recording_identifier.proto">recording_identifier.proto</h2><a href="#title">Top</a>
+      </div>
+      <p></p>
+
+      
+        <h3 id="mscmetadata.RecordingIdentifier">RecordingIdentifier</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>uuid</td>
+                  <td><a href="#mscmetadata.UUID">UUID</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>type</td>
+                  <td><a href="#mscmetadata.RecordingIdentifier.Type">RecordingIdentifier.Type</a></td>
+                  <td></td>
+                  <td><p>Predefined types for Recording identifier </p></td>
+                </tr>
+              
+                <tr>
+                  <td>custom_identifier</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>If using a Custom ID, add an identifier for it. e.g. TUNECODE </p></td>
+                </tr>
+              
+                <tr>
+                  <td>code</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>The code of the Recording Identifier </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+        
+
+        
+      
+
+      
+        <h3 id="mscmetadata.RecordingIdentifier.Type">RecordingIdentifier.Type</h3>
+        <p></p>
+        <table class="enum-table">
+          <thead>
+            <tr><td>Name</td><td>Number</td><td>Description</td></tr>
+          </thead>
+          <tbody>
+            
+              <tr>
+                <td>ISRC</td>
+                <td>0</td>
+                <td><p>International Standards Recording Code</p></td>
+              </tr>
+            
+              <tr>
+                <td>ISWC</td>
+                <td>1</td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>ISMN</td>
+                <td>2</td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>CUSTOM</td>
+                <td>3</td>
+                <td><p>A Custom ID for your Recording</p></td>
+              </tr>
+            
+          </tbody>
+        </table>
+      
+
+      
+
+      
+    
+      
+      <div class="file-heading">
+        <h2 id="recording.proto">recording.proto</h2><a href="#title">Top</a>
+      </div>
+      <p></p>
+
+      
+        <h3 id="mscmetadata.AdditionalDetails">AdditionalDetails</h3>
+        <p></p>
+
+        
+
+        
+      
+        <h3 id="mscmetadata.Recording">Recording</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>uuid</td>
+                  <td><a href="#mscmetadata.UUID">UUID</a></td>
+                  <td></td>
+                  <td><p>A Unique Identifier, it is best to use a Cryptographically sound way to generate these, do not rely on pseudo random human generated strings. </p></td>
+                </tr>
+              
+                <tr>
+                  <td>artists</td>
+                  <td><a href="#mscmetadata.Artist">Artist</a></td>
+                  <td>repeated</td>
+                  <td><p>Artists that are on this Recording. </p></td>
+                </tr>
+              
+                <tr>
+                  <td>position</td>
+                  <td><a href="#int32">int32</a></td>
+                  <td></td>
+                  <td><p>The position of the recording if included in a Release configuration. </p></td>
+                </tr>
+              
+                <tr>
+                  <td>title</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>The title of the Recording. </p></td>
+                </tr>
+              
+                <tr>
+                  <td>mix_title</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>A mix title for the Recording. </p></td>
+                </tr>
+              
+                <tr>
+                  <td>copyright_year</td>
+                  <td><a href="#int32">int32</a></td>
+                  <td></td>
+                  <td><p>The Copyright Year for the Recording. </p></td>
+                </tr>
+              
+                <tr>
+                  <td>explicit</td>
+                  <td><a href="#bool">bool</a></td>
+                  <td></td>
+                  <td><p>Does the Recording have explicit lyrics? </p></td>
+                </tr>
+              
+                <tr>
+                  <td>c_line</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>The C Line of the Recording. </p></td>
+                </tr>
+              
+                <tr>
+                  <td>p_line</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>The P Line of the Recording. </p></td>
+                </tr>
+              
+                <tr>
+                  <td>length</td>
+                  <td><a href="#int32">int32</a></td>
+                  <td></td>
+                  <td><p>The length of the Audio related to this recording. </p></td>
+                </tr>
+              
+                <tr>
+                  <td>album_only</td>
+                  <td><a href="#bool">bool</a></td>
+                  <td></td>
+                  <td><p>Is the Recording Album Only? </p></td>
+                </tr>
+              
+                <tr>
+                  <td>status</td>
+                  <td><a href="#mscmetadata.Recording.Status">Recording.Status</a></td>
+                  <td></td>
+                  <td><p>If relevant you can give a Recording a status. </p></td>
+                </tr>
+              
+                <tr>
+                  <td>alternative_title</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>remastered</td>
+                  <td><a href="#bool">bool</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>recording_venue</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>recording_date</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>sample</td>
+                  <td><a href="#bool">bool</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>medley</td>
+                  <td><a href="#bool">bool</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>category</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>ident</td>
+                  <td><a href="#bool">bool</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>film_tv</td>
+                  <td><a href="#bool">bool</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>classical</td>
+                  <td><a href="#bool">bool</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>dramatico</td>
+                  <td><a href="#bool">bool</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>additional_details</td>
+                  <td><a href="#mscmetadata.AdditionalDetails">AdditionalDetails</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>country_of_recording</td>
+                  <td><a href="#mscmetadata.Country">Country</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>country_of_commissioning</td>
+                  <td><a href="#mscmetadata.Country">Country</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>country_of_first_publication</td>
+                  <td><a href="#mscmetadata.Country">Country</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>language</td>
+                  <td><a href="#mscmetadata.Language">Language</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>company</td>
+                  <td><a href="#mscmetadata.Company">Company</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>instrumentation</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>lyrics</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>tempo</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>sentiment</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>danceability</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>energy</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>loudness</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>musical_key</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>time_signature</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>genres</td>
+                  <td><a href="#mscmetadata.Genre">Genre</a></td>
+                  <td>repeated</td>
+                  <td><p>repeated Registration registrations = 39; /// [&#39;organisation&#39;: &#39;PPL&#39;, &#39;code&#39;: &#39;2398543&#39;]
+
+/ Genres of this Recording. </p></td>
+                </tr>
+              
+                <tr>
+                  <td>contributors</td>
+                  <td><a href="#mscmetadata.Contributor">Contributor</a></td>
+                  <td>repeated</td>
+                  <td><p>Contributors to the Recording. </p></td>
+                </tr>
+              
+                <tr>
+                  <td>recording_identifiers</td>
+                  <td><a href="#mscmetadata.RecordingIdentifier">RecordingIdentifier</a></td>
+                  <td>repeated</td>
+                  <td><p>[&#39;type&#39;: &#39;ISRC&#39;, &#39;code&#39;: &#39;GB4QK000000&#39;] </p></td>
+                </tr>
+              
+                <tr>
+                  <td>files</td>
+                  <td><a href="#mscmetadata.File">File</a></td>
+                  <td>repeated</td>
+                  <td><p>Related Files for this recording e.g. Audio, Individual Artwork, Contract file etc. </p></td>
+                </tr>
+              
+                <tr>
+                  <td>writers</td>
+                  <td><a href="#mscmetadata.Writer">Writer</a></td>
+                  <td>repeated</td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>performers</td>
+                  <td><a href="#mscmetadata.Performer">Performer</a></td>
+                  <td>repeated</td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>publishers</td>
+                  <td><a href="#mscmetadata.Publisher">Publisher</a></td>
+                  <td>repeated</td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>rightsholders</td>
+                  <td><a href="#mscmetadata.Rightsholder">Rightsholder</a></td>
+                  <td>repeated</td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+        
+
+        
+      
+
+      
+        <h3 id="mscmetadata.Recording.Status">Recording.Status</h3>
+        <p></p>
+        <table class="enum-table">
+          <thead>
+            <tr><td>Name</td><td>Number</td><td>Description</td></tr>
+          </thead>
+          <tbody>
+            
+              <tr>
+                <td>DRAFTED</td>
+                <td>0</td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>SUBMITTED</td>
+                <td>1</td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>PENDING</td>
+                <td>2</td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>APPROVED</td>
+                <td>3</td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>ACCEPTED</td>
+                <td>4</td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>IMPORTED</td>
+                <td>5</td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>DISTRIBUTED</td>
+                <td>6</td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>LIVE</td>
+                <td>7</td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>REJECTED</td>
+                <td>8</td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>DELETED</td>
+                <td>9</td>
+                <td><p></p></td>
+              </tr>
+            
+          </tbody>
+        </table>
+      
+
+      
+
+      
+    
+      
+      <div class="file-heading">
+        <h2 id="registration.proto">registration.proto</h2><a href="#title">Top</a>
+      </div>
+      <p></p>
+
+      
+        <h3 id="mscmetadata.Registration">Registration</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>uuid</td>
+                  <td><a href="#mscmetadata.UUID">UUID</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>organisation</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>Organisation of the Registration </p></td>
+                </tr>
+              
+                <tr>
+                  <td>code</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>The Identifier or Code of the Registration </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+        
+
+        
+      
+
+      
+
+      
+
+      
+    
+      
+      <div class="file-heading">
+        <h2 id="release_identifier.proto">release_identifier.proto</h2><a href="#title">Top</a>
+      </div>
+      <p></p>
+
+      
+        <h3 id="mscmetadata.ReleaseIdentifier">ReleaseIdentifier</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>uuid</td>
+                  <td><a href="#mscmetadata.UUID">UUID</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>type</td>
+                  <td><a href="#mscmetadata.ReleaseIdentifier.Type">ReleaseIdentifier.Type</a></td>
+                  <td></td>
+                  <td><p>Predefined types for Recording identifier. </p></td>
+                </tr>
+              
+                <tr>
+                  <td>custom_type</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>If using a Custom ID, add an identifier for it. </p></td>
+                </tr>
+              
+                <tr>
+                  <td>code</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>The code of the Recording Identifier. </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+        
+
+        
+      
+
+      
+        <h3 id="mscmetadata.ReleaseIdentifier.Type">ReleaseIdentifier.Type</h3>
+        <p></p>
+        <table class="enum-table">
+          <thead>
+            <tr><td>Name</td><td>Number</td><td>Description</td></tr>
+          </thead>
+          <tbody>
+            
+              <tr>
+                <td>BARCODE</td>
+                <td>0</td>
+                <td><p>A Barcode Identifier for this Release.</p></td>
+              </tr>
+            
+              <tr>
+                <td>EAN13</td>
+                <td>0</td>
+                <td><p>A Barcode Identifier for this Release.</p></td>
+              </tr>
+            
+              <tr>
+                <td>GTIN12</td>
+                <td>0</td>
+                <td><p>A Barcode Identifier for this Release.</p></td>
+              </tr>
+            
+              <tr>
+                <td>GTIN13</td>
+                <td>0</td>
+                <td><p>A Barcode Identifier for this Release.</p></td>
+              </tr>
+            
+              <tr>
+                <td>UPC</td>
+                <td>0</td>
+                <td><p>A Barcode Identifier for this Release.</p></td>
+              </tr>
+            
+              <tr>
+                <td>GRID</td>
+                <td>1</td>
+                <td><p>ISO646</p></td>
+              </tr>
+            
+              <tr>
+                <td>SID</td>
+                <td>2</td>
+                <td><p>Source Identifier Code</p></td>
+              </tr>
+            
+              <tr>
+                <td>CUSTOM</td>
+                <td>3</td>
+                <td><p>Custom Identifier, eg. Discogs ID.</p></td>
+              </tr>
+            
+              <tr>
+                <td>MUSICBRAINZ</td>
+                <td>4</td>
+                <td><p>Musicbrainz Identifier.</p></td>
+              </tr>
+            
+              <tr>
+                <td>MATRIX</td>
+                <td>5</td>
+                <td><p>A matrix is usually found on a vinyl disc in the run-out.</p></td>
+              </tr>
+            
+              <tr>
+                <td>ASIN</td>
+                <td>6</td>
+                <td><p>Amazon Standard Identification Number.</p></td>
+              </tr>
+            
+              <tr>
+                <td>DISCOGS</td>
+                <td>7</td>
+                <td><p>Discogs Release ID</p></td>
+              </tr>
+            
+              <tr>
+                <td>ALLMUSIC</td>
+                <td>8</td>
+                <td><p>Allmusic ID</p></td>
+              </tr>
+            
+          </tbody>
+        </table>
+      
+
+      
+
+      
+    
+      
+      <div class="file-heading">
+        <h2 id="release.proto">release.proto</h2><a href="#title">Top</a>
+      </div>
+      <p></p>
+
+      
+        <h3 id="mscmetadata.Release">Release</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>uuid</td>
+                  <td><a href="#mscmetadata.UUID">UUID</a></td>
+                  <td></td>
+                  <td><p>A Unique Identifier, it is best to use a Cryptographically sound way to generate these, do not rely on pseudo random human generated strings. </p></td>
+                </tr>
+              
+                <tr>
+                  <td>files</td>
+                  <td><a href="#mscmetadata.File">File</a></td>
+                  <td>repeated</td>
+                  <td><p>A list of files related to this Release at a Release level. </p></td>
+                </tr>
+              
+                <tr>
+                  <td>artists</td>
+                  <td><a href="#mscmetadata.Artist">Artist</a></td>
+                  <td>repeated</td>
+                  <td><p>Artists that appear on the Release. </p></td>
+                </tr>
+              
+                <tr>
+                  <td>title</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>The title of the Release. </p></td>
+                </tr>
+              
+                <tr>
+                  <td>catalogue_number</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>The Catalogue Number for the Release. </p></td>
+                </tr>
+              
+                <tr>
+                  <td>original_release_date</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>The Original Release Date for the Release. </p></td>
+                </tr>
+              
+                <tr>
+                  <td>record_label</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>TODO: Could change. </p></td>
+                </tr>
+              
+                <tr>
+                  <td>identifiers</td>
+                  <td><a href="#mscmetadata.ReleaseIdentifier">ReleaseIdentifier</a></td>
+                  <td>repeated</td>
+                  <td><p>See Release Identifiers for usage </p></td>
+                </tr>
+              
+                <tr>
+                  <td>genre</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>TODO nested message. </p></td>
+                </tr>
+              
+                <tr>
+                  <td>style</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>TODO nested message. </p></td>
+                </tr>
+              
+                <tr>
+                  <td>copyright_year</td>
+                  <td><a href="#int32">int32</a></td>
+                  <td></td>
+                  <td><p>The Year of the Copyright (c) for the Release configuration. </p></td>
+                </tr>
+              
+                <tr>
+                  <td>phonographic_copyright_year</td>
+                  <td><a href="#int32">int32</a></td>
+                  <td></td>
+                  <td><p>The Year of the Phographic Copyright (p) for the Release configuration. </p></td>
+                </tr>
+              
+                <tr>
+                  <td>c_line</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>The Copyright line for the Release. </p></td>
+                </tr>
+              
+                <tr>
+                  <td>p_line</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>The Phonographic Copyright line for the Release. </p></td>
+                </tr>
+              
+                <tr>
+                  <td>biography</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>A Biography or Liner Notes for the Release. </p></td>
+                </tr>
+              
+                <tr>
+                  <td>original_format</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>The Original Format of the Release. </p></td>
+                </tr>
+              
+                <tr>
+                  <td>country_of_issue</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>The 2 Letter ISO for the Country of Issue. </p></td>
+                </tr>
+              
+                <tr>
+                  <td>contributors</td>
+                  <td><a href="#mscmetadata.Contributor">Contributor</a></td>
+                  <td>repeated</td>
+                  <td><p>A list of Contributors to the Release. </p></td>
+                </tr>
+              
+                <tr>
+                  <td>recordings</td>
+                  <td><a href="#mscmetadata.Recording">Recording</a></td>
+                  <td>repeated</td>
+                  <td><p>A list of Recordings that belong to the Release. </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+        
+
+        
+      
+
+      
+
+      
+
+      
+    
+      
+      <div class="file-heading">
+        <h2 id="rightsholder.proto">rightsholder.proto</h2><a href="#title">Top</a>
+      </div>
+      <p></p>
+
+      
+        <h3 id="mscmetadata.Rightsholder">Rightsholder</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>uuid</td>
+                  <td><a href="#mscmetadata.UUID">UUID</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>name</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>profile</td>
+                  <td><a href="#mscmetadata.Profile">Profile</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+        
+
+        
+      
+
+      
+
+      
+
+      
+    
+      
+      <div class="file-heading">
+        <h2 id="royalty.proto">royalty.proto</h2><a href="#title">Top</a>
+      </div>
+      <p></p>
+
+      
+        <h3 id="mscmetadata.Royalty">Royalty</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>uuid</td>
+                  <td><a href="#mscmetadata.UUID">UUID</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>pay_period</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+        
+
+        
+      
+
+      
+
+      
+
+      
+    
+      
+      <div class="file-heading">
+        <h2 id="sender.proto">sender.proto</h2><a href="#title">Top</a>
+      </div>
+      <p></p>
+
+      
+        <h3 id="mscmetadata.Sender">Sender</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>uuid</td>
+                  <td><a href="#mscmetadata.UUID">UUID</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>name</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>mscmid</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+        
+
+        
+      
+
+      
+
+      
+
+      
+    
+      
+      <div class="file-heading">
+        <h2 id="society.proto">society.proto</h2><a href="#title">Top</a>
+      </div>
+      <p></p>
+
+      
+        <h3 id="mscmetadata.Society">Society</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>uuid</td>
+                  <td><a href="#mscmetadata.UUID">UUID</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+        
+
+        
+      
+
+      
+
+      
+
+      
+    
+      
+      <div class="file-heading">
+        <h2 id="url.proto">url.proto</h2><a href="#title">Top</a>
+      </div>
+      <p></p>
+
+      
+        <h3 id="mscmetadata.URL">URL</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>uuid</td>
+                  <td><a href="#mscmetadata.UUID">UUID</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>title</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>The Title of the URL. </p></td>
+                </tr>
+              
+                <tr>
+                  <td>link</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>The link of the URL. </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+        
+
+        
+      
+
+      
+
+      
+
+      
+    
+      
+      <div class="file-heading">
+        <h2 id="uuid.proto">uuid.proto</h2><a href="#title">Top</a>
+      </div>
+      <p></p>
+
+      
+        <h3 id="mscmetadata.UUID">UUID</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>value</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>Value of UUID </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+        
+
+        
+      
+
+      
+
+      
+
+      
+    
+      
+      <div class="file-heading">
+        <h2 id="work.proto">work.proto</h2><a href="#title">Top</a>
+      </div>
+      <p></p>
+
+      
+        <h3 id="mscmetadata.Work">Work</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>uuid</td>
+                  <td><a href="#mscmetadata.UUID">UUID</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>title</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>recordings</td>
+                  <td><a href="#mscmetadata.Recording">Recording</a></td>
+                  <td>repeated</td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+        
+
+        
+      
+
+      
+
+      
+
+      
+    
+      
+      <div class="file-heading">
+        <h2 id="writer.proto">writer.proto</h2><a href="#title">Top</a>
+      </div>
+      <p></p>
+
+      
+        <h3 id="mscmetadata.Writer">Writer</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>uuid</td>
+                  <td><a href="#mscmetadata.UUID">UUID</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>society</td>
+                  <td><a href="#mscmetadata.Society">Society</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>name</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>performing_share</td>
+                  <td><a href="#float">float</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>mechanical_share</td>
+                  <td><a href="#float">float</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>role</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>membership_number</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+        
+
+        
+      
+
+      
+
+      
+
+      
+    
+
+    <h2 id="scalar-value-types">Scalar Value Types</h2>
+    <table class="scalar-value-types-table">
+      <thead>
+        <tr><td>.proto Type</td><td>Notes</td><td>C++ Type</td><td>Java Type</td><td>Python Type</td></tr>
+      </thead>
+      <tbody>
+        
+          <tr id="double">
+            <td>double</td>
+            <td></td>
+            <td>double</td>
+            <td>double</td>
+            <td>float</td>
+          </tr>
+        
+          <tr id="float">
+            <td>float</td>
+            <td></td>
+            <td>float</td>
+            <td>float</td>
+            <td>float</td>
+          </tr>
+        
+          <tr id="int32">
+            <td>int32</td>
+            <td>Uses variable-length encoding. Inefficient for encoding negative numbers – if your field is likely to have negative values, use sint32 instead.</td>
+            <td>int32</td>
+            <td>int</td>
+            <td>int</td>
+          </tr>
+        
+          <tr id="int64">
+            <td>int64</td>
+            <td>Uses variable-length encoding. Inefficient for encoding negative numbers – if your field is likely to have negative values, use sint64 instead.</td>
+            <td>int64</td>
+            <td>long</td>
+            <td>int/long</td>
+          </tr>
+        
+          <tr id="uint32">
+            <td>uint32</td>
+            <td>Uses variable-length encoding.</td>
+            <td>uint32</td>
+            <td>int</td>
+            <td>int/long</td>
+          </tr>
+        
+          <tr id="uint64">
+            <td>uint64</td>
+            <td>Uses variable-length encoding.</td>
+            <td>uint64</td>
+            <td>long</td>
+            <td>int/long</td>
+          </tr>
+        
+          <tr id="sint32">
+            <td>sint32</td>
+            <td>Uses variable-length encoding. Signed int value. These more efficiently encode negative numbers than regular int32s.</td>
+            <td>int32</td>
+            <td>int</td>
+            <td>int</td>
+          </tr>
+        
+          <tr id="sint64">
+            <td>sint64</td>
+            <td>Uses variable-length encoding. Signed int value. These more efficiently encode negative numbers than regular int64s.</td>
+            <td>int64</td>
+            <td>long</td>
+            <td>int/long</td>
+          </tr>
+        
+          <tr id="fixed32">
+            <td>fixed32</td>
+            <td>Always four bytes. More efficient than uint32 if values are often greater than 2^28.</td>
+            <td>uint32</td>
+            <td>int</td>
+            <td>int</td>
+          </tr>
+        
+          <tr id="fixed64">
+            <td>fixed64</td>
+            <td>Always eight bytes. More efficient than uint64 if values are often greater than 2^56.</td>
+            <td>uint64</td>
+            <td>long</td>
+            <td>int/long</td>
+          </tr>
+        
+          <tr id="sfixed32">
+            <td>sfixed32</td>
+            <td>Always four bytes.</td>
+            <td>int32</td>
+            <td>int</td>
+            <td>int</td>
+          </tr>
+        
+          <tr id="sfixed64">
+            <td>sfixed64</td>
+            <td>Always eight bytes.</td>
+            <td>int64</td>
+            <td>long</td>
+            <td>int/long</td>
+          </tr>
+        
+          <tr id="bool">
+            <td>bool</td>
+            <td></td>
+            <td>bool</td>
+            <td>boolean</td>
+            <td>boolean</td>
+          </tr>
+        
+          <tr id="string">
+            <td>string</td>
+            <td>A string must always contain UTF-8 encoded or 7-bit ASCII text.</td>
+            <td>string</td>
+            <td>String</td>
+            <td>str/unicode</td>
+          </tr>
+        
+          <tr id="bytes">
+            <td>bytes</td>
+            <td>May contain any arbitrary sequence of bytes.</td>
+            <td>string</td>
+            <td>ByteString</td>
+            <td>str</td>
+          </tr>
+        
+      </tbody>
+    </table>
+  </body>
+</html>
+

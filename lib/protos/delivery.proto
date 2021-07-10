@@ -1,0 +1,23 @@
+/**
+ * Entity message.
+ *
+ */
+
+syntax = "proto3";
+package mscm;
+
+import "attachment.proto";
+import "uuid.proto";
+
+message Delivery {
+  UUID uuid = 1;
+  string delivery_id = 2;
+  Attachment attachments = 3;
+  enum Type {
+    TYPE_RELEASE_UNSPECIFIED = 0;
+    TYPE_RECORDING = 1;
+    TYPE_RINGTONE = 2;
+    TYPE_MOVIE = 3;
+  };
+  Type type = 4;
+}
