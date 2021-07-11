@@ -18,6 +18,13 @@ import "uuid.proto";
  */
 
 message Artist {
+  enum Role {
+    ROLE_UNSPECIFIED = 0;
+    ROLE_MAIN = 1;
+    ROLE_FEATURED = 2;
+    ROLE_REMIXER = 3;
+    ROLE_DJ = 4;
+  }
   UUID uuid = 1; /// UUID.
   int32 sequence = 2; /// The Sequence of the Artist.
   string name = 3; /// The name of the Artist.
@@ -25,11 +32,5 @@ message Artist {
   repeated Registration registrations = 5; /// An Artist's Registration details at a Rights Organisation: organisation, code. e.g. 'PPL', '12489754'.
   repeated URL urls = 6; /// Associated urls for an artist.
   string mscm_id = 7; /// A mscmeta ID for the Artist.
-  enum Role {
-    ROLE_MAIN_UNSPECIFIED = 0;
-    ROLE_FEATURED = 1;
-    ROLE_REMIXER = 2;
-    ROLE_DJ = 3;
-  }
   Role role = 8; /// The Role of the Artist.
 }

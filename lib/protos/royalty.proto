@@ -6,9 +6,34 @@
 syntax = "proto3";
 package mscm;
 
+import "artist.proto";
+import "company.proto";
+import "recording.proto";
+import "release.proto";
 import "uuid.proto";
 
 message Royalty {
+  enum Type {
+    TYPE_UNSPECIFIED = 0;
+    TYPE_SALE = 1;
+    TYPE_REFUND = 2;
+  }
   UUID uuid = 1;
   string pay_period = 2;
+  string sale_date = 3;
+  string retailer = 4;
+  string artist_name = 5;
+  string album_title = 6;
+  string recording_title = 7;
+  string upc = 8;
+  string isrc = 9;
+  string cat_no = 10;
+  Type revenue_type = 10;
+  string revenue_description = 11;
+  int32 quantity = 12;
+  string total_revenue = 13;
+  Artist artist = 24;
+  Company company = 25;
+  Release release = 26;
+  Recording recording = 27;
 }

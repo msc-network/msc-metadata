@@ -14,8 +14,8 @@ import "uuid.proto";
 
 message Product {
   enum ProductType {
-    DIGITAL = 0;
-    PHYSICAL = 1;
+    PRODUCT_TYPE_DIGITAL_UNSPECIFIED = 0;
+    PRODUCT_TYPE_PHYSICAL = 1;
   };
   UUID uuid = 1;
   Release release = 2;

@@ -1,0 +1,20 @@
+/**
+ * ServiceID message.
+ */
+
+syntax = "proto3";
+package mscm;
+
+import "uuid.proto";
+
+/** 
+ *
+ * Represents the ServiceID schema
+ *
+ */
+
+message ServiceID {
+  UUID uuid = 1;
+  string name = 2;
+  string id = 3;
+}

@@ -21,4 +21,5 @@ message Profile {
   string address = 4; /// A postal address associated with the Parent
   string phone_number = 5; /// A Phone Number asssociated with the Parent
   repeated URL urls = 6; /// Any Associated URLs
+  repeated ServiceID service_ids = 7; /// IDs for any Services
 }
