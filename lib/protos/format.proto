@@ -1,0 +1,16 @@
+/**
+ * Entity message.
+ *
+ */
+
+syntax = "proto3";
+package mscm;
+
+message Format {
+  enum Name {
+    NAME_DIGITAL_UNSPECIFIED = 0;
+    NAME_PHYSICAL = 1;
+    NAME_RINGTONE = 2;
+  }
+  Name name = 1;
+}

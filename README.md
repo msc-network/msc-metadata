@@ -17,7 +17,7 @@ Ensure you have protoc-gen-doc installed see <a href="https://github.com/pseudom
 ```shell
 cd lib/protos
 protoc --doc_out=markdown,definitions.md:. *.proto
-mv definitions.md docs
+mv definitions.md ../../docs/definitions.md
 ```
 
 ## Contributing

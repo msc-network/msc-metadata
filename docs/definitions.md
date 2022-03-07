@@ -18,6 +18,14 @@
   
   
 
+- [base_genre.proto](#base_genre.proto)
+    - [BaseGenre](#mscm.BaseGenre)
+  
+    - [BaseGenre.Name](#mscm.BaseGenre.Name)
+  
+  
+  
+
 - [company.proto](#company.proto)
     - [Company](#mscm.Company)
   
@@ -58,6 +66,14 @@
 - [file.proto](#file.proto)
     - [File](#mscm.File)
   
+  
+  
+  
+
+- [format.proto](#format.proto)
+    - [Format](#mscm.Format)
+  
+    - [Format.Name](#mscm.Format.Name)
   
   
   
@@ -168,6 +184,7 @@
 - [release.proto](#release.proto)
     - [Release](#mscm.Release)
   
+    - [Release.Explicit](#mscm.Release.Explicit)
   
   
   
@@ -182,12 +199,20 @@
 - [royalty.proto](#royalty.proto)
     - [Royalty](#mscm.Royalty)
   
+    - [Royalty.Type](#mscm.Royalty.Type)
   
   
   
 
 - [sender.proto](#sender.proto)
     - [Sender](#mscm.Sender)
+  
+  
+  
+  
+
+- [service_id.proto](#service_id.proto)
+    - [ServiceID](#mscm.ServiceID)
   
   
   
@@ -270,10 +295,11 @@
 
 | Name | Number | Description |
 | ---- | ------ | ----------- |
-| ROLE_MAIN_UNSPECIFIED | 0 |  |
-| ROLE_FEATURED | 1 |  |
-| ROLE_REMIXER | 2 |  |
-| ROLE_DJ | 3 |  |
+| ROLE_UNSPECIFIED | 0 |  |
+| ROLE_MAIN | 1 |  |
+| ROLE_FEATURED | 2 |  |
+| ROLE_REMIXER | 3 |  |
+| ROLE_DJ | 4 |  |
 
 
  
@@ -307,6 +333,74 @@
 
 
  
+
+ 
+
+ 
+
+ 
+
+
+
+<a name="base_genre.proto"></a>
+<p align="right"><a href="#top">Top</a></p>
+
+## base_genre.proto
+
+
+
+<a name="mscm.BaseGenre"></a>
+
+### BaseGenre
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| uuid | [UUID](#mscm.UUID) |  |  |
+| name | [BaseGenre.Name](#mscm.BaseGenre.Name) |  |  |
+
+
+
+
+
+ 
+
+
+<a name="mscm.BaseGenre.Name"></a>
+
+### BaseGenre.Name
+
+
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+| NAME_UNSPECIFIED | 0 |  |
+| NAME_ALTERNATIVE | 1 |  |
+| NAME_AUDIO_BOOKS | 2 |  |
+| NAME_BLUES | 3 |  |
+| NAME_CHILDRENS_MUSIC | 4 |  |
+| NAME_CLASSICAL | 5 |  |
+| NAME_COMEDY | 6 |  |
+| NAME_COUNTRY | 7 |  |
+| NAME_DANCE | 8 |  |
+| NAME_ELECTRONIC | 9 |  |
+| NAME_FOLK | 10 |  |
+| NAME_HIPHOP_RAP | 11 |  |
+| NAME_HOLIDAY_MUSIC | 12 |  |
+| NAME_INSPIRATIONAL | 13 |  |
+| NAME_JAZZ | 14 |  |
+| NAME_LATIN | 15 |  |
+| NAME_NEW_AGE | 16 |  |
+| NAME_OPERA | 17 |  |
+| NAME_POP | 18 |  |
+| NAME_RB_SOUL | 19 |  |
+| NAME_REGGAE | 20 |  |
+| NAME_ROCK | 21 |  |
+| NAME_SOUNDTRACK | 22 |  |
+| NAME_SPOKEN_WORD | 23 |  |
+| NAME_VOCAL | 24 |  |
+| NAME_WORLD | 25 |  |
+
 
  
 
@@ -557,6 +651,50 @@ Contributor Roles Schema.
 
 
 
+<a name="format.proto"></a>
+<p align="right"><a href="#top">Top</a></p>
+
+## format.proto
+
+
+
+<a name="mscm.Format"></a>
+
+### Format
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| name | [Format.Name](#mscm.Format.Name) |  |  |
+
+
+
+
+
+ 
+
+
+<a name="mscm.Format.Name"></a>
+
+### Format.Name
+
+
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+| NAME_DIGITAL_UNSPECIFIED | 0 |  |
+| NAME_PHYSICAL | 1 |  |
+| NAME_RINGTONE | 2 |  |
+
+
+ 
+
+ 
+
+ 
+
+
+
 <a name="genre.proto"></a>
 <p align="right"><a href="#top">Top</a></p>
 
@@ -769,8 +907,8 @@ Contributor Roles Schema.
 
 | Name | Number | Description |
 | ---- | ------ | ----------- |
-| DIGITAL | 0 |  |
-| PHYSICAL | 1 |  |
+| PRODUCT_TYPE_DIGITAL_UNSPECIFIED | 0 |  |
+| PRODUCT_TYPE_PHYSICAL | 1 |  |
 
 
  
@@ -802,6 +940,7 @@ Contributor Roles Schema.
 | address | [string](#string) |  | A postal address associated with the Parent |
 | phone_number | [string](#string) |  | A Phone Number asssociated with the Parent |
 | urls | [URL](#mscm.URL) | repeated | Any Associated URLs |
+| service_ids | [ServiceID](#mscm.ServiceID) | repeated | IDs for any Services |
 
 
 
@@ -1182,13 +1321,22 @@ Contributor Roles Schema.
 | uuid | [UUID](#mscm.UUID) |  | A Unique Identifier, it is best to use a Cryptographically sound way to generate these, do not rely on pseudo random human generated strings. |
 | files | [File](#mscm.File) | repeated | A list of files related to this Release at a Release level. |
 | artists | [Artist](#mscm.Artist) | repeated | Artists that appear on the Release. |
+| headline_artist | [string](#string) |  | A String containing the Display Artist(s) of the Release. |
 | title | [string](#string) |  | The title of the Release. |
+| version | [string](#string) |  | A String containing the Version of the Release. |
+| total_volumes | [int32](#int32) |  | The number of Volumes on this Release. |
+| compilation | [bool](#bool) |  | is this release a compilation or not. |
+| format | [Format](#mscm.Format) |  | The Format of the Release. |
+| explicit | [Release.Explicit](#mscm.Release.Explicit) |  |  |
 | catalogue_number | [string](#string) |  | The Catalogue Number for the Release. |
 | original_release_date | [string](#string) |  | The Original Release Date for the Release. |
+| release_date | [string](#string) |  | The Release Date for the Release. |
 | record_label | [string](#string) |  | TODO: Could change. |
 | identifiers | [ReleaseIdentifier](#mscm.ReleaseIdentifier) | repeated | See Release Identifiers for usage |
-| genre | [string](#string) |  | TODO nested message. |
-| style | [string](#string) |  | TODO nested message. |
+| primary_genre | [BaseGenre](#mscm.BaseGenre) |  |  |
+| primary_subgenre | [Genre](#mscm.Genre) |  |  |
+| secondary_genre | [BaseGenre](#mscm.BaseGenre) |  |  |
+| secondary_subgenre | [Genre](#mscm.Genre) |  |  |
 | copyright_year | [int32](#int32) |  | The Year of the Copyright (c) for the Release configuration. |
 | phonographic_copyright_year | [int32](#int32) |  | The Year of the Phographic Copyright (p) for the Release configuration. |
 | c_line | [string](#string) |  | The Copyright line for the Release. |
@@ -1198,12 +1346,29 @@ Contributor Roles Schema.
 | country_of_issue | [string](#string) |  | The 2 Letter ISO for the Country of Issue. |
 | contributors | [Contributor](#mscm.Contributor) | repeated | A list of Contributors to the Release. |
 | recordings | [Recording](#mscm.Recording) | repeated | A list of Recordings that belong to the Release. |
+| recordings_count | [int32](#int32) |  | The Number of Recordings on a Release. |
+| metadata_language | [Language](#mscm.Language) |  | The Metadata Language for this Release. |
+| recording_year | [string](#string) |  |  |
+| recording_location | [string](#string) |  |  |
 
 
 
 
 
  
+
+
+<a name="mscm.Release.Explicit"></a>
+
+### Release.Explicit
+
+
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+| EXPLICIT_NOT_EXPLICIT_UNSPECIFIED | 0 |  |
+| EXPLICIT_EXPLICIT | 1 |  |
+| EXPLICIT_CLEAN | 2 |  |
+
 
  
 
@@ -1263,12 +1428,41 @@ Contributor Roles Schema.
 | ----- | ---- | ----- | ----------- |
 | uuid | [UUID](#mscm.UUID) |  |  |
 | pay_period | [string](#string) |  |  |
+| sale_date | [string](#string) |  |  |
+| retailer | [string](#string) |  |  |
+| artist_name | [string](#string) |  |  |
+| album_title | [string](#string) |  |  |
+| recording_title | [string](#string) |  |  |
+| upc | [string](#string) |  |  |
+| isrc | [string](#string) |  |  |
+| cat_no | [string](#string) |  |  |
+| revenue_type | [Royalty.Type](#mscm.Royalty.Type) |  |  |
+| revenue_description | [string](#string) |  |  |
+| quantity | [int32](#int32) |  |  |
+| total_revenue | [string](#string) |  |  |
+| artist | [Artist](#mscm.Artist) |  |  |
+| company | [Company](#mscm.Company) |  |  |
+| release | [Release](#mscm.Release) |  |  |
+| recording | [Recording](#mscm.Recording) |  |  |
 
 
 
 
 
  
+
+
+<a name="mscm.Royalty.Type"></a>
+
+### Royalty.Type
+
+
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+| TYPE_UNSPECIFIED | 0 |  |
+| TYPE_SALE | 1 |  |
+| TYPE_REFUND | 2 |  |
+
 
  
 
@@ -1296,6 +1490,39 @@ Contributor Roles Schema.
 | uuid | [UUID](#mscm.UUID) |  |  |
 | name | [string](#string) |  |  |
 | mscmid | [string](#string) |  |  |
+
+
+
+
+
+ 
+
+ 
+
+ 
+
+ 
+
+
+
+<a name="service_id.proto"></a>
+<p align="right"><a href="#top">Top</a></p>
+
+## service_id.proto
+
+
+
+<a name="mscm.ServiceID"></a>
+
+### ServiceID
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| uuid | [UUID](#mscm.UUID) |  |  |
+| name | [string](#string) |  |  |
+| id | [string](#string) |  |  |
 
 
 

@@ -5,6 +5,7 @@
 syntax = "proto3";
 package mscm;
 
+import "service_id.proto";
 import "url.proto";
 import "uuid.proto";
 

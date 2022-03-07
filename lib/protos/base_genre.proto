@@ -1,0 +1,42 @@
+/**
+ * Base Genre Message.
+ *
+*/
+
+syntax = "proto3";
+package mscm;
+
+import "uuid.proto";
+
+message BaseGenre {
+  UUID uuid = 1;
+  enum Name {
+    NAME_UNSPECIFIED = 0;
+    NAME_ALTERNATIVE = 1;
+    NAME_AUDIO_BOOKS = 2;
+    NAME_BLUES = 3;
+    NAME_CHILDRENS_MUSIC = 4;
+    NAME_CLASSICAL = 5;
+    NAME_COMEDY = 6;
+    NAME_COUNTRY = 7;
+    NAME_DANCE = 8;
+    NAME_ELECTRONIC = 9;
+    NAME_FOLK = 10;
+    NAME_HIPHOP_RAP = 11;
+    NAME_HOLIDAY_MUSIC = 12;
+    NAME_INSPIRATIONAL = 13;
+    NAME_JAZZ = 14;
+    NAME_LATIN = 15;
+    NAME_NEW_AGE = 16;
+    NAME_OPERA = 17;
+    NAME_POP = 18;
+    NAME_RB_SOUL = 19;
+    NAME_REGGAE = 20;
+    NAME_ROCK = 21;
+    NAME_SOUNDTRACK = 22;
+    NAME_SPOKEN_WORD = 23;
+    NAME_VOCAL = 24;
+    NAME_WORLD = 25;
+  }
+  Name name = 2;
+}

@@ -209,6 +209,25 @@
         
           
           <li>
+            <a href="#base_genre.proto">base_genre.proto</a>
+            <ul>
+              
+                <li>
+                  <a href="#mscm.BaseGenre"><span class="badge">M</span>BaseGenre</a>
+                </li>
+              
+              
+                <li>
+                  <a href="#mscm.BaseGenre.Name"><span class="badge">E</span>BaseGenre.Name</a>
+                </li>
+              
+              
+              
+            </ul>
+          </li>
+        
+          
+          <li>
             <a href="#company.proto">company.proto</a>
             <ul>
               
@@ -299,6 +318,25 @@
                   <a href="#mscm.File"><span class="badge">M</span>File</a>
                 </li>
               
+              
+              
+              
+            </ul>
+          </li>
+        
+          
+          <li>
+            <a href="#format.proto">format.proto</a>
+            <ul>
+              
+                <li>
+                  <a href="#mscm.Format"><span class="badge">M</span>Format</a>
+                </li>
+              
+              
+                <li>
+                  <a href="#mscm.Format.Name"><span class="badge">E</span>Format.Name</a>
+                </li>
               
               
               
@@ -545,6 +583,10 @@
                 </li>
               
               
+                <li>
+                  <a href="#mscm.Release.Explicit"><span class="badge">E</span>Release.Explicit</a>
+                </li>
+              
               
               
             </ul>
@@ -575,6 +617,10 @@
                 </li>
               
               
+                <li>
+                  <a href="#mscm.Royalty.Type"><span class="badge">E</span>Royalty.Type</a>
+                </li>
+              
               
               
             </ul>
@@ -587,6 +633,21 @@
               
                 <li>
                   <a href="#mscm.Sender"><span class="badge">M</span>Sender</a>
+                </li>
+              
+              
+              
+              
+            </ul>
+          </li>
+        
+          
+          <li>
+            <a href="#service_id.proto">service_id.proto</a>
+            <ul>
+              
+                <li>
+                  <a href="#mscm.ServiceID"><span class="badge">M</span>ServiceID</a>
                 </li>
               
               
@@ -765,26 +826,32 @@
           <tbody>
             
               <tr>
-                <td>ROLE_MAIN_UNSPECIFIED</td>
+                <td>ROLE_UNSPECIFIED</td>
                 <td>0</td>
                 <td><p></p></td>
               </tr>
             
               <tr>
-                <td>ROLE_FEATURED</td>
+                <td>ROLE_MAIN</td>
                 <td>1</td>
                 <td><p></p></td>
               </tr>
             
               <tr>
-                <td>ROLE_REMIXER</td>
+                <td>ROLE_FEATURED</td>
                 <td>2</td>
                 <td><p></p></td>
               </tr>
             
               <tr>
-                <td>ROLE_DJ</td>
+                <td>ROLE_REMIXER</td>
                 <td>3</td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>ROLE_DJ</td>
+                <td>4</td>
                 <td><p></p></td>
               </tr>
             
@@ -834,6 +901,217 @@
         
       
 
+      
+
+      
+
+      
+    
+      
+      <div class="file-heading">
+        <h2 id="base_genre.proto">base_genre.proto</h2><a href="#title">Top</a>
+      </div>
+      <p></p>
+
+      
+        <h3 id="mscm.BaseGenre">BaseGenre</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>uuid</td>
+                  <td><a href="#mscm.UUID">UUID</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>name</td>
+                  <td><a href="#mscm.BaseGenre.Name">BaseGenre.Name</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+        
+
+        
+      
+
+      
+        <h3 id="mscm.BaseGenre.Name">BaseGenre.Name</h3>
+        <p></p>
+        <table class="enum-table">
+          <thead>
+            <tr><td>Name</td><td>Number</td><td>Description</td></tr>
+          </thead>
+          <tbody>
+            
+              <tr>
+                <td>NAME_UNSPECIFIED</td>
+                <td>0</td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>NAME_ALTERNATIVE</td>
+                <td>1</td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>NAME_AUDIO_BOOKS</td>
+                <td>2</td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>NAME_BLUES</td>
+                <td>3</td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>NAME_CHILDRENS_MUSIC</td>
+                <td>4</td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>NAME_CLASSICAL</td>
+                <td>5</td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>NAME_COMEDY</td>
+                <td>6</td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>NAME_COUNTRY</td>
+                <td>7</td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>NAME_DANCE</td>
+                <td>8</td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>NAME_ELECTRONIC</td>
+                <td>9</td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>NAME_FOLK</td>
+                <td>10</td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>NAME_HIPHOP_RAP</td>
+                <td>11</td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>NAME_HOLIDAY_MUSIC</td>
+                <td>12</td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>NAME_INSPIRATIONAL</td>
+                <td>13</td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>NAME_JAZZ</td>
+                <td>14</td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>NAME_LATIN</td>
+                <td>15</td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>NAME_NEW_AGE</td>
+                <td>16</td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>NAME_OPERA</td>
+                <td>17</td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>NAME_POP</td>
+                <td>18</td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>NAME_RB_SOUL</td>
+                <td>19</td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>NAME_REGGAE</td>
+                <td>20</td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>NAME_ROCK</td>
+                <td>21</td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>NAME_SOUNDTRACK</td>
+                <td>22</td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>NAME_SPOKEN_WORD</td>
+                <td>23</td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>NAME_VOCAL</td>
+                <td>24</td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>NAME_WORLD</td>
+                <td>25</td>
+                <td><p></p></td>
+              </tr>
+            
+          </tbody>
+        </table>
       
 
       
@@ -1320,6 +1598,72 @@
     
       
       <div class="file-heading">
+        <h2 id="format.proto">format.proto</h2><a href="#title">Top</a>
+      </div>
+      <p></p>
+
+      
+        <h3 id="mscm.Format">Format</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>name</td>
+                  <td><a href="#mscm.Format.Name">Format.Name</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+        
+
+        
+      
+
+      
+        <h3 id="mscm.Format.Name">Format.Name</h3>
+        <p></p>
+        <table class="enum-table">
+          <thead>
+            <tr><td>Name</td><td>Number</td><td>Description</td></tr>
+          </thead>
+          <tbody>
+            
+              <tr>
+                <td>NAME_DIGITAL_UNSPECIFIED</td>
+                <td>0</td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>NAME_PHYSICAL</td>
+                <td>1</td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>NAME_RINGTONE</td>
+                <td>2</td>
+                <td><p></p></td>
+              </tr>
+            
+          </tbody>
+        </table>
+      
+
+      
+
+      
+    
+      
+      <div class="file-heading">
         <h2 id="genre.proto">genre.proto</h2><a href="#title">Top</a>
       </div>
       <p></p>
@@ -1726,13 +2070,13 @@
           <tbody>
             
               <tr>
-                <td>DIGITAL</td>
+                <td>PRODUCT_TYPE_DIGITAL_UNSPECIFIED</td>
                 <td>0</td>
                 <td><p></p></td>
               </tr>
             
               <tr>
-                <td>PHYSICAL</td>
+                <td>PRODUCT_TYPE_PHYSICAL</td>
                 <td>1</td>
                 <td><p></p></td>
               </tr>
@@ -1802,6 +2146,13 @@
                   <td><a href="#mscm.URL">URL</a></td>
                   <td>repeated</td>
                   <td><p>Any Associated URLs </p></td>
+                </tr>
+              
+                <tr>
+                  <td>service_ids</td>
+                  <td><a href="#mscm.ServiceID">ServiceID</a></td>
+                  <td>repeated</td>
+                  <td><p>IDs for any Services </p></td>
                 </tr>
               
             </tbody>
@@ -2746,10 +3097,52 @@
                 </tr>
               
                 <tr>
+                  <td>headline_artist</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>A String containing the Display Artist(s) of the Release. </p></td>
+                </tr>
+              
+                <tr>
                   <td>title</td>
                   <td><a href="#string">string</a></td>
                   <td></td>
                   <td><p>The title of the Release. </p></td>
+                </tr>
+              
+                <tr>
+                  <td>version</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>A String containing the Version of the Release. </p></td>
+                </tr>
+              
+                <tr>
+                  <td>total_volumes</td>
+                  <td><a href="#int32">int32</a></td>
+                  <td></td>
+                  <td><p>The number of Volumes on this Release. </p></td>
+                </tr>
+              
+                <tr>
+                  <td>compilation</td>
+                  <td><a href="#bool">bool</a></td>
+                  <td></td>
+                  <td><p>is this release a compilation or not. </p></td>
+                </tr>
+              
+                <tr>
+                  <td>format</td>
+                  <td><a href="#mscm.Format">Format</a></td>
+                  <td></td>
+                  <td><p>The Format of the Release. </p></td>
+                </tr>
+              
+                <tr>
+                  <td>explicit</td>
+                  <td><a href="#mscm.Release.Explicit">Release.Explicit</a></td>
+                  <td></td>
+                  <td><p> </p></td>
                 </tr>
               
                 <tr>
@@ -2767,6 +3160,13 @@
                 </tr>
               
                 <tr>
+                  <td>release_date</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>The Release Date for the Release. </p></td>
+                </tr>
+              
+                <tr>
                   <td>record_label</td>
                   <td><a href="#string">string</a></td>
                   <td></td>
@@ -2781,17 +3181,31 @@
                 </tr>
               
                 <tr>
-                  <td>genre</td>
-                  <td><a href="#string">string</a></td>
+                  <td>primary_genre</td>
+                  <td><a href="#mscm.BaseGenre">BaseGenre</a></td>
                   <td></td>
-                  <td><p>TODO nested message. </p></td>
+                  <td><p> </p></td>
                 </tr>
               
                 <tr>
-                  <td>style</td>
-                  <td><a href="#string">string</a></td>
+                  <td>primary_subgenre</td>
+                  <td><a href="#mscm.Genre">Genre</a></td>
                   <td></td>
-                  <td><p>TODO nested message. </p></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>secondary_genre</td>
+                  <td><a href="#mscm.BaseGenre">BaseGenre</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>secondary_subgenre</td>
+                  <td><a href="#mscm.Genre">Genre</a></td>
+                  <td></td>
+                  <td><p> </p></td>
                 </tr>
               
                 <tr>
@@ -2857,6 +3271,34 @@
                   <td><p>A list of Recordings that belong to the Release. </p></td>
                 </tr>
               
+                <tr>
+                  <td>recordings_count</td>
+                  <td><a href="#int32">int32</a></td>
+                  <td></td>
+                  <td><p>The Number of Recordings on a Release. </p></td>
+                </tr>
+              
+                <tr>
+                  <td>metadata_language</td>
+                  <td><a href="#mscm.Language">Language</a></td>
+                  <td></td>
+                  <td><p>The Metadata Language for this Release. </p></td>
+                </tr>
+              
+                <tr>
+                  <td>recording_year</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>recording_location</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
             </tbody>
           </table>
         
@@ -2864,6 +3306,35 @@
         
       
 
+      
+        <h3 id="mscm.Release.Explicit">Release.Explicit</h3>
+        <p></p>
+        <table class="enum-table">
+          <thead>
+            <tr><td>Name</td><td>Number</td><td>Description</td></tr>
+          </thead>
+          <tbody>
+            
+              <tr>
+                <td>EXPLICIT_NOT_EXPLICIT_UNSPECIFIED</td>
+                <td>0</td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>EXPLICIT_EXPLICIT</td>
+                <td>1</td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>EXPLICIT_CLEAN</td>
+                <td>2</td>
+                <td><p></p></td>
+              </tr>
+            
+          </tbody>
+        </table>
       
 
       
@@ -2952,6 +3423,118 @@
                   <td><p> </p></td>
                 </tr>
               
+                <tr>
+                  <td>sale_date</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>retailer</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>artist_name</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>album_title</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>recording_title</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>upc</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>isrc</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>cat_no</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>revenue_type</td>
+                  <td><a href="#mscm.Royalty.Type">Royalty.Type</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>revenue_description</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>quantity</td>
+                  <td><a href="#int32">int32</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>total_revenue</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>artist</td>
+                  <td><a href="#mscm.Artist">Artist</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>company</td>
+                  <td><a href="#mscm.Company">Company</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>release</td>
+                  <td><a href="#mscm.Release">Release</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>recording</td>
+                  <td><a href="#mscm.Recording">Recording</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
             </tbody>
           </table>
         
@@ -2959,6 +3542,35 @@
         
       
 
+      
+        <h3 id="mscm.Royalty.Type">Royalty.Type</h3>
+        <p></p>
+        <table class="enum-table">
+          <thead>
+            <tr><td>Name</td><td>Number</td><td>Description</td></tr>
+          </thead>
+          <tbody>
+            
+              <tr>
+                <td>TYPE_UNSPECIFIED</td>
+                <td>0</td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>TYPE_SALE</td>
+                <td>1</td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>TYPE_REFUND</td>
+                <td>2</td>
+                <td><p></p></td>
+              </tr>
+            
+          </tbody>
+        </table>
       
 
       
@@ -2998,6 +3610,57 @@
               
                 <tr>
                   <td>mscmid</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+        
+
+        
+      
+
+      
+
+      
+
+      
+    
+      
+      <div class="file-heading">
+        <h2 id="service_id.proto">service_id.proto</h2><a href="#title">Top</a>
+      </div>
+      <p></p>
+
+      
+        <h3 id="mscm.ServiceID">ServiceID</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>uuid</td>
+                  <td><a href="#mscm.UUID">UUID</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>name</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>id</td>
                   <td><a href="#string">string</a></td>
                   <td></td>
                   <td><p> </p></td>
