@@ -7,15 +7,15 @@ require 'profile_pb'
 require 'uuid_pb'
 Google::Protobuf::DescriptorPool.generated_pool.build do
   add_file("company.proto", :syntax => :proto3) do
-    add_message "mscmetadata.Company" do
-      optional :uuid, :message, 1, "mscmetadata.UUID"
-      optional :tmn_id, :string, 2
+    add_message "mscm.Company" do
+      optional :uuid, :message, 1, "mscm.UUID"
+      optional :mscm_id, :string, 2
       optional :name, :string, 3
-      optional :profile, :message, 4, "mscmetadata.Profile"
+      optional :profile, :message, 4, "mscm.Profile"
     end
   end
 end
 
-module Mscmetadata
-  Company = ::Google::Protobuf::DescriptorPool.generated_pool.lookup("mscmetadata.Company").msgclass
+module Mscm
+  Company = ::Google::Protobuf::DescriptorPool.generated_pool.lookup("mscm.Company").msgclass
 end

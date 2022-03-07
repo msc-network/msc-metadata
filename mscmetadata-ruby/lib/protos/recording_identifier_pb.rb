@@ -6,13 +6,13 @@ require 'google/protobuf'
 require 'uuid_pb'
 Google::Protobuf::DescriptorPool.generated_pool.build do
   add_file("recording_identifier.proto", :syntax => :proto3) do
-    add_message "mscmetadata.RecordingIdentifier" do
-      optional :uuid, :message, 1, "mscmetadata.UUID"
-      optional :type, :enum, 2, "mscmetadata.RecordingIdentifier.Type"
+    add_message "mscm.RecordingIdentifier" do
+      optional :uuid, :message, 1, "mscm.UUID"
+      optional :type, :enum, 2, "mscm.RecordingIdentifier.Type"
       optional :custom_identifier, :string, 3
       optional :code, :string, 4
     end
-    add_enum "mscmetadata.RecordingIdentifier.Type" do
+    add_enum "mscm.RecordingIdentifier.Type" do
       value :ISRC, 0
       value :ISWC, 1
       value :ISMN, 2
@@ -21,7 +21,7 @@ Google::Protobuf::DescriptorPool.generated_pool.build do
   end
 end
 
-module Mscmetadata
-  RecordingIdentifier = ::Google::Protobuf::DescriptorPool.generated_pool.lookup("mscmetadata.RecordingIdentifier").msgclass
-  RecordingIdentifier::Type = ::Google::Protobuf::DescriptorPool.generated_pool.lookup("mscmetadata.RecordingIdentifier.Type").enummodule
+module Mscm
+  RecordingIdentifier = ::Google::Protobuf::DescriptorPool.generated_pool.lookup("mscm.RecordingIdentifier").msgclass
+  RecordingIdentifier::Type = ::Google::Protobuf::DescriptorPool.generated_pool.lookup("mscm.RecordingIdentifier.Type").enummodule
 end

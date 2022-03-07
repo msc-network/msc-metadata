@@ -7,14 +7,14 @@ require 'profile_pb'
 require 'uuid_pb'
 Google::Protobuf::DescriptorPool.generated_pool.build do
   add_file("rightsholder.proto", :syntax => :proto3) do
-    add_message "mscmetadata.Rightsholder" do
-      optional :uuid, :message, 1, "mscmetadata.UUID"
+    add_message "mscm.Rightsholder" do
+      optional :uuid, :message, 1, "mscm.UUID"
       optional :name, :string, 2
-      optional :profile, :message, 3, "mscmetadata.Profile"
+      optional :profile, :message, 3, "mscm.Profile"
     end
   end
 end
 
-module Mscmetadata
-  Rightsholder = ::Google::Protobuf::DescriptorPool.generated_pool.lookup("mscmetadata.Rightsholder").msgclass
+module Mscm
+  Rightsholder = ::Google::Protobuf::DescriptorPool.generated_pool.lookup("mscm.Rightsholder").msgclass
 end

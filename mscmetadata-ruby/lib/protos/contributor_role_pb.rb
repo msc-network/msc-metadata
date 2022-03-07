@@ -6,22 +6,23 @@ require 'google/protobuf'
 require 'uuid_pb'
 Google::Protobuf::DescriptorPool.generated_pool.build do
   add_file("contributor_role.proto", :syntax => :proto3) do
-    add_message "mscmetadata.ContributorRole" do
-      optional :uuid, :message, 1, "mscmetadata.UUID"
-      optional :role, :enum, 2, "mscmetadata.ContributorRole.Role"
+    add_message "mscm.ContributorRole" do
+      optional :uuid, :message, 1, "mscm.UUID"
+      optional :role, :enum, 2, "mscm.ContributorRole.Role"
     end
-    add_enum "mscmetadata.ContributorRole.Role" do
-      value :ARTWORK, 0
-      value :PHOTOGRAPHY, 1
-      value :EXECUTIVE_PRODUCER, 2
-      value :OTHER, 3
-      value :WRITTEN_BY, 4
-      value :PUBLISHER, 5
+    add_enum "mscm.ContributorRole.Role" do
+      value :ROLE_UNSPECIFIED, 0
+      value :ROLE_ARTWORK, 1
+      value :ROLE_PHOTOGRAPHY, 2
+      value :ROLE_EXECUTIVE_PRODUCER, 3
+      value :ROLE_OTHER, 4
+      value :ROLE_WRITTEN_BY, 5
+      value :ROLE_PUBLISHER, 6
     end
   end
 end
 
-module Mscmetadata
-  ContributorRole = ::Google::Protobuf::DescriptorPool.generated_pool.lookup("mscmetadata.ContributorRole").msgclass
-  ContributorRole::Role = ::Google::Protobuf::DescriptorPool.generated_pool.lookup("mscmetadata.ContributorRole.Role").enummodule
+module Mscm
+  ContributorRole = ::Google::Protobuf::DescriptorPool.generated_pool.lookup("mscm.ContributorRole").msgclass
+  ContributorRole::Role = ::Google::Protobuf::DescriptorPool.generated_pool.lookup("mscm.ContributorRole.Role").enummodule
 end

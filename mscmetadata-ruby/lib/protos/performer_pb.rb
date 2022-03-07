@@ -3,15 +3,18 @@
 
 require 'google/protobuf'
 
+require 'registration_pb'
 require 'uuid_pb'
 Google::Protobuf::DescriptorPool.generated_pool.build do
   add_file("performer.proto", :syntax => :proto3) do
-    add_message "mscmetadata.Performer" do
-      optional :uuid, :message, 1, "mscmetadata.UUID"
+    add_message "mscm.Performer" do
+      optional :uuid, :message, 1, "mscm.UUID"
+      optional :name, :string, 2
+      repeated :registrations, :message, 3, "mscm.Registration"
     end
   end
 end
 
-module Mscmetadata
-  Performer = ::Google::Protobuf::DescriptorPool.generated_pool.lookup("mscmetadata.Performer").msgclass
+module Mscm
+  Performer = ::Google::Protobuf::DescriptorPool.generated_pool.lookup("mscm.Performer").msgclass
 end

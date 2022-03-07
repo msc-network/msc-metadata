@@ -6,12 +6,12 @@ require 'google/protobuf'
 require 'uuid_pb'
 Google::Protobuf::DescriptorPool.generated_pool.build do
   add_file("society.proto", :syntax => :proto3) do
-    add_message "mscmetadata.Society" do
-      optional :uuid, :message, 1, "mscmetadata.UUID"
+    add_message "mscm.Society" do
+      optional :uuid, :message, 1, "mscm.UUID"
     end
   end
 end
 
-module Mscmetadata
-  Society = ::Google::Protobuf::DescriptorPool.generated_pool.lookup("mscmetadata.Society").msgclass
+module Mscm
+  Society = ::Google::Protobuf::DescriptorPool.generated_pool.lookup("mscm.Society").msgclass
 end

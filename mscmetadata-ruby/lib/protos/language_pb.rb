@@ -6,8 +6,8 @@ require 'google/protobuf'
 require 'uuid_pb'
 Google::Protobuf::DescriptorPool.generated_pool.build do
   add_file("language.proto", :syntax => :proto3) do
-    add_message "mscmetadata.Language" do
-      optional :uuid, :message, 1, "mscmetadata.UUID"
+    add_message "mscm.Language" do
+      optional :uuid, :message, 1, "mscm.UUID"
       optional :family, :string, 2
       optional :name, :string, 3
       optional :native_name, :string, 4
@@ -20,6 +20,6 @@ Google::Protobuf::DescriptorPool.generated_pool.build do
   end
 end
 
-module Mscmetadata
-  Language = ::Google::Protobuf::DescriptorPool.generated_pool.lookup("mscmetadata.Language").msgclass
+module Mscm
+  Language = ::Google::Protobuf::DescriptorPool.generated_pool.lookup("mscm.Language").msgclass
 end

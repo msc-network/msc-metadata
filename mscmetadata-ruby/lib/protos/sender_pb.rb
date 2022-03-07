@@ -6,14 +6,14 @@ require 'google/protobuf'
 require 'uuid_pb'
 Google::Protobuf::DescriptorPool.generated_pool.build do
   add_file("sender.proto", :syntax => :proto3) do
-    add_message "mscmetadata.Sender" do
-      optional :uuid, :message, 1, "mscmetadata.UUID"
+    add_message "mscm.Sender" do
+      optional :uuid, :message, 1, "mscm.UUID"
       optional :name, :string, 2
-      optional :sender_uid, :string, 3
+      optional :mscmid, :string, 3
     end
   end
 end
 
-module Mscmetadata
-  Sender = ::Google::Protobuf::DescriptorPool.generated_pool.lookup("mscmetadata.Sender").msgclass
+module Mscm
+  Sender = ::Google::Protobuf::DescriptorPool.generated_pool.lookup("mscm.Sender").msgclass
 end

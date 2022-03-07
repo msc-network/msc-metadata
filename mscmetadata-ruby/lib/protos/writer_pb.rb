@@ -7,9 +7,9 @@ require 'society_pb'
 require 'uuid_pb'
 Google::Protobuf::DescriptorPool.generated_pool.build do
   add_file("writer.proto", :syntax => :proto3) do
-    add_message "mscmetadata.Writer" do
-      optional :uuid, :message, 1, "mscmetadata.UUID"
-      optional :society, :message, 2, "mscmetadata.Society"
+    add_message "mscm.Writer" do
+      optional :uuid, :message, 1, "mscm.UUID"
+      optional :society, :message, 2, "mscm.Society"
       optional :name, :string, 3
       optional :performing_share, :float, 4
       optional :mechanical_share, :float, 5
@@ -19,6 +19,6 @@ Google::Protobuf::DescriptorPool.generated_pool.build do
   end
 end
 
-module Mscmetadata
-  Writer = ::Google::Protobuf::DescriptorPool.generated_pool.lookup("mscmetadata.Writer").msgclass
+module Mscm
+  Writer = ::Google::Protobuf::DescriptorPool.generated_pool.lookup("mscm.Writer").msgclass
 end

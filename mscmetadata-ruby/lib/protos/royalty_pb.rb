@@ -3,16 +3,42 @@
 
 require 'google/protobuf'
 
+require 'artist_pb'
+require 'company_pb'
+require 'recording_pb'
+require 'release_pb'
 require 'uuid_pb'
 Google::Protobuf::DescriptorPool.generated_pool.build do
   add_file("royalty.proto", :syntax => :proto3) do
-    add_message "mscmetadata.Royalty" do
-      optional :uuid, :message, 1, "mscmetadata.UUID"
+    add_message "mscm.Royalty" do
+      optional :uuid, :message, 1, "mscm.UUID"
       optional :pay_period, :string, 2
+      optional :sale_date, :string, 3
+      optional :retailer, :string, 4
+      optional :artist_name, :string, 5
+      optional :album_title, :string, 6
+      optional :recording_title, :string, 7
+      optional :upc, :string, 8
+      optional :isrc, :string, 9
+      optional :cat_no, :string, 10
+      optional :revenue_type, :enum, 11, "mscm.Royalty.Type"
+      optional :revenue_description, :string, 12
+      optional :quantity, :int32, 13
+      optional :total_revenue, :string, 14
+      optional :artist, :message, 15, "mscm.Artist"
+      optional :company, :message, 16, "mscm.Company"
+      optional :release, :message, 17, "mscm.Release"
+      optional :recording, :message, 18, "mscm.Recording"
+    end
+    add_enum "mscm.Royalty.Type" do
+      value :TYPE_UNSPECIFIED, 0
+      value :TYPE_SALE, 1
+      value :TYPE_REFUND, 2
     end
   end
 end
 
-module Mscmetadata
-  Royalty = ::Google::Protobuf::DescriptorPool.generated_pool.lookup("mscmetadata.Royalty").msgclass
+module Mscm
+  Royalty = ::Google::Protobuf::DescriptorPool.generated_pool.lookup("mscm.Royalty").msgclass
+  Royalty::Type = ::Google::Protobuf::DescriptorPool.generated_pool.lookup("mscm.Royalty.Type").enummodule
 end

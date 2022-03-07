@@ -18,9 +18,9 @@ require 'uuid_pb'
 require 'writer_pb'
 Google::Protobuf::DescriptorPool.generated_pool.build do
   add_file("recording.proto", :syntax => :proto3) do
-    add_message "mscmetadata.Recording" do
-      optional :uuid, :message, 1, "mscmetadata.UUID"
-      repeated :artists, :message, 2, "mscmetadata.Artist"
+    add_message "mscm.Recording" do
+      optional :uuid, :message, 1, "mscm.UUID"
+      repeated :artists, :message, 2, "mscm.Artist"
       optional :position, :int32, 3
       optional :title, :string, 4
       optional :mix_title, :string, 5
@@ -30,7 +30,7 @@ Google::Protobuf::DescriptorPool.generated_pool.build do
       optional :p_line, :string, 9
       optional :length, :int32, 10
       optional :album_only, :bool, 11
-      optional :status, :enum, 12, "mscmetadata.Recording.Status"
+      optional :status, :enum, 12, "mscm.Recording.Status"
       optional :alternative_title, :string, 13
       optional :remastered, :bool, 14
       optional :recording_venue, :string, 15
@@ -42,12 +42,12 @@ Google::Protobuf::DescriptorPool.generated_pool.build do
       optional :film_tv, :bool, 21
       optional :classical, :bool, 22
       optional :dramatico, :bool, 23
-      optional :additional_details, :message, 24, "mscmetadata.AdditionalDetails"
-      optional :country_of_recording, :message, 25, "mscmetadata.Country"
-      optional :country_of_commissioning, :message, 26, "mscmetadata.Country"
-      optional :country_of_first_publication, :message, 27, "mscmetadata.Country"
-      optional :language, :message, 28, "mscmetadata.Language"
-      optional :company, :message, 29, "mscmetadata.Company"
+      optional :additional_details, :message, 24, "mscm.AdditionalDetails"
+      optional :country_of_recording, :message, 25, "mscm.Country"
+      optional :country_of_commissioning, :message, 26, "mscm.Country"
+      optional :country_of_first_publication, :message, 27, "mscm.Country"
+      optional :language, :message, 28, "mscm.Language"
+      optional :company, :message, 29, "mscm.Company"
       optional :instrumentation, :string, 30
       optional :lyrics, :string, 31
       optional :tempo, :string, 32
@@ -57,16 +57,16 @@ Google::Protobuf::DescriptorPool.generated_pool.build do
       optional :loudness, :string, 36
       optional :musical_key, :string, 37
       optional :time_signature, :string, 38
-      repeated :genres, :message, 40, "mscmetadata.Genre"
-      repeated :contributors, :message, 41, "mscmetadata.Contributor"
-      repeated :recording_identifiers, :message, 42, "mscmetadata.RecordingIdentifier"
-      repeated :files, :message, 43, "mscmetadata.File"
-      repeated :writers, :message, 44, "mscmetadata.Writer"
-      repeated :performers, :message, 45, "mscmetadata.Performer"
-      repeated :publishers, :message, 46, "mscmetadata.Publisher"
-      repeated :rightsholders, :message, 47, "mscmetadata.Rightsholder"
+      repeated :genres, :message, 40, "mscm.Genre"
+      repeated :contributors, :message, 41, "mscm.Contributor"
+      repeated :recording_identifiers, :message, 42, "mscm.RecordingIdentifier"
+      repeated :files, :message, 43, "mscm.File"
+      repeated :writers, :message, 44, "mscm.Writer"
+      repeated :performers, :message, 45, "mscm.Performer"
+      repeated :publishers, :message, 46, "mscm.Publisher"
+      repeated :rightsholders, :message, 47, "mscm.Rightsholder"
     end
-    add_enum "mscmetadata.Recording.Status" do
+    add_enum "mscm.Recording.Status" do
       value :DRAFTED, 0
       value :SUBMITTED, 1
       value :PENDING, 2
@@ -78,13 +78,13 @@ Google::Protobuf::DescriptorPool.generated_pool.build do
       value :REJECTED, 8
       value :DELETED, 9
     end
-    add_message "mscmetadata.AdditionalDetails" do
+    add_message "mscm.AdditionalDetails" do
     end
   end
 end
 
-module Mscmetadata
-  Recording = ::Google::Protobuf::DescriptorPool.generated_pool.lookup("mscmetadata.Recording").msgclass
-  Recording::Status = ::Google::Protobuf::DescriptorPool.generated_pool.lookup("mscmetadata.Recording.Status").enummodule
-  AdditionalDetails = ::Google::Protobuf::DescriptorPool.generated_pool.lookup("mscmetadata.AdditionalDetails").msgclass
+module Mscm
+  Recording = ::Google::Protobuf::DescriptorPool.generated_pool.lookup("mscm.Recording").msgclass
+  Recording::Status = ::Google::Protobuf::DescriptorPool.generated_pool.lookup("mscm.Recording.Status").enummodule
+  AdditionalDetails = ::Google::Protobuf::DescriptorPool.generated_pool.lookup("mscm.AdditionalDetails").msgclass
 end

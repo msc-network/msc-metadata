@@ -3,19 +3,23 @@
 
 require 'google/protobuf'
 
+require 'service_id_pb'
 require 'url_pb'
 require 'uuid_pb'
 Google::Protobuf::DescriptorPool.generated_pool.build do
   add_file("profile.proto", :syntax => :proto3) do
-    add_message "mscmetadata.Profile" do
-      optional :uuid, :message, 1, "mscmetadata.UUID"
+    add_message "mscm.Profile" do
+      optional :uuid, :message, 1, "mscm.UUID"
       optional :email, :string, 2
       optional :alternative_email, :string, 3
-      repeated :urls, :message, 4, "mscmetadata.URL"
+      optional :address, :string, 4
+      optional :phone_number, :string, 5
+      repeated :urls, :message, 6, "mscm.URL"
+      repeated :service_ids, :message, 7, "mscm.ServiceID"
     end
   end
 end
 
-module Mscmetadata
-  Profile = ::Google::Protobuf::DescriptorPool.generated_pool.lookup("mscmetadata.Profile").msgclass
+module Mscm
+  Profile = ::Google::Protobuf::DescriptorPool.generated_pool.lookup("mscm.Profile").msgclass
 end

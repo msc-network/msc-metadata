@@ -6,8 +6,8 @@ require 'google/protobuf'
 require 'uuid_pb'
 Google::Protobuf::DescriptorPool.generated_pool.build do
   add_file("file.proto", :syntax => :proto3) do
-    add_message "mscmetadata.File" do
-      optional :uuid, :message, 1, "mscmetadata.UUID"
+    add_message "mscm.File" do
+      optional :uuid, :message, 1, "mscm.UUID"
       optional :name, :string, 2
       optional :size, :int32, 3
       optional :extension, :string, 4
@@ -15,10 +15,12 @@ Google::Protobuf::DescriptorPool.generated_pool.build do
       optional :created_at, :string, 6
       optional :location, :string, 7
       optional :notes, :string, 8
+      optional :checksum, :string, 9
+      optional :checksum_algo, :string, 10
     end
   end
 end
 
-module Mscmetadata
-  File = ::Google::Protobuf::DescriptorPool.generated_pool.lookup("mscmetadata.File").msgclass
+module Mscm
+  File = ::Google::Protobuf::DescriptorPool.generated_pool.lookup("mscm.File").msgclass
 end

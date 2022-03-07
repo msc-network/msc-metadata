@@ -13,7 +13,7 @@ module Mscmetadata
 
     def initialize(options = {})
       @options = options
-      @release = Release.new
+      @release = Mscm::Release.new
       assign_uuid(@release)
       build_recordings
       build_artists
@@ -22,7 +22,7 @@ module Mscmetadata
     def build_recordings
       unless @options[:recording_count].nil?
         @options[:recording_count].times do
-          recording = Recording.new
+          recording = Mscm::Recording.new
           assign_uuid(recording)
           @release.recordings << recording
         end
@@ -32,14 +32,16 @@ module Mscmetadata
     def build_artists
       unless @options[:artist_count].nil?
         @options[:artist_count].times do
-          artist = Artist.new
+          artist = Mscm::Artist.new
+          assign_uuid(@release)
           @release.artists << artist
         end
       end
     end
 
     def assign_uuid(obj)
-      obj.uuid = SecureRandom.uuid
+      uuid = Mscm::UUID.new(value: SecureRandom.uuid)
+      obj.uuid = uuid
     end
 
     # def recording
@@ -48,7 +50,7 @@ module Mscmetadata
     # end
 
     def release_identifiers
-      ReleaseIdentifier::Type.constants.map(&:to_s)
+      Mscm::ReleaseIdentifier::Type.constants.map(&:to_s)
     end
   end
 end

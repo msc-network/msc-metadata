@@ -8,15 +8,15 @@ require 'registration_pb'
 require 'uuid_pb'
 Google::Protobuf::DescriptorPool.generated_pool.build do
   add_file("publisher.proto", :syntax => :proto3) do
-    add_message "mscmetadata.Publisher" do
-      optional :uuid, :message, 1, "mscmetadata.UUID"
+    add_message "mscm.Publisher" do
+      optional :uuid, :message, 1, "mscm.UUID"
       optional :name, :string, 2
-      repeated :registrations, :message, 3, "mscmetadata.Registration"
-      optional :profile, :message, 4, "mscmetadata.Profile"
+      repeated :registrations, :message, 3, "mscm.Registration"
+      optional :profile, :message, 4, "mscm.Profile"
     end
   end
 end
 
-module Mscmetadata
-  Publisher = ::Google::Protobuf::DescriptorPool.generated_pool.lookup("mscmetadata.Publisher").msgclass
+module Mscm
+  Publisher = ::Google::Protobuf::DescriptorPool.generated_pool.lookup("mscm.Publisher").msgclass
 end

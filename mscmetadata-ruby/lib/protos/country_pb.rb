@@ -6,8 +6,8 @@ require 'google/protobuf'
 require 'uuid_pb'
 Google::Protobuf::DescriptorPool.generated_pool.build do
   add_file("country.proto", :syntax => :proto3) do
-    add_message "mscmetadata.Country" do
-      optional :uuid, :message, 1, "mscmetadata.UUID"
+    add_message "mscm.Country" do
+      optional :uuid, :message, 1, "mscm.UUID"
       optional :name, :string, 2
       optional :iso_alpha_two, :string, 3
       optional :iso_alpha_three, :string, 4
@@ -16,6 +16,6 @@ Google::Protobuf::DescriptorPool.generated_pool.build do
   end
 end
 
-module Mscmetadata
-  Country = ::Google::Protobuf::DescriptorPool.generated_pool.lookup("mscmetadata.Country").msgclass
+module Mscm
+  Country = ::Google::Protobuf::DescriptorPool.generated_pool.lookup("mscm.Country").msgclass
 end

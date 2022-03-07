@@ -10,8 +10,8 @@ module Mscmetadata
 
     def initialize(options = {})
       @options = options
-      @artist = Artist.new
-      @registration = Registration.new
+      @artist = Mscm::Artist.new
+      @registration = Mscm::Registration.new
       @artist.registration = @registration
     end
   end

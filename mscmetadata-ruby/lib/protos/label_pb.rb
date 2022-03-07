@@ -4,18 +4,20 @@
 require 'google/protobuf'
 
 require 'profile_pb'
+require 'url_pb'
 require 'uuid_pb'
 Google::Protobuf::DescriptorPool.generated_pool.build do
   add_file("label.proto", :syntax => :proto3) do
-    add_message "mscmetadata.Label" do
-      optional :uuid, :message, 1, "mscmetadata.UUID"
+    add_message "mscm.Label" do
+      optional :uuid, :message, 1, "mscm.UUID"
       optional :tmn_id, :string, 2
       optional :name, :string, 3
-      optional :profile, :message, 4, "mscmetadata.Profile"
+      optional :profile, :message, 4, "mscm.Profile"
+      repeated :urls, :message, 5, "mscm.URL"
     end
   end
 end
 
-module Mscmetadata
-  Label = ::Google::Protobuf::DescriptorPool.generated_pool.lookup("mscmetadata.Label").msgclass
+module Mscm
+  Label = ::Google::Protobuf::DescriptorPool.generated_pool.lookup("mscm.Label").msgclass
 end

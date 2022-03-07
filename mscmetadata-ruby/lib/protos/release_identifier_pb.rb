@@ -6,13 +6,13 @@ require 'google/protobuf'
 require 'uuid_pb'
 Google::Protobuf::DescriptorPool.generated_pool.build do
   add_file("release_identifier.proto", :syntax => :proto3) do
-    add_message "mscmetadata.ReleaseIdentifier" do
-      optional :uuid, :message, 1, "mscmetadata.UUID"
-      optional :type, :enum, 2, "mscmetadata.ReleaseIdentifier.Type"
+    add_message "mscm.ReleaseIdentifier" do
+      optional :uuid, :message, 1, "mscm.UUID"
+      optional :type, :enum, 2, "mscm.ReleaseIdentifier.Type"
       optional :custom_type, :string, 3
       optional :code, :string, 4
     end
-    add_enum "mscmetadata.ReleaseIdentifier.Type" do
+    add_enum "mscm.ReleaseIdentifier.Type" do
       value :BARCODE, 0
       value :EAN13, 0
       value :GTIN12, 0
@@ -30,7 +30,7 @@ Google::Protobuf::DescriptorPool.generated_pool.build do
   end
 end
 
-module Mscmetadata
-  ReleaseIdentifier = ::Google::Protobuf::DescriptorPool.generated_pool.lookup("mscmetadata.ReleaseIdentifier").msgclass
-  ReleaseIdentifier::Type = ::Google::Protobuf::DescriptorPool.generated_pool.lookup("mscmetadata.ReleaseIdentifier.Type").enummodule
+module Mscm
+  ReleaseIdentifier = ::Google::Protobuf::DescriptorPool.generated_pool.lookup("mscm.ReleaseIdentifier").msgclass
+  ReleaseIdentifier::Type = ::Google::Protobuf::DescriptorPool.generated_pool.lookup("mscm.ReleaseIdentifier.Type").enummodule
 end

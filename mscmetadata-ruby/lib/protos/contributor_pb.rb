@@ -9,16 +9,16 @@ require 'url_pb'
 require 'uuid_pb'
 Google::Protobuf::DescriptorPool.generated_pool.build do
   add_file("contributor.proto", :syntax => :proto3) do
-    add_message "mscmetadata.Contributor" do
-      optional :uuid, :message, 1, "mscmetadata.UUID"
+    add_message "mscm.Contributor" do
+      optional :uuid, :message, 1, "mscm.UUID"
       optional :name, :string, 2
-      optional :profile, :message, 3, "mscmetadata.Profile"
-      repeated :registrations, :message, 4, "mscmetadata.Registration"
-      repeated :urls, :message, 5, "mscmetadata.URL"
+      optional :profile, :message, 3, "mscm.Profile"
+      repeated :registrations, :message, 4, "mscm.Registration"
+      repeated :urls, :message, 5, "mscm.URL"
     end
   end
 end
 
-module Mscmetadata
-  Contributor = ::Google::Protobuf::DescriptorPool.generated_pool.lookup("mscmetadata.Contributor").msgclass
+module Mscm
+  Contributor = ::Google::Protobuf::DescriptorPool.generated_pool.lookup("mscm.Contributor").msgclass
 end

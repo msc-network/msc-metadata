@@ -9,16 +9,27 @@ require 'url_pb'
 require 'uuid_pb'
 Google::Protobuf::DescriptorPool.generated_pool.build do
   add_file("artist.proto", :syntax => :proto3) do
-    add_message "mscmetadata.Artist" do
-      optional :uuid, :message, 1, "mscmetadata.UUID"
+    add_message "mscm.Artist" do
+      optional :uuid, :message, 1, "mscm.UUID"
       optional :sequence, :int32, 2
       optional :name, :string, 3
-      optional :profile, :message, 4, "mscmetadata.Profile"
-      repeated :registrations, :message, 5, "mscmetadata.Registration"
+      optional :profile, :message, 4, "mscm.Profile"
+      repeated :registrations, :message, 5, "mscm.Registration"
+      repeated :urls, :message, 6, "mscm.URL"
+      optional :mscm_id, :string, 7
+      optional :role, :enum, 8, "mscm.Artist.Role"
+    end
+    add_enum "mscm.Artist.Role" do
+      value :ROLE_UNSPECIFIED, 0
+      value :ROLE_MAIN, 1
+      value :ROLE_FEATURED, 2
+      value :ROLE_REMIXER, 3
+      value :ROLE_DJ, 4
     end
   end
 end
 
-module Mscmetadata
-  Artist = ::Google::Protobuf::DescriptorPool.generated_pool.lookup("mscmetadata.Artist").msgclass
+module Mscm
+  Artist = ::Google::Protobuf::DescriptorPool.generated_pool.lookup("mscm.Artist").msgclass
+  Artist::Role = ::Google::Protobuf::DescriptorPool.generated_pool.lookup("mscm.Artist.Role").enummodule
 end

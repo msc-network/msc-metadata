@@ -16,14 +16,14 @@ irb
 
 require 'mscmetadata'
 
-@r = Release.new
+@r = Mscm::Release.new
 ```
 
 Encode & Decode a release for message sending and recieving
 
 ```ruby
-encoded_release = Release.encode(@r)
-Release.decode(encoded_release)
+encoded_release = Mscm::Release.encode(@r)
+Mscm::Release.decode(encoded_release)
 ```
 
 For more detailed usage see <a href="docs/usage.md">Usage.md</a>
@@ -34,42 +34,6 @@ To build the gem with updated protobufs, just run the handy build_ruby.sh script
 
 ```shell
 ./build_ruby.sh
-```
-
-### *** Please Note ***
-
-There is a quirk when generating protocol buffers in this (a?) gem that you need to change any associated local require statements to require_relative if they are in the same folder.
-
-eg. The following:
-
-```ruby
-require 'google/protobuf'
-
-require 'registration_pb'
-Google::Protobuf::DescriptorPool.generated_pool.build do
-  add_message "Artist" do
-    optional :name, :string, 1
-    repeated :registrations, :message, 2, "Registration"
-  end
-end
-
-Artist = Google::Protobuf::DescriptorPool.generated_pool.lookup("Artist").msgclass
-```
-
-Should be changed to:
-
-```ruby
-require 'google/protobuf'
-
-require_relative 'registration_pb'
-Google::Protobuf::DescriptorPool.generated_pool.build do
-  add_message "Artist" do
-    optional :name, :string, 1
-    repeated :registrations, :message, 2, "Registration"
-  end
-end
-
-Artist = Google::Protobuf::DescriptorPool.generated_pool.lookup("Artist").msgclass
 ```
 
 ## Development
