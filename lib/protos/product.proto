@@ -17,6 +17,10 @@ message Product {
     PRODUCT_TYPE_DIGITAL_UNSPECIFIED = 0;
     PRODUCT_TYPE_PHYSICAL = 1;
   };
+  enum Config {
+    CONFIG_AUDIO_UNSPECIFIED = 0;
+    CONFIG_VIDEO = 1;
+  };
   UUID uuid = 1;
   Release release = 2;
   Sender sender = 3;
@@ -27,4 +31,5 @@ message Product {
   string pre_order_date_time = 8;
   bool timed = 9;
   repeated Genre genres = 10;
+  Config config = 11;
 }

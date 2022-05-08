@@ -58,6 +58,11 @@ message Release {
   repeated Recording recordings = 28; /// A list of Recordings that belong to the Release.
   int32 recordings_count = 29; /// The Number of Recordings on a Release.
   Language metadata_language = 30; /// The Metadata Language for this Release.
-  string recording_year = 31;
-  string recording_location = 32;
+  string recording_year = 31; /// The year of Recording
+  string recording_location = 32; /// The location of Recording
+  enum Config {
+    CONFIG_AUDIO_UNSPECIFIED = 0;
+    CONFIG_VIDEO = 1;
+  };
+  Config config = 33; /// What config is this release - Audio / Video
 }
