@@ -1,5 +1,5 @@
 /**
- * Recipient Message data.
+ * Payee Message data.
  *
 */
 
@@ -10,19 +10,18 @@ import "artist.proto";
 import "company.proto";
 import "contributor.proto";
 import "label.proto";
-import "payee.proto";
 import "publisher.proto";
 import "uuid.proto";
 import "writer.proto";
 
 /**
- * Define the Recipient of Messages.
+ * Define the Payee of Messages.
  *
 */
 
-message Recipient {
+message Payee {
   UUID uuid = 1; /// UUID.
-  string name = 2; /// The name of the Recipient.
+  string name = 2; /// The name of the Payee.
   string mscm_id = 3; /// A mscmeta ID.
   oneof entity {
     Company company = 4; ///

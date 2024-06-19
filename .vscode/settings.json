@@ -1,0 +1,9 @@
+{
+  "protoc": {
+      "path": "/usr/bin/protoc",
+      "compile_on_save": false,
+      "options": [
+        "--proto_path=./lib/protos --ruby_out=./mscmetadata-ruby/lib/protos lib/protos/*.proto"
+      ]
+  }
+}

@@ -7,6 +7,8 @@ syntax = "proto3";
 package mscm;
 
 import "attachment.proto";
+import "recipient.proto";
+import "sender.proto";
 import "uuid.proto";
 
 message Delivery {
@@ -14,10 +16,20 @@ message Delivery {
   string delivery_id = 2;
   Attachment attachments = 3;
   enum Type {
-    TYPE_RELEASE_UNSPECIFIED = 0;
-    TYPE_RECORDING = 1;
-    TYPE_RINGTONE = 2;
-    TYPE_MOVIE = 3;
+    TYPE_UNSPECIFIED = 0;
+    TYPE_RELEASE = 1;
+    TYPE_RELEASES = 2;
+    TYPE_RECORDING = 3;
+    TYPE_RECORDINGS = 4;
+    TYPE_RINGTONE = 5;
+    TYPE_VIDEO = 6;
+    TYPE_STATEMENT = 7;
+    TYPE_REPORT = 8;
   };
   Type type = 4;
+  Recipient recipient = 5;
+  Sender sender = 6;
+  repeated Release releases = 7;
+  repeated Recording recordings = 8;
+  repeated Release releases = 9;
 }

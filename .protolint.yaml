@@ -1,2 +1,5 @@
-# lint:
-#   all_default: true
+lint:
+  # all_default: true
+  rules:
+    remove:
+      - MAX_LINE_LENGTH

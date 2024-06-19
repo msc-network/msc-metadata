@@ -6,16 +6,20 @@
 syntax = "proto3";
 package mscm;
 
-import "uuid.proto";
+import "artist.proto";
 import "recording.proto";
+import "registration.proto";
+import "uuid.proto";
+import "writer.proto";
 
 /**
- * Add a Musical Work.
+ * Schema for a Musical Work (Song).
  *
 */
 
 message Work {
   UUID uuid = 1;
   string title = 2;
+  string alternative_title = 3;
   repeated Recording recordings = 10;
 }

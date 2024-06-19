@@ -6,11 +6,14 @@
 syntax = "proto3";
 package mscm;
 
+import "identifier.proto";
 import "registration.proto";
+import "url.proto";
 import "uuid.proto";
 
 message Performer {
   UUID uuid = 1; /// Performer uuid
   string name = 2; /// Performer name
   repeated Registration registrations = 3; /// A Performer's Registration details at a Rights Organisation: organisation, code. e.g. 'PPL', '12489754'.
+  repeated Identifier identifiers = 4; /// Other global identifiers for the Performer.
 }

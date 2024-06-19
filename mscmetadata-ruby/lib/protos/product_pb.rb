@@ -21,10 +21,15 @@ Google::Protobuf::DescriptorPool.generated_pool.build do
       optional :pre_order_date_time, :string, 8
       optional :timed, :bool, 9
       repeated :genres, :message, 10, "mscm.Genre"
+      optional :config, :enum, 11, "mscm.Product.Config"
     end
     add_enum "mscm.Product.ProductType" do
       value :PRODUCT_TYPE_DIGITAL_UNSPECIFIED, 0
       value :PRODUCT_TYPE_PHYSICAL, 1
+    end
+    add_enum "mscm.Product.Config" do
+      value :CONFIG_AUDIO_UNSPECIFIED, 0
+      value :CONFIG_VIDEO, 1
     end
   end
 end
@@ -32,4 +37,5 @@ end
 module Mscm
   Product = ::Google::Protobuf::DescriptorPool.generated_pool.lookup("mscm.Product").msgclass
   Product::ProductType = ::Google::Protobuf::DescriptorPool.generated_pool.lookup("mscm.Product.ProductType").enummodule
+  Product::Config = ::Google::Protobuf::DescriptorPool.generated_pool.lookup("mscm.Product.Config").enummodule
 end

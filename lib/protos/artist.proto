@@ -5,6 +5,7 @@
 syntax = "proto3";
 package mscm;
 
+import "identifier.proto";
 import "profile.proto";
 import "registration.proto";
 import "url.proto";
@@ -33,4 +34,6 @@ message Artist {
   repeated URL urls = 6; /// Associated urls for an artist.
   string mscm_id = 7; /// A mscmeta ID for the Artist.
   Role role = 8; /// The Role of the Artist.
+  string guid = 9; /// A GUID for the Artist.
+  repeated Identifier identifiers = 10; /// Other global identifiers for the Artist.
 }

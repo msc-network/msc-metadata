@@ -7,6 +7,7 @@ syntax = "proto3";
 package mscm;
 
 import "society.proto";
+import "url.proto";
 import "uuid.proto";
 
 /**
@@ -22,4 +23,5 @@ message Writer {
   float mechanical_share = 5;
   string role = 6;
   string membership_number = 7;
+  repeated URL urls = 8; ///
 }

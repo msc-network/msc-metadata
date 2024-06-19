@@ -1,18 +1,28 @@
 /**
  * Publisher Message.
- *
 */
 
 syntax = "proto3";
 package mscm;
 
+import "identifier.proto";
 import "profile.proto";
 import "registration.proto";
+import "url.proto";
 import "uuid.proto";
 
+/**
+ *
+ * Define Music Publisher.
+ *
+*/
+
 message Publisher {
-  UUID uuid = 1; /// Publisher uuid
+  UUID uuid = 1; /// UUID
   string name = 2; /// Publisher Name
   repeated Registration registrations = 3; /// Associated registrations for Publisher
   Profile profile = 4; /// Associated profile for a Publisher
+  repeated Identifier identifiers = 5; /// Other global identifiers for the Artist.
+  string guid = 6; /// A GUID for the Artist.
+  repeated URL urls = 7; ///
 }

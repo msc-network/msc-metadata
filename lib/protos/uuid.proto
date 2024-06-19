@@ -1,12 +1,16 @@
 /**
  * UUID message.
  *
- * A UUID Schema
- *
  */
-
+ 
 syntax = "proto3";
 package mscm;
+
+/**
+* 
+* Represents a UUID Schema.
+*
+**/
 
 message UUID {
   string value = 1; /// Value of UUID

@@ -18,9 +18,10 @@ import "uuid.proto";
 message Profile {
   UUID uuid = 1;
   string email = 2; /// The Profile email.
-  string alternative_email = 3; /// The Profile alternative email
-  string address = 4; /// A postal address associated with the Parent
-  string phone_number = 5; /// A Phone Number asssociated with the Parent
-  repeated URL urls = 6; /// Any Associated URLs
-  repeated ServiceID service_ids = 7; /// IDs for any Services
+  string alternative_email = 3; /// The Profile alternative email.
+  string address = 4; /// A postal address associated with the Parent.
+  string phone_number = 5; /// A Phone Number asssociated with the Parent.
+  repeated URL urls = 6; /// Any Associated URLs.
+  repeated ServiceID service_ids = 7; /// IDs for any Services.
+  string notes = 8; /// Additional notes for the profile.
 }

@@ -48,11 +48,16 @@ Google::Protobuf::DescriptorPool.generated_pool.build do
       optional :metadata_language, :message, 30, "mscm.Language"
       optional :recording_year, :string, 31
       optional :recording_location, :string, 32
+      optional :config, :enum, 33, "mscm.Release.Config"
     end
     add_enum "mscm.Release.Explicit" do
       value :EXPLICIT_NOT_EXPLICIT_UNSPECIFIED, 0
       value :EXPLICIT_EXPLICIT, 1
       value :EXPLICIT_CLEAN, 2
+    end
+    add_enum "mscm.Release.Config" do
+      value :CONFIG_AUDIO_UNSPECIFIED, 0
+      value :CONFIG_VIDEO, 1
     end
   end
 end
@@ -60,4 +65,5 @@ end
 module Mscm
   Release = ::Google::Protobuf::DescriptorPool.generated_pool.lookup("mscm.Release").msgclass
   Release::Explicit = ::Google::Protobuf::DescriptorPool.generated_pool.lookup("mscm.Release.Explicit").enummodule
+  Release::Config = ::Google::Protobuf::DescriptorPool.generated_pool.lookup("mscm.Release.Config").enummodule
 end

@@ -15,20 +15,31 @@ Google::Protobuf::DescriptorPool.generated_pool.build do
       optional :pay_period, :string, 2
       optional :sale_date, :string, 3
       optional :retailer, :string, 4
-      optional :artist_name, :string, 5
-      optional :album_title, :string, 6
-      optional :recording_title, :string, 7
+      optional :sub_retailer, :string, 5
+      optional :album_artist_name, :string, 6
+      optional :album_title, :string, 7
       optional :upc, :string, 8
-      optional :isrc, :string, 9
-      optional :cat_no, :string, 10
-      optional :revenue_type, :enum, 11, "mscm.Royalty.Type"
-      optional :revenue_description, :string, 12
-      optional :quantity, :int32, 13
-      optional :total_revenue, :string, 14
-      optional :artist, :message, 15, "mscm.Artist"
-      optional :company, :message, 16, "mscm.Company"
-      optional :release, :message, 17, "mscm.Release"
-      optional :recording, :message, 18, "mscm.Recording"
+      optional :catalogue_number, :string, 9
+      optional :recording_artist_name, :string, 10
+      optional :recording_title, :string, 11
+      optional :isrc, :string, 12
+      optional :cat_no, :string, 13
+      optional :label_name, :string, 14
+      optional :asset_type, :string, 15
+      optional :revenue_type, :enum, 16, "mscm.Royalty.Type"
+      optional :revenue_description, :string, 17
+      optional :quantity, :int32, 18
+      optional :total_sales_revenue, :string, 19
+      optional :total_deductions, :string, 20
+      optional :total_net_revenue, :string, 21
+      optional :source_company_paid, :bool, 22
+      optional :recipient_company_paid, :bool, 23
+      optional :album_artist, :message, 24, "mscm.Artist"
+      optional :recording_artist, :message, 25, "mscm.Artist"
+      optional :source_company, :message, 26, "mscm.Company"
+      optional :recipient_company, :message, 27, "mscm.Company"
+      optional :release, :message, 28, "mscm.Release"
+      optional :recording, :message, 30, "mscm.Recording"
     end
     add_enum "mscm.Royalty.Type" do
       value :TYPE_UNSPECIFIED, 0

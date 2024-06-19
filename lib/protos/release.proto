@@ -7,6 +7,7 @@ syntax = "proto3";
 package mscm;
 
 import "artist.proto";
+import "attachment.proto";
 import "base_genre.proto";
 import "contributor.proto";
 import "file.proto";
@@ -61,8 +62,10 @@ message Release {
   string recording_year = 31; /// The year of Recording
   string recording_location = 32; /// The location of Recording
   enum Config {
-    CONFIG_AUDIO_UNSPECIFIED = 0;
-    CONFIG_VIDEO = 1;
+    CONFIG_UNSPECIFIED = 0;
+    CONFIG_AUDIO = 1;
+    CONFIG_VIDEO = 2;
   };
   Config config = 33; /// What config is this release - Audio / Video
+  repeated Attachment attachments = 34;
 }

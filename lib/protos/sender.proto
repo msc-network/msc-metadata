@@ -6,7 +6,14 @@
 syntax = "proto3";
 package mscm;
 
+import "artist.proto";
+import "company.proto";
+import "contributor.proto";
+import "label.proto";
+import "payee.proto";
+import "publisher.proto";
 import "uuid.proto";
+import "writer.proto";
 
 /**
  * Define the Sender of Messages.
@@ -16,5 +23,14 @@ import "uuid.proto";
 message Sender {
   UUID uuid = 1;
   string name = 2;
-  string mscmid = 3;
+  string mscm_id = 3;
+  oneof entity {
+    Company company = 1; ///
+    Label label = 2; ///
+    Artist artist = 3; ///
+    Contributor contributor = 4; ///
+    Publisher publisher = 5; /// 
+    Writer writer = 6; ///
+    Payee payee = 7; ///
+  };
 }

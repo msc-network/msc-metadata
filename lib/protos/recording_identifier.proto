@@ -16,12 +16,13 @@ import "uuid.proto";
 message RecordingIdentifier {
   UUID uuid = 1;
   enum Type {
-    ISRC = 0; /// International Standards Recording Code
-    ISWC = 1; /// 
-    ISMN = 2; /// 
-    CUSTOM = 3; /// A Custom ID for your Recording
+    TYPE_UNSPECIFIED = 0; /// Unspecified.
+    TYPE_ISRC = 1; /// International Standards Recording Code
+    TYPE_ISWC = 2; /// 
+    TYPE_ISMN = 3; /// 
+    TYPE_CUSTOM = 4; /// A Custom ID for your Recording
   }
-  Type type = 2; /// Predefined types for Recording identifier
+  Type type = 2; /// Type for Recording identifier
   string custom_identifier = 3; /// If using a Custom ID, add an identifier for it. e.g. TUNECODE 
   string code = 4; /// The code of the Recording Identifier
 }

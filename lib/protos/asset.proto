@@ -1,0 +1,29 @@
+/**
+ * Asset message.
+ */
+
+syntax = "proto3";
+package mscm;
+
+import "product.proto";
+import "recording.proto";
+import "release.proto";
+import "video.proto";
+
+/** 
+ *
+ * Represents an Asset schema
+ *
+ */
+
+message Asset {
+  UUID uuid = 1;
+  oneof parent {
+    Product product = 2;
+    Release release = 3;
+  }
+  oneof asset {
+    Recording recording = 4;
+    Video video = 5;
+  }
+}

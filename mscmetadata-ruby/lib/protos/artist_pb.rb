@@ -3,6 +3,7 @@
 
 require 'google/protobuf'
 
+require 'identifier_pb'
 require 'profile_pb'
 require 'registration_pb'
 require 'url_pb'
@@ -18,6 +19,8 @@ Google::Protobuf::DescriptorPool.generated_pool.build do
       repeated :urls, :message, 6, "mscm.URL"
       optional :mscm_id, :string, 7
       optional :role, :enum, 8, "mscm.Artist.Role"
+      optional :guid, :string, 9
+      repeated :identifiers, :message, 10, "mscm.Identifier"
     end
     add_enum "mscm.Artist.Role" do
       value :ROLE_UNSPECIFIED, 0

@@ -6,6 +6,7 @@
 syntax = "proto3";
 package mscm;
 
+import "identifier.proto";
 import "profile.proto";
 import "registration.proto";
 import "url.proto";
@@ -18,9 +19,11 @@ import "uuid.proto";
 */
 
 message Contributor {
-  UUID uuid = 1;
-  string name = 2; /// The Contributors Name
-  Profile profile = 3; /// Contributor Profile
-  repeated Registration registrations = 4; /// A Contributors Registration details at a Rights Organisation: organisation, code. e.g. 'PPL', '12489754'.
-  repeated URL urls = 5; /// Any urls associated with A Contributor
+  UUID uuid = 1; /// UUID.
+  string mscm_id = 2; /// A mscmeta ID for the Contributor.
+  string name = 3; /// The Contributor's Name.
+  Profile profile = 4; /// The Contributor's Profile.
+  repeated Registration registrations = 5; /// A Contributors Registration details at a Rights Organisation: organisation, code. e.g. 'PPL', '12489754'.
+  repeated URL urls = 6; /// Any urls associated with A Contributor
+  repeated Identifier identifiers = 7; /// Other global identifiers for the Contributor.
 }

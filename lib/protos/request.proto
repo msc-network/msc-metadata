@@ -1,0 +1,18 @@
+/**
+ * Request Message data.
+ *
+*/
+
+syntax = "proto3";
+package mscm;
+
+import "uuid.proto";
+
+/**
+ * Define the Request of Messages.
+ *
+*/
+
+message Request {
+  UUID uuid = 1;
+}
